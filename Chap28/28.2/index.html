@@ -5799,7 +5799,25 @@
 <blockquote>
 <p>Let $M(n)$ be the time to multiply two $n \times n$ matrices, and let $S(n)$ denote the time required to square an $n \times n$ matrix. Show that multiplying and squaring matrices have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time squaring algorithm, and an $S(n)$-time squaring algorithm implies an $O(S(n))$-time matrix-multiplication algorithm.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>Showing that being able to multiply matrices in time $M(n)$ implies being able to square matrices in time $M(n)$ is trivial because squaring a matrix is just multiplying it by itself.</p>
+<p>The more tricky direction is showing that being able to square matrices in time $S(n)$ implies being able to multiply matrices in time $O(S(n))$.</p>
+<p>As we do this, we apply the same regularity condition that $S(2n) \in O(S(n))$. Suppose that we are trying to multiply the matrices, $A$ and $B$, that is, find AB. Then, define the matrix</p>
+<p>\begin{align}
+C =
+\begin{pmatrix}
+I &amp; A \\
+0 &amp; B
+\end{pmatrix}
+\end{align}</p>
+<p>Then, we can find $C^2$ in time $S(2n) \in O(S(n))$. Since</p>
+<p>\begin{align}
+C^2 =
+\begin{pmatrix}
+I &amp; A + AB \\
+0 &amp; B
+\end{pmatrix}
+\end{align}</p>
+<p>Then we can just take the upper right quarter of $C^2$ and subtract $A$ from it to obtain the desired result. Apart from the squaring, we've only done work that is $O(n^2)$. Since $S(n)$ is $\Omega(n^2)$ anyways, we have that the total amount of work we've done is $O(n^2)$.</p>
 <h2 id="282-2">28.2-2</h2>
 <blockquote>
 <p>Let $M(n)$ be the time to multiply two $n \times n$ matrices, and let $L(n)$ be the time to compute the LUP decomposition of an $n \times n$ matrix. Show that multiplying matrices and computing LUP decompositions of matrices have essentially the same difficulty: an $M(n)$-time matrix-multiplication algorithm implies an $O(M(n))$-time LUP-decomposition algorithm, and an $L(n)$-time LUP-decomposition algorithm implies an $O(L(n))$/-time matrix-multiplication algorithm.</p>
