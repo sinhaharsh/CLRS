@@ -5852,7 +5852,7 @@
 <blockquote>
 <p>Show how to compute the length of an $\text{LCS}$ using only $2 \cdot \min(m, n)$ entries in the $c$ table plus $O(1)$ additional space. Then show how to do the same thing, but using $\min(m, n)$ entries plus $O(1)$ additional space.</p>
 </blockquote>
-<p>When computing a particular row of the $c$ table, no rows before the previous row are needed. Thus only two rows—$2·length[Y]$ entries—need to be kept in memory at a time. (Note: Each row of $c$ actually has $length[Y] + 1$ entries, but we don't need to store the column of $0$'s—instead we can make the program ''know'' that those entries are $0$.) With this idea, we need only $2 \cdot \min(m, n)$ entries if we always call $\text{LCS-LENGTH}$ with the shorter sequence as the $Y$ argument.</p>
+<p>When computing a particular row of the $c$ table, no rows before the previous row are needed. Thus only two rows—$2·length[Y]$ entries—need to be kept in memory at a time. (Note: Each row of $c$ actually has $length[Y] + 1$ entries, but we don't need to store the column of $0$'s—instead we can make the program "know" that those entries are $0$.) With this idea, we need only $2 \cdot \min(m, n)$ entries if we always call $\text{LCS-LENGTH}$ with the shorter sequence as the $Y$ argument.</p>
 <p>We can thus do away with the $c$ table as follows:</p>
 <ul>
 <li>Use two arrays of length $\min(m, n)$, $previous\text-row$ and $current\text-row$, to hold the appropriate rows of $c$.</li>
@@ -5865,16 +5865,16 @@
 <li>
 <p>Use an array a of length $\min(m, n) + 1$ to hold the appropriate entries of $c$. At the time $c[i, j]$ is to be computed, $a$ will hold the following entries:</p>
 <ul>
-<li>$a[k] = c[i, k]$ for $1 \le k &lt; j - 1$ (i.e., earlier entries in the current ''row''), </li>
-<li>$a[k] = c[i - 1, k]$ for $k \ge j - 1$ (i.e., entries in the previous ''row''), </li>
-<li>$a[0] = c[i, j - 1]$ (i.e., the previous entry computed, which couldn't be put into the ''right'' place in a without erasing the still-needed $c[i - 1, j - 1]$).</li>
+<li>$a[k] = c[i, k]$ for $1 \le k &lt; j - 1$ (i.e., earlier entries in the current "row"), </li>
+<li>$a[k] = c[i - 1, k]$ for $k \ge j - 1$ (i.e., entries in the previous "row"), </li>
+<li>$a[0] = c[i, j - 1]$ (i.e., the previous entry computed, which couldn't be put into the "right" place in a without erasing the still-needed $c[i - 1, j - 1]$).</li>
 </ul>
 </li>
 <li>
 <p>Initialize a to all $0$ and compute the entries from left to right.</p>
 <ul>
 <li>Note that the 3 values needed to compute $c[i, j]$ for $j &gt; 1$ are in $a[0] = c[i, j - 1], a[ j - 1] = c[i - 1, j - 1]$, and $a[ j] = c[i - 1, j]$.</li>
-<li>When $c[i, j]$ has been computed, move $a[0](c[i, j - 1])$ to its ''correct'' place, $a[j - 1]$, and put $c[i, j]$ in $a[0]$.</li>
+<li>When $c[i, j]$ has been computed, move $a[0](c[i, j - 1])$ to its "correct" place, $a[j - 1]$, and put $c[i, j]$ in $a[0]$.</li>
 </ul>
 </li>
 </ul>

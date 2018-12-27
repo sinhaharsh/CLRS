@@ -5676,13 +5676,13 @@
 <li>We sort $L$ so that the indices in $L$ are in ascending order.</li>
 <li>We prepend the index $0$ to the beginning of $L$ and append n to the end of $L$.</li>
 </ul>
-<p>Let $L[i..j]$ denote a subarray of $L$ that starts from index $i$ and ends at index $j$. Define the subproblem denoted by $(i, j)$ as ''What is the cheapest sequence of breaks to break the substring $S[L[i] + 1..L[j]]$?'' Note that the first and last elements of the subarray $L[i..j]$ define the ends of the substring, and we have to worry about only the indices of the subarray $L[i + 1..j - 1]$.</p>
-<p>For example, let $L = \langle 20, 17, 14, 11, 25 \rangle$ and $n = 30$. First, we sort $L$. Then, we prepend $0$ and append $n$ as explained to get $L = \langle 0, 11, 14, 17, 20, 25, 30 \rangle$. Now, what is the subproblem $(2, 6)$? We obtain a substring by breaking $S$ after character $L[2] = 11$ and character $L[6] = 25$. We ask ''What is the cheapest sequence of breaks to break the substring $S[12..25]$?'' We have to worry about only indices in the subarray $L[3..5] = \langle 14, 17, 20 \rangle$, since the other indices are not present in the substring.</p>
+<p>Let $L[i..j]$ denote a subarray of $L$ that starts from index $i$ and ends at index $j$. Define the subproblem denoted by $(i, j)$ as "What is the cheapest sequence of breaks to break the substring $S[L[i] + 1..L[j]]$?" Note that the first and last elements of the subarray $L[i..j]$ define the ends of the substring, and we have to worry about only the indices of the subarray $L[i + 1..j - 1]$.</p>
+<p>For example, let $L = \langle 20, 17, 14, 11, 25 \rangle$ and $n = 30$. First, we sort $L$. Then, we prepend $0$ and append $n$ as explained to get $L = \langle 0, 11, 14, 17, 20, 25, 30 \rangle$. Now, what is the subproblem $(2, 6)$? We obtain a substring by breaking $S$ after character $L[2] = 11$ and character $L[6] = 25$. We ask "What is the cheapest sequence of breaks to break the substring $S[12..25]$?" We have to worry about only indices in the subarray $L[3..5] = \langle 14, 17, 20 \rangle$, since the other indices are not present in the substring.</p>
 <p>At this point, the problem looks similar to matrix-chain multiplication (see Section 15.2). We can make the first break at any element of $L[i + 1..j - 1]$.</p>
 <p>Suppose that an optimal sequence of breaks $\sigma$ for subproblem $(i, j)$ makes the first break at $L[k]$, where $i &lt; k &lt; j$. This break gives rise to two subproblems:</p>
 <ul>
-<li>The ''prefix'' subproblem $(i, k)$, covering the subarray $L[i + 1..k - 1]$,</li>
-<li>The ''suffix'' subproblem $(k, j)$, covering the subarray $L[k + 1..j - 1]$.</li>
+<li>The "prefix" subproblem $(i, k)$, covering the subarray $L[i + 1..k - 1]$,</li>
+<li>The "suffix" subproblem $(k, j)$, covering the subarray $L[k + 1..j - 1]$.</li>
 </ul>
 <p>The overall cost can be expressed as the sum of the length of the substring, the prefix cost, and the suffix cost.</p>
 <p>We show optimal substructure by claiming that the sequence of breaks in  for the prefix subproblem $(i, k)$ must be an optimal one. Why? If there were a less costly way to break the substring $S[L[i] + 1..L[k]]$ represented by the subproblem $(i, k)$, then substituting that sequence of breaks in $\sigma$ would produce another sequence of breaks whose cost is lower than that of $\sigma$, which would be a contradiction. A similar observation holds for the sequence of breaks for the suffix subproblem $(k, j)$: it must be an optimal sequence of breaks.</p>
