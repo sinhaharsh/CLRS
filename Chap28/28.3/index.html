@@ -5828,6 +5828,15 @@ b &amp; c
 $$</p>
 <p>be a $2 \times 2$ symmetrix positive-definite matrix. Prove that its determinant $ac - b^2$ is positive by "completing the square" in a manner similar to that used in the proof of Lemma 28.5.</p>
 </blockquote>
+<p>Let $x = -by / a$. Since $A$ is positive-definite, we have</p>
+<p>\begin{align}
+0 &amp; &lt; \begin{pmatrix} x &amp; y \end{pmatrix}^T A \begin{pmatrix} x \\ y \end{pmatrix} \\
+  &amp; = \begin{pmatrix} x &amp; y \end{pmatrix}^T \begin{pmatrix} ax + by \\ bx + cy \end{pmatrix} \\
+  &amp; = ax^2 + 2bxy + cy^2 \\
+  &amp; = cy^2 - \frac{b^2y^2}{a} \\
+  &amp; = (c - b^2 / a)y^2.
+\end{align}</p>
+<p>Thus, $c - b^2 / a &gt; 0$, which implies $ac - b^2 &gt; 0$, since $a &gt; 0$.</p>
 <h2 id="283-3">28.3-3</h2>
 <blockquote>
 <p>Prove that the maximum element in a symmetric positive-definite matrix lies on the diagonal.</p>
