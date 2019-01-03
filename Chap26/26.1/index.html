@@ -5818,21 +5818,21 @@
 f'(y, z) =
 \begin{cases}
 f(y, z) &amp; \text{if $(y, z) \ne (u, x)$ and $(y, z) \ne (x, v)$}, \\
-f(u, z) &amp; \text{if $(y, z) =   (u, x)$ or  $(y, z) =   (x, v)$}.
+f(u, v) &amp; \text{if $(y, z) =   (u, x)$ or  $(y, z) =   (x, v)$}.
 \end{cases}
 $$</p>
 <p>Informally, $f'$ is the same as $f$, except that the flow $f(u, v)$ now passes through an intermediate vertex $x$. The vertex $x$ has incoming flow (if any) only from $u$, and has outgoing flow (if any) only to vertex $v$.</p>
 <p>We first prove that $f'$ satisfies the required properties of a flow. It is obvious that the capacity constraint is satisfied for every edge in $E'$ and that every vertex in $V' - \{u, v, x\}$ obeys flow conservation.</p>
 <p>To show that edges $(u, x)$ and $(x, v)$ obey the capacity constraint, we have</p>
 <p>\begin{align}
-f(u, x) = f(u, v) &amp; \le c(u, v) = c(u, x), \\
-f(x, v) = f(u, v) &amp; \le c(u, v) = c(x, v). 
+f'(u, x) = f(u, v) &amp; \le c(u, v) = c(u, x), \\
+f'(x, v) = f(u, v) &amp; \le c(u, v) = c(x, v). 
 \end{align}</p>
 <p>We now prove flow conservation for $u$. Assuming that $u \ne \{s, t\}$, we have</p>
 <p>\begin{align}
 \sum_{y \in V'} f'(u, y)
-    &amp; = \sum_{y \in V' -{x}} f'(u, y) + f'(u, x) \\
-    &amp; = \sum_{y \in V- {v}} f(u, y) + f(u, v) \\
+    &amp; = \sum_{y \in V' - \{x\}} f'(u, y) + f'(u, x) \\
+    &amp; = \sum_{y \in V - \{v\}} f(u, y) + f(u, v) \\
     &amp; = \sum_{y \in V} f(u, y) \\
     &amp; = \sum_{y \in V} f(y, u) \quad \text{(because $f$ obeys flow conservation)} \\
     &amp; = \sum_{y \in V'} f'(y, u).
@@ -5849,8 +5849,8 @@ f(x, v) = f(u, v) &amp; \le c(u, v) = c(x, v).
 <p>We now prove that the values of the flow in both cases are equal. If the source $s$ is not in $\{u, v\}$, the proof is trivial, since our construction assigns the same flows to incoming and outgoing edges of $s$. If $s = u$, then</p>
 <p>\begin{align}
 |f'| &amp; = \sum_{y \in V'} f'(u, y) - \sum_{y \in V'} f'(y, u) \\
-     &amp; = \sum_{y \in V' - {x}} f'(u, y) - \sum_{y \in V'} f'(y, u) + f'(u, x) \\
-     &amp; = \sum_{y \in V - {v}} f(u, y) - \sum_{y \in V} f(y, u) + f(u, v) \\
+     &amp; = \sum_{y \in V' - \{x\}} f'(u, y) - \sum_{y \in V'} f'(y, u) + f'(u, x) \\
+     &amp; = \sum_{y \in V - \{v\}} f(u, y) - \sum_{y \in V} f(y, u) + f(u, v) \\
      &amp; = \sum_{y \in V} f(u, y) - \sum_{y \in V} f(y, u) \\
      &amp; = |f|.
 \end{align}</p>
