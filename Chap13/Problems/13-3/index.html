@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5683,11 +5685,13 @@
 <p>This is both the same recurrence and initial conditions as the Fibonacci numbers. So, recalling equation $\text{(3.25)}$, we have that</p>
 <p>$$T(h) = \Big\lfloor \frac{\phi^h}{\sqrt 5} + \frac{1}{2} \Big\rfloor \le n.$$</p>
 <p>Rearranging for $h$, we have </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
     \frac{\phi^h}{\sqrt 5} - \frac{1}{2} &amp; \le n \\
                                   \phi^h &amp; \le \sqrt 5(n + \frac{1}{2}) \\
                                        h &amp; \le \frac{\lg \sqrt 5 + \lg(n + \frac{1}{2})}{\lg\phi} \in O(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>b.</strong> Let $\text{UNBAL}(x)$ denote $x.left.h - x.right.h$. Then, the algorithm $\text{BALANCE}$ does what is desired. Note that because we are only rotating a single element at a time, the value of $\text{UNBAL}(x)$ can only change by at most $2$ in each step.</p>
 <p>Also, it must eventually start to change as the tree that was shorter becomes saturated with elements. We also fix any breaking of the AVL property that rotating may of caused by our recursive calls to the children.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -5843,9 +5847,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

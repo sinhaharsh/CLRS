@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5671,7 +5673,8 @@
 <p>We can apply the iteration operator $^*$ used in the $\lg^*$ function to any monotonically increasing function $f(n)$ over the reals. For a given constant $c \in \mathbb R$, we define the iterated function ${f_c}^*$ by ${f_c}^*(n) = \min \{i \ge 0 : f^{(i)}(n) \le c \}$ which need not be well defined in all cases. In other words, the quantity ${f_c}^*(n)$ is the number of iterated applications of the function $f$ required to reduce its argument down to $c$ or less.</p>
 </blockquote>
 <p>For each of the following functions $f(n)$ and constants $c$, give as tight a bound as possible on ${f_c}^*(n)$.</p>
-<p>\begin{array}{ccl}
+<p>$$
+\begin{array}{ccl}
 f(n)      &amp; c &amp; {f_c}^*                    \\
 \hline
 n - 1     &amp; 0 &amp;  \Theta(n)                  \\
@@ -5682,7 +5685,8 @@ n / 2     &amp; 2 &amp;  \Theta(\lg n)              \\
 \sqrt 2   &amp; 1 &amp;  \text{does not converge}   \\
 n^{1 / 2} &amp; 2 &amp;  \Theta(\log_3{\lg n})      \\
 n / \lg n &amp; 2 &amp;  \omega(\lg\lg n), o(\lg n)
-\end{array}</p>
+\end{array}
+$$</p>
                 
                   
                 
@@ -5771,9 +5775,11 @@ n / \lg n &amp; 2 &amp;  \omega(\lg\lg n), o(\lg n)
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

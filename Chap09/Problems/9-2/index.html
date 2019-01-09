@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5681,23 +5683,27 @@
 <p><strong>e.</strong> Find the best solution for the $2$-dimensional post-office location problem, in which the points are $(x,y)$ coordinate pairs and the distance between points $a = (x_1, y_1)$ and $b = (x_2, y_2)$ is the <strong><em>Manhattan distance</em></strong> given by $d(a, b) = |x_1 - x_2| + |y_1 - y_2|$.</p>
 </blockquote>
 <p><strong>a.</strong> The median $x$ of the elements $x_1, x_2, \ldots, x_n$, is an element $x = x_k$ satisfying $|{x_i: 1\le i\le n \text{ and } x_i &lt; x}| \le n / 2$ and $|{x_i: 1 \le i \le n \text{ and } x_i &gt; x}| \le n / 2$. If each element $x_i$ is assigned a weight $x_i = 1 / n$, then we get</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{x_i &lt; x} w_i
     &amp; =   \sum_{x_i &lt; x} \frac{1}{n} \\
     &amp; =   \frac{1}{n} \cdot \sum_{x_i &lt; x} 1 \\
     &amp; =   \frac{1}{n} \cdot |{x_i: 1\le i\le n\text{ and } x_i &lt; x}| \\
     &amp; \le \frac{1}{n} \cdot \frac{n}{2} \\
     &amp; =   \frac{1}{2},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{x_i &gt; x} w_i
     &amp; =   \sum_{x_i &gt; x} \frac{1}{n} \\
     &amp; =   \frac{1}{n} \cdot \sum_{x_i &gt; x} 1 \\
     &amp; =   \frac{1}{n} \cdot |{x_i: 1\le i\le n\text{ and } x_i &gt; x}| \\
     &amp; \le \frac{1}{n} \cdot \frac{n}{2} \\
     &amp; =   \frac{1}{2},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which proves that $x$ is also the weighted median of $x_1, x_2, \ldots, x_n$ with weights $x_i = 1 / n$, for $i = 1, 2, \ldots, n$.</p>
 <p><strong>b.</strong> We first sort the $n$ elements into increasing order by $x_i$ values. Then we scan the array of sorted $x_i$'s, starting with the smallest element and accumulating weights as we scan, until the total exceeds $1 / 2$. The last element, say $x_k$, whose weight caused the total to exceed $1 / 2$, is the weighted median. Notice that the total weight of all elements smaller than $x_k$ is less than $1 / 2$, because $x_k$ was the first element that caused the total weight to exceed $1 / 2$. Similarly, the total weight of all elements larger than $x_k$ is also less than $1 / 2$, because the total weight of all the other elements exceeds $1 / 2$.</p>
 <p>The sorting phase can be done in $O(n\lg n)$ worst-case time (using merge sort or heapsort), and the scanning phase takes $O(n)$ time. The total running time in the worst case, therefore, is $O(n\lg n)$.</p>
@@ -5745,10 +5751,12 @@
 
 <p>The recurrence for the worst-case running time of $\text{WEIGHTED-MEDIAN}$ is $T(n) = T(n / 2 + 1) + \Theta(n)$, since there is at most one recursive call on half the number of elements, plus the median element $x_k$, and all the work preceding the recursive call takes $\Theta(n)$ time. The solution of the recurrence is $T (n) = \Theta(n)$.</p>
 <p><strong>d.</strong> Let the $n$ points be denoted by their coordinates $x_1, x_2, \ldots, x_n$, let the corresponding weights be $w_1, w_2, \ldots, w_n$, and let $x = x_k$ be the weighted median. For any point $p$, let $f(p) = \sum_{i = 1}^n w_i |p - x_i|$; we want to find a point $p$ such that $f(p)$ is minimum. Let $y$ be any point (real number) other than $x$. We show the optimality of the weighted median $x$ by showing that $f(y) - f(x) \ge 0$. We examine separately the cases in which $y &gt; x$ and $x &gt; y$. For any $x$ and $y$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f(y) - f(x) &amp; = \sum_{i = 1}^n w_i |y - x_i| - \sum_{i = 1}^n w_i |x - x_i| \\
             &amp; = \sum_{i = 1}^n w_i (|y - x_i| - |x - x_i|).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>When $y &gt; x$, we bound the quantity $|y - x_i| - |x - x_i|$ from below by examining three cases:</p>
 <ol>
 <li>$x &lt; y \le x_i$: Here, $|x - y| + |y - x_i| = |x - x_i|$ and $|x - y| = y - x$, which imply that $|y - x_i| - |x - x_i| = -|x - y| = x - y$.</li>
@@ -5756,11 +5764,13 @@ f(y) - f(x) &amp; = \sum_{i = 1}^n w_i |y - x_i| - \sum_{i = 1}^n w_i |x - x_i| 
 <li>$x_i \le x &lt; y$: Here, $|x - x_i| + |y - x| = |y - x_i|$ and $|y - x| = y - x$, which imply that $y - x_i| - |x - x_i| = |y - x| = y - x$.</li>
 </ol>
 <p>Separating out the first two cases, in which $x &lt; x_i$, from the third case, in which $x \ge x_i$, we get</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f(y) - f(x) &amp; =   \sum_{i = 1}^n w_i(|y - x_i| - |x - x_i|) \\
             &amp; \ge \sum_{x &lt; x_i} w_i (x - y) + \sum_{x \ge x_i} w_i (y - x) \\
             &amp; =   (y - x) \Bigg(\sum_{x \ge x_i} w_i - \sum_{x &lt; x_i} w_i \Bigg).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The property that $\sum_{x_i &lt; x} w_i &lt; 1 / 2$ implies that $\sum_{x \ge x_i} w_i \ge 1 / 2$. This fact, combined with $y - x &gt; 0$ and $\sum_{x &lt; x_i} w_i \le 1 / 2$, yields that $f(y) - f(x) \ge 0$.</p>
 <p>When $x &gt; y$, we bound the quantity $|y - x_i| - |x - x_i|$ from below by examining three cases:</p>
 <ol>
@@ -5769,22 +5779,26 @@ f(y) - f(x) &amp; =   \sum_{i = 1}^n w_i(|y - x_i| - |x - x_i|) \\
 <li>$y &lt; x \le x_i$: Here, $|x - y| + |x - x_i| = |y - x_i|$ and $|x - y| = x - y$, which imply that $y - x_i| - |x - x_i| = |x - y| = x - y$.</li>
 </ol>
 <p>Separating out the first two cases, in which $x &gt; x_i$, from the third case, in which $x \le x_i$, we get</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f(y) - f(x) &amp; =   \sum_{i = 1}^n w_i(|y - x_i| - |x - x_i|) \\
             &amp; \ge \sum_{x &gt; x_i} w_i(y - x) + \sum_{x \ge x_i} w_i(x - y) \\
             &amp; =   (x - y) \Bigg(\sum_{x \le x_i} w_i - \sum_{x &gt; x_i} w_i \Bigg).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The property that $sum_{x_i &gt; x} w_i \le 1 / 2$ implies that $\sum_{x \le x_i} w_i &gt; 1 / 2$. This fact, combined with $x - y &gt; 0$ and $\sum_{x &gt; x_i} w_i &lt; 1 / 2$, yields that $f(y) - f(x) &gt; 0$.</p>
 <p><strong>e.</strong> We are given $n$ $2$-dimensional points $p_1, p_2, \ldots, p_n$, where each $p_i$ is a pair of real numbers $p_i = (x_i, y_i)$, and positive weights $w_1, w_2, \ldots, w_n$. The goal is to find a point $p = (x, y)$ that minimizes the sum</p>
 <p>$$f(x, y) = \sum_{i = 1}^n w_i(|x - x_i| + |y - y_i|).$$</p>
 <p>We can express the cost function of the two variables, $f(x, y)$, as the sum of two functions of one variable each: $f(x, y) = g(x) + h(y)$, where $g(x) = \sum_{i = 1}^n w_i |x - x_i|$, and $h(y) = \sum_{i = 1}^n w_i |y - y_i|$. The goal of finding a point $p = (x, y)$ that minimizes the value of $f(x, y)$ can be achieved by treating each dimension independently, because $g$ does not depend on $y$ and $h$ does not depend on $x$. Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \min_{x, y} f(x, y)
     &amp; = \min_{x, y} (g(x) + h(y)) \\
     &amp; = \min_x \Big(\min_y(g(x) + h(y))\Big) \\
     &amp; = \min_x \Big(g(x) + \min_y h(y)\Big) \\
     &amp; = \min_x g(x) + \min_y h(y).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Consequently, finding the best location in $2$ dimensions can be done by finding the weighted median $x_k$ of the $x$-coordinates and then finding the weighted median $y_j$ of the $y$-coordinates. The point $(x_k, y_j)$ is an optimal solution for the $2$-dimensional post-office location problem.</p>
                 
                   
@@ -5874,9 +5888,11 @@ f(y) - f(x) &amp; =   \sum_{i = 1}^n w_i(|y - x_i| - |x - x_i|) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

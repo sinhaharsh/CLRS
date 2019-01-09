@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5841,22 +5843,26 @@
 <blockquote>
 <p>Show the $d$ and $\pi$ values that result from running breadth-first search on the directed graph of Figure 22.2(a), using vertex $3$ as the source.</p>
 </blockquote>
-<p>\begin{array}{c|cccccc}
+<p>$$
+\begin{array}{c|cccccc}
 \text{vertex} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
 \hline
 d &amp; \infty &amp; 3 &amp; 0 &amp; 2 &amp; 1 &amp; 1 \\
 \pi &amp; \text{NIL} &amp; 4 &amp; \text{NIL} &amp; 5 &amp; 3 &amp; 3
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="222-2">22.2-2</h2>
 <blockquote>
 <p>Show the $d$ and $\pi$ values that result from running breadth-first search on the undirected graph of Figure 22.3, using vertex $u$ as the source.</p>
 </blockquote>
-<p>\begin{array}{c|cccccc}
+<p>$$
+\begin{array}{c|cccccc}
 \text{vertex} &amp; r &amp; s &amp; t &amp; u &amp; v &amp; w &amp; x &amp; y \\
 \hline
 d &amp; 4 &amp; 3 &amp; 1 &amp; 0 &amp; 5 &amp; 2 &amp; 1 &amp; 1 \\
 \pi &amp; s &amp; w &amp; u &amp; \text{NIL} &amp; r &amp; t &amp; u &amp; u
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="222-3">22.2-3</h2>
 <blockquote>
 <p>Show that using a single bit to store each vertex color suffices by arguing that the $\text{BFS}$ procedure would produce the same result if lines 5 and 14 were removed.</p>
@@ -5901,10 +5907,12 @@ d &amp; 4 &amp; 3 &amp; 1 &amp; 0 &amp; 5 &amp; 2 &amp; 1 &amp; 1 \\
 <p>and</p>
 <p>$$d(s, b) = d(s, c) + d(c, b).$$</p>
 <p>(If there were another path, we could form a cycle). Using the triangle inequality and inequalities and equalities mentioned above we must have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 d(a, b) + 2d(s, c) &amp; = d(s, c) + d(c, b) + d(s, c) + d(c, a) \\
                    &amp; &lt; d(s, x) + d(s, c) + d(c, b).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>I claim that $d(x, b) = d(s, c) + d(s, b)$. If not, then by the triangle inequality we must have a strict less-than. In other words, there is some path from $x$ to $b$ which does not go through $c$. This gives the contradiction, because it implies there is a cycle formed by concatenating these paths. Then we have</p>
 <p>$$d(a, b) &lt; d(a, b) + 2d(s, c) &lt; d(x, b).$$</p>
 <p>Since it is assumed that $d(a, b)$ is maximal among all pairs, we have a contradiction. Therefore, since trees have $|V| - 1$ edges, we can run $\text{BFS}$ a single time in $O(V)$ to obtain one of the vertices which is the endpoint of the longest simple path contained in the graph. Running $\text{BFS}$ again will show us where the other one is, so we can solve the diameter problem for trees in $O(V)$.</p>
@@ -6016,9 +6024,11 @@ d(a, b) + 2d(s, c) &amp; = d(s, c) + d(c, b) + d(s, c) + d(c, a) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

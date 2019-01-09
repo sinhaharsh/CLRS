@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5819,12 +5821,14 @@
 <p>and</p>
 <p>$$\Phi'(D_i) = \Phi(D_i) - \Phi(D_0) \ge 0.$$</p>
 <p>The amortized cost is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \hat c_i' &amp; = c_i + \Phi'(D_i) - \Phi'(D_{i - 1}) \\
           &amp; = c_i + (\Phi(D_i) - \Phi(D_0)) - (\Phi(D_{i - 1}) - \Phi(D_0)) \\
           &amp; = c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
           &amp; = \hat c_i.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="173-2">17.3-2</h2>
 <blockquote>
 <p>Redo Exercise 17.1-3 using a potential method of analysis.</p>
@@ -5851,7 +5855,8 @@ k n_i \ln n_i &amp; \text{if $n_i &gt; 0$}.
 $$</p>
 <p>This function exhibits the characteristics we like in a potential function: if we start with an empty heap, then $\Phi(D_0) = 0$, and we always maintain that $\Phi(D_i) \ge 0$.</p>
 <p>Before proving that we achieve the desired amortized times, we show that if $n \ge 2$, then $n \ln\frac{n}{n - 1} \le 2$. We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 n \ln\frac{n}{n - 1}
     &amp; =   n\ln \Big(1 + \frac{1}{n - 1} \Big) \\
     &amp; =   \ln \Big(1 + \frac{1}{n - 1} \Big)^n \\
@@ -5859,15 +5864,19 @@ n \ln\frac{n}{n - 1}
     &amp; =   \ln e^{\frac{n}{n - 1}} \\
     &amp; =   \frac{n}{n - 1} \\
     &amp; \le 2,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>assuming that $n \ge 2$. (The equation $\ln e^{\frac{n}{n - 1}} = \frac{n}{n - 1}$ is why we use the natural log.) If the $i$th operation is an $\text{INSERT}$, then $n_i = n_{i - 1} + 1$. If the $i$th operation inserts into an empty heap, then $n_i = 1$, $n_{i - 1} = 0$ and the amortized cost is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \hat c_i &amp; =   c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
          &amp; \le k\ln 1 + k \cdot 1\ln 1 - 0 \\
          &amp; =   0.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If the $i$th operation inserts into a nonempty heap, then $n_i = n_{i - 1} + 1$, and the amortized cost is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \hat c_i &amp; =   c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
          &amp; \le k\ln n_i + k n_i\ln n_i - k n_{i - 1}\ln n_{i - 1} \\
          &amp; =   k\ln n_i + k n_i\ln n_i - k(n_i - 1) \ln(n_i - 1) \\
@@ -5875,15 +5884,19 @@ n \ln\frac{n}{n - 1}
          &amp; &lt;   2k\ln n_i + kn_i \ln\frac{n_i}{n_i - 1} \\
          &amp; \le 2k\ln n_i + 2k \\
          &amp; =   O(\lg n_i).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If the $i$th operation is an $\text{EXTRACT-MIN}$, then $n_i = n_{i - 1} - 1$. If the $i$th operation extracts the one and only heap item, then $n_i = 0$, $n_{i - 1} = 1$, and the amortized cost is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \hat{c_i} &amp; =   c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
           &amp; \le k\ln 1 + 0 - k \cdot 1\ln 1 \\
           &amp; =   0.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If the $i$th operation extracts from a heap with more than 1 item, then $n_i = n_{i - 1} - 1$, and $n_{i - 1} \ge 2$, and the amortized cost is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \hat c_i &amp; =   c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
          &amp; \le k\ln n_{i - 1} + kn_i\ln n_i - kn_{i - 1}\ln n_{i - 1} \\
          &amp; =   k\ln n_{i - 1} + k(n_{i - 1} - 1)\ln(n_{i - 1} - 1) - kn_{i - 1}\ln n_{i - 1} \\
@@ -5893,12 +5906,15 @@ n \ln\frac{n}{n - 1}
          &amp; =   k\ln\frac{n_{i - 1}}{n_{i - 1} - 1} \\
          &amp; \le k\ln 2 \qquad \text{(since $n_{i - 1} \ge 2$)} \\
          &amp; =   O(1).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>A slightly different potential function—which may be easier to work with—is as follows. For each node $x$ in the heap, let $d_i(x)$ be the depth of $x$ in $D_i$ . Define</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Phi(D_i) &amp; = \sum_{x\in D_i} k(d_i(x) + 1) \\
           &amp; = k \Bigg(n_i + \sum_{x\in D_i} d_i(x) \Bigg),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where $k$ is defined as before.</p>
 <p>Initially, the heap has no items, which means that the sum is over an empty set, and so $\Phi(D_0) = 0$. We always have $\Phi(D_i) \ge 0$, as required.</p>
 <p>Observe that after an $\text{INSERT}$, the sum changes only by an amount equal to the depth of the new last node of the heap, which is $\lfloor \lg n_i \rfloor$. Thus, the change in potential due to an $\text{INSERT}$ is $k(1 + \lfloor \lg n_i \rfloor)$, and so the amortized cost is $O(\lg n_i) + O(\lg n_i) = O(\lg n_i) = O(\lg n)$.</p>
@@ -5911,25 +5927,29 @@ n \ln\frac{n}{n - 1}
 <p>The total amortized cost is</p>
 <p>$$\sum_{i = 1}^n \hat c_i = \sum_{i = 1}^n c_i + \Phi(D_n) - \Phi(D_0).$$</p>
 <p>Using the potential function and the known amortized costs, we can rewrite the equation as</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^n c_i 
     &amp; = \sum_{i = 1}^n \hat c_i + \Phi(D_0) - \Phi(D_n) \\
     &amp; = \sum_{i = 1}^n \hat c_i + s_0 - s_n \\
     &amp; \le 2n + s_0 - s_n,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which gives us the total cost of $O(n + (s_0 - s_n))$. If $s_n \ge s_0$, then this equals to $O(n)$, that is, if the stack grows, then the work done is limited by the number of operations.</p>
 <p>(Note that it does not matter here that the potential may go below the starting potential. The condition $\Phi(D_n) \ge \Phi(D_0)$ for all $n$ is only required to have $\sum_{i = 1}^n \hat c_i \ge \sum_{i = 1}^n c_i$, but we do not need for that to hold in this application.)</p>
 <h2 id="173-5">17.3-5</h2>
 <blockquote>
 <p>Suppose that a counter begins at a number with $b$ $1$s in its binary representation, rather than at $0$. Show that the cost of performing $n$ $\text{INCREMENT}$ operations is $O(n)$ if $n = \Omega(b)$. (Do not assume that $b$ is constant.)</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^n c_i
     &amp; =   \sum_{i = 1}^n \hat c_i - \Phi(D_n) + \Phi(D_0) \\
     &amp; =   n - x + b \\
     &amp; \le n - x + n \\
     &amp; =   O(n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="173-6">17.3-6</h2>
 <blockquote>
 <p>Show how to implement a queue with two ordinary stacks (Exercise 10.1-6) so that the amortized cost of each $\text{ENQUEUE}$ and each $\text{DEQUEUE}$ operation is $O(1)$.</p>
@@ -6035,9 +6055,11 @@ n \ln\frac{n}{n - 1}
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

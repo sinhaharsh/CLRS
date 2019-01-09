@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5685,13 +5687,15 @@
 
 <p><strong>a.</strong> Use nested parallelism to implement a multithreaded algorithm $\text{P-REDUCE}$, which performs the same function with $\Theta(n)$ work and $\Theta(\lg n)$ span. Analyze your algorithm.</p>
 <p>A related problem is that of computing a <strong><em>$\otimes$-prefix computation</em></strong>, sometimes called a <strong><em>$\otimes$-scan</em></strong>, on an array $x[1 \ldots n]$, where $\otimes$ is once again an associative operator. The $\otimes$-scan produces the array $y[1 \ldots n]$ given by</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 y[1] &amp; = x[1], \\
 y[2] &amp; = x[1] \otimes x[2], \\
 y[3] &amp; = x[1] \otimes x[2] \otimes x[3], \\
      &amp; \vdots \\
 y[n] &amp; = x[1] \otimes x[2] \otimes x[3] \otimes \cdots \otimes x[n],
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>that is, all prefixes of the array $x$ "summed" using $\otimes$ operator. The following serial procedure $\text{SCAN}$ performs a $\otimes$-prefix computation:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -5848,22 +5852,26 @@ y[n] &amp; = x[1] \otimes x[2] \otimes x[3] \otimes \cdots \otimes x[n],
 <p><strong>b.</strong> The work and span of $\text{P-SCAN-1-AUX}$ dominate the work and span of $\text{P-SCAN-1}$. We can calculate the work of $\text{P-SCAN-1-AUX}$ by replacing the <strong>parallel for</strong> loop with an ordinary <strong>for</strong> loop and noting that in each iteration, the running time of $\text{P-REDUCE}$ will be equal to $\Theta(l)$. Since $\text{P-SCAN-1}$ calls $\text{P-SCAN-1-AUX}$ with $1$ and $n$ as the last two arguments, the running time of $\text{P-SCAN-1}$, and hence its work, is $\Theta(1 + 2 + \cdots + n) = \Theta(n^2)$.</p>
 <p>As we noted earlier, the <strong>parallel for</strong> loop in $\text{P-SCAN-1-AUX}$ undergoes $n$ iterations; therefore, the span of $\text{P-SCAN-1-AUX}$ is given by $\Theta(\lg n)$ for the recursive splitting of the loop iterations plus the span of the iteration that has maximum span. Among the loop iterations, the call to $\text{P-REDUCE}$ in the last iteration (when $l = n$) has the maximum span, equal to $\Theta(\lg n)$. Thus, $\text{P-SCAN-1}$ has $\Theta(\lg n)$ span and $\Theta(n^2 / \lg n)$ parallelism.</p>
 <p><strong>c.</strong> In $\text{P-SCAN-2-AUX}$, before the <strong>parallel for</strong> loop in lines 7 and 8 executes, the following invariant is satisfied: $y[l] = x[i] \otimes x[i + 1] \otimes \cdots \otimes x[l]$ for $l = i, i + 1, \ldots, k$ and $y[l] = x[k + 1] \otimes x[k + 2] \otimes \cdots \otimes x[k]$ for $l = k + 1, k + 2, \ldots, j$. The <strong>parallel for</strong> loop need not update $y[i], \ldots, y[k]$, since they have the correct values after the call to $\text{P-SCAN-2-AUX}(x, y, i, k)$. For $l = k + 1, k + 2, \ldots, j$, the <strong>parallel for</strong> loop sets </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 y[l] &amp; = y[k] \otimes y[l] \\
      &amp; = x[i] \otimes \cdots \otimes x[k] \otimes x[k + 1] \otimes \cdots \otimes x[l] \\
      &amp; = x[i] \otimes \cdots \otimes x[l].
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>as desired. We can run this loop in parallel because the $l$th iteration depends only on the values of $y[k]$, which is the same in all iterations, and $y[l]$. Therefore, when the call to $\text{P-SCAN-2-AUX}$ from $\text{P-SCAN-2}$ returns, array $y$ represents the $\otimes$-prefix computation of array $x$.</p>
 <p>Because the work and span of $\text{P-SCAN-2-AUX}$ dominate the work and span of $\text{P-SCAN-2}$, we will concentrate on calculating these values for $\text{P-SCAN-2-AUX}$ working on an array of size $n$. The work $PS2A_1(n)$ of $\text{P-SCAN-2-AUX}$ is given by the recurrence $PS2A_1(n) = 2PS2A_1(n / 2) + \Theta(\lg n)$, which equals $\Theta(n\lg n)$ by case 2 of the master theorem. The span $PS2A_\infty(n)$ of $\text{P-SCAN-2-AUX}$ is given by the recurrence $PS2A_\infty(n) = PS2A_\infty(n / 2) + \Theta(\lg n)$, which equals $\Theta(\lg^2 n)$ per Exercise 4.6-2. That is, the work, span, and parallelism of $\text{P-SCAN-2}$ are $\Theta(n\lg n)$, $\Theta(\lg^2 n)$, and $\Theta(n / \lg n)$, respectively.</p>
 <p><strong>d.</strong> The missing expression in line 8 of $\text{P-SCAN-UP}$ is $t[k] \otimes right$ right. The missing expressions in lines 5 and 6 of $\text{P-SCAN-DOWN}$ are $v$ and $v \otimes t[k]$, respectively.</p>
 <p>As suggested in the hint, we will prove that the value $v$ passed to $\text{P-SCAN-DOWN}(v, x, t, y, i, j)$ satisfies $v = x[1] \otimes x[2] \otimes \cdots \otimes x[i - 1]$, so that the value $v \otimes x[i]$ stored into $y[i]$ in the base case of $\text{P-SCAN-DOWN}$ is correct.</p>
 <p>In order to compute the arguments that are passed to $\text{P-SCAN-DOWN}$, we must first understand what $t[k]$ holds as a result of the call to $\text{P-SCAN-UP}$. A call to $\text{P-SCAN-UP}(x, t, i, j)$ returns $x[i] \otimes \cdots \otimes x[j]$; because $t[k]$ stores the return value of $\text{P-SCAN-UP}(x, t, i, k)$, we can say that $t[k] = x[i] \otimes \cdots \otimes x[k]$.</p>
 <p>The value $v = x[1]$ when $\text{P-SCAN-DOWN}(x[1], x, t, y, 2, n)$ is called from $\text{P-SCAN-3}$ clearly satisifies $v = x[1] \otimes \cdots \otimes x[i - 1]$. Let us suppose that $v = x[1] \otimes x[2] \otimes \cdots \otimes x[i - 1]$ in a call of $\text{P-SCAN-DOWN}(v, x, t, y, i, j)$. Therefore, $v$ meets the required condition in the first recursive call, with $i$ and $k$ as the last two arguments, in $\text{P-SCAN-DOWN}$. If we can prove that the value $v \otimes t[k]$ passed to the second recursive call in $\text{P-SCAN-DOWN}$ equals $x[1] \otimes x[2] \otimes \cdots \otimes x[k]$, we would have proved the required condition on $v$ for all calls to $\text{P-SCAN-DOWN}$. Earlier, we proved that $t[k] = x[i] \otimes \cdots \otimes x[k]$; therefore,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 v \otimes t[k]
     &amp; = x[1] \otimes x[2] \otimes \cdots \otimes x[i - 1] \otimes x[i] \otimes \cdots x[k] \\
     &amp; = x[1] \otimes x[2] \otimes \cdots \otimes x[k].
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the value $v$ passed to $\text{P-SCAN-DOWN}(v, x, t, y, i, j)$ satisfies $v = x[1] \otimes x[2] \otimes \cdots \otimes x[i - 1]$.</p>
 <p><strong>e.</strong> Let $PSU_1(n)$ and $PSU_\infty(n)$ denote the work and span of $\text{P-SCAN-UP}$ and let $PSD_1(n)$ and $PSD_\infty(n)$ denote the work and span of $\text{P-SCAN-DOWN}$. Then the expressions $T_1(n) = PSU_1(n) + PSD_1(n) + \Theta(1)$ and $T_\infty(n) = PSU_\infty(n) + PSD_\infty(n) + \Theta(1)$ characterize the work and span of $\text{P-SCAN-3}$.</p>
 <p>The work $PSU_1(n)$ of $\text{P-SCAN-UP}$ is given by the recurrence</p>
@@ -5872,10 +5880,12 @@ v \otimes t[k]
 <p>$$PSU_\infty(n) = PSU_\infty(n / 2) + \Theta(1).$$</p>
 <p>Using the master theorem to solve these recurrences, we get $PSU_1(n) = \Theta(\lg n)$ and $PSU_\infty(n) = \Theta(\lg n)$.</p>
 <p>Similarly, the recurrences</p>
-<p>\begin{align}
-PSD_1      &amp; = 2PSD_1(n / 2) + \Theta(1),       \tag{*} \\
-PSD_\infty &amp; = PSD_\infty(n / 2) + \Theta(1)    \tag{**}
-\end{align}</p>
+<p>$$
+\begin{aligned}
+PSD_1      &amp; = 2PSD_1(n / 2) + \Theta(1),    &amp; \text{(*)} \\
+PSD_\infty &amp; = PSD_\infty(n / 2) + \Theta(1) &amp; \text{(**)}
+\end{aligned}
+$$</p>
 <p>define the work and span of $\text{P-SCAN-DOWN}$, and they evaluate to $PSD_1(n) = \Theta(\lg n)$ and $PSD_\infty(n) = \Theta(\lg n)$.</p>
 <p>Applying the results for the work and span of $\text{P-SCAN-UP}$ and $\text{P-SCAN-DOWN}$ obtained above in the expressions for the work and span of $\text{P-SCAN-3}$, we get $T_1(n) = \Theta(\lg n)$ and $T_\infty(n) = \Theta(\lg n)$. Hence, $\text{P-SCAN-3}$ has $\Theta(n / \lg n)$ parallelism. $\text{P-SCAN-3}$ performs less work than $\text{P-SCAN-1}$, but with the same span, and it has the same parallelism as $\text{P-SCAN-2}$ with less work and a lower span.</p>
                 
@@ -5966,9 +5976,11 @@ PSD_\infty &amp; = PSD_\infty(n / 2) + \Theta(1)    \tag{**}
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

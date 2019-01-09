@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5827,13 +5829,15 @@
 <p>Use the substitution method to show that the solution to the recurrence $\text{(15.6)}$ is $\Omega(2^n)$.</p>
 </blockquote>
 <p>Suppose $P(n) \ge c2^n$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P(n) &amp; \ge   \sum_{k = 1}^{n - 1} c2^k \cdot c2^{n - k} \\
      &amp; =     \sum_{k = 1}^{n - 1} c^2 2^n \\
      &amp; =     c^2 (n - 1) 2^n \\
      &amp; \ge   c^2 2^n &amp; (n &gt; 1) \\
      &amp; \ge   c 2^n.  &amp; (c \ge 1)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="152-4">15.2-4</h2>
 <blockquote>
 <p>Describe the subproblem graph for matrix-chain multiplication with an input chain of length $n$. How many vertices does it have? How many edges does it have, and which edges are they?</p>
@@ -5841,18 +5845,22 @@ P(n) &amp; \ge   \sum_{k = 1}^{n - 1} c2^k \cdot c2^{n - k} \\
 <p>The vertices of the subproblem graph are the ordered pairs $v_{ij}$, where $i \le j$. If $i = j$, then there are no edges out of $v_{ij}$. If $i &lt; j$, then for every $k$ such that $i \le k &lt; j$, the subproblem graph contains edges $(v_{ij}, v_{jk})$ and $(v_{ij}, v_{k + 1, j})$. These edges indicate that to solve the subproblem of optimally parenthesizing the product $A_i \cdots A_j$, we need to solve subproblems of optimally parenthesizing the products $A_i \cdots A_k$ and $A_{k + 1} \cdots A_j$. The number of vertices is</p>
 <p>$$\sum_{i = 1}^n\sum_{j = i}^n 1 = \frac{n(n + 1)}{2},$$</p>
 <p>and the number of edges is </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^n\sum_{j = i}^n (j - i)
     &amp; = \sum_{i = 1}^n\sum_{t = 0}^{n - i} t &amp; \text{(substituting $t = j - i$)} \\
     &amp; = \sum_{i = 1}^n \frac{(n - i)(n - i + 1)}{2}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Substituting $r = n - i$ and reversing the order of summation, we obtain</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^n \frac{(n - i)(n - i + 1)}{2} 
     &amp; = \frac{1}{2} \sum_{r = 0}^{n - 1} (r^2 + r) \\
     &amp; = \frac{1}{2} \bigg(\frac{(n - 1)n(2n - 1)}{6} + \frac{(n - 1)n}{2}\bigg) &amp; \text{(by equations (A.3) and (A.1))} \\
     &amp; = \frac{(n - 1)n(n + 1)}{6}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the subproblem graph has $\Theta(n^2)$ vertices and $\Theta(n^3)$ edges.</p>
 <h2 id="152-5">15.2-5</h2>
 <blockquote>
@@ -5861,7 +5869,8 @@ P(n) &amp; \ge   \sum_{k = 1}^{n - 1} c2^k \cdot c2^{n - k} \\
 <p>($\textit{Hint:}$ You may find equation $\text{(A.3)}$ useful.)</p>
 </blockquote>
 <p>Each time the $l$-loop executes, the $i$-loop executes $n - l + 1$ times. Each time the $i$-loop executes, the $k$-loop executes $j - i = l - 1$ times, each time referencing $m$ twice. Thus the total number of times that an entry of $m$ is referenced while computing other entries is $\sum_{l = 2}^n (n - l + 1)(l - 1)2$. Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^n\sum_{j = 1}^n R(i, j)
     &amp; = \sum_{l = 2}^n (n - l + 1)(l - 1)2 \\
     &amp; = 2 \sum_{l = 1}^{n - 1} (n - l)l \\
@@ -5869,7 +5878,8 @@ P(n) &amp; \ge   \sum_{k = 1}^{n - 1} c2^k \cdot c2^{n - k} \\
     &amp; = 2 \frac{n(n - 1)n}{2} - 2\frac{(n - 1)n(2n - 1)}{6} \\
     &amp; = n^3 - n^2 - \frac{2n^3 - 3n^2 + n}{3} \\
     &amp; = \frac{n^3 - n}{3}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="152-6">15.2-6</h2>
 <blockquote>
 <p>Show that a full parenthesization of an $n$-element expression has exactly $n - 1$ pairs of parentheses.</p>
@@ -5963,9 +5973,11 @@ P(n) &amp; \ge   \sum_{k = 1}^{n - 1} c2^k \cdot c2^{n - k} \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

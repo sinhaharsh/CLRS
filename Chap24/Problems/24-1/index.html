@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5678,14 +5680,16 @@
 <p>The sequence $\langle v_1, v_2, \ldots, v_{|V|} \rangle$ is a topological sort for $G_f$, because from the definition of $E_f$ we know that all edges are directed from smaller indices to larger indices.</p>
 <p>The proof for $E_b$ is similar.</p>
 <p><strong>b.</strong> For all vertices $v \in V$, we know that either $\delta(s, v) = \infty$ or $\delta(s, v)$ is finite. If $\delta(s, v) = \infty$, then $v.d$ will be $\infty$. Thus, we need to consider only the case where $v.d$ is finite. There must be some shortest path from $s$ to $v$. Let $p = \langle v_0, v_1, \ldots, v_{k - 1}, v_k \rangle$ be that path, where $v_0 = s$ and $v_k = v$. Let us now consider how many times there is a change in direction in $p$, that is, a situation in which $(v_{i - 1}, v_i) \in E_f$ and $(v_i, v_{i + 1} \in E_b$ or vice versa. There can be at most $|V| - 1$ edges in $p$, so there can be at most $|V| - 2$ changes in direction. Any portion of the path where there is no change in direction is computed with the correct $d$ values in the first or second half of a single pass once the vertex that begins the no-change-in-direction sequence has the correct $d$ value, because the edges are relaxed in the order of the direction of the sequence. Each change in direction requires a half pass in the new direction of the path. The following table shows the maximum number of passes needed depending on the parity of $|V| - 1$ and the direction of the first edge:</p>
-<p>\begin{array}{lll}
+<p>$$
+\begin{array}{lll}
 |V| - 1 &amp; \text{first edge direction} &amp; \text{passes} \\
 \hline
 \text{even} &amp; \text{forward}  &amp; (|V| - 1) / 2       \\
 \text{even} &amp; \text{backward} &amp; (|V| - 1) / 2 + 1   \\
 \text{odd}  &amp; \text{forward}  &amp; |V| / 2             \\
 \text{odd}  &amp; \text{backward} &amp; |V| / 2
-\end{array}</p>
+\end{array}
+$$</p>
 <p>In any case, the maximum number of passes that we will need is $\lceil |V| / 2 \rceil$.</p>
 <p><strong>c.</strong> This scheme does not affect the asymptotic running time of the algorithm because even though we perform only $\lceil |V| / 2 \rceil$ passes instead of $|V| - 1$ passes, it is still $O(V)$ passes. Each pass still takes $\Theta(E)$ time, so the running time remains $O(VE)$.</p>
                 
@@ -5776,9 +5780,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

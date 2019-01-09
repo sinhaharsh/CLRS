@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5670,10 +5672,12 @@
                 <blockquote>
 <p>A pratical method for interpolating a set of points with a curve is to use <strong>cubic splines</strong>. We are given a set $\{(x_i, y_i): i = 0, 1, \ldots, n\}$ of $n + 1$ point-value pairs, where $x_0 &lt; x_1 &lt; \cdots &lt; x_n$. We wish to fit a piecewise-cubic curve (spline) $f(x)$ to the points. That is, the curve $f(x)$ is made up of $n$ cubic polynomials $f_i(x) = a_i + b_ix + c_ix^2 + d_ix^3$ for $i = 0, 1, \ldots, n - 1$, where if $x$ falls in the range $x_i \le x \le x_{i + 1}$, then the value of the curve is given by $f(x) = f_i(x - x_i)$. The points $x_i$ at which the cubic polynomials are "pasted" together are called <strong>knots</strong>. For simplicity, we shall assume that $x_i = i$ for $i = 0, 1, \ldots, n$.</p>
 <p>To ensure continuity of $f(x)$, we require that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f(x_i)       &amp; = f_i(0) = y_i, \\
 f(x_{i + 1}) &amp; = f_i(1) = y_{i + 1}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>for $i = 0, 1, \ldots, n - 1$. To ensure that $f(x)$ is sufficiently smooth, we also insist that the first derivative be continuous at each knot:</p>
 <p>$$f'(x_{i + 1}) = f'_i(1) = f'_{i + 1}(0)$$</p>
 <p>for $i = 0, 1, \ldots, n - 2$.</p>
@@ -5684,10 +5688,12 @@ f(x_{i + 1}) &amp; = f_i(1) = y_{i + 1}
 <p><strong>b.</strong> Use the continuity constraints on the second derivative to show that for $i = 1, 2, \ldots, n - 1$,</p>
 <p>$$D_{i - 1} + 4D_i + D_{i + 1} = 3(y_{i + 1} - y_{i - 1}). \tag{23.21}$$</p>
 <p><strong>c.</strong> Show that</p>
-<p>\begin{align}
-      2D_0 + D_1 &amp; = 3(y_1 - y_0),       \tag{28.22} \\
-D_{n - 1} + 2D_n &amp; = 3(y_n - y_{n - 1}). \tag{28.23}
-\end{align}</p>
+<p>$$
+\begin{aligned}
+      2D_0 + D_1 &amp; = 3(y_1 - y_0),       &amp; \text{(28.22)} \\
+D_{n - 1} + 2D_n &amp; = 3(y_n - y_{n - 1}). &amp; \text{(28.23)}
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> Rewrite equations $\text{(28.21)}$–$\text{(28.23)}$ as a matrix equation involving the vector $D = \langle D_0, D_1, \ldots, D_n \rangle$ or unknowns. What attributes does the matrix in your equation have?</p>
 <p><strong>e.</strong> Argue that a natural cubic spline can interpolate a set of $n + 1$ point-value pairs in $O(n)$ time (see Problem 28-1).</p>
 <p><strong>f.</strong> Show how to determine a natural cubic spline that interpolates a set of $n + 1$ points $(x_i, y_i)$ satisfying $x_0 &lt; x_1 &lt; \cdots &lt; x_n$, even when $x_i$ is not necessarily equal to $i$. What matrix equation must your method solve, and how quickly does your algorithm run?</p>
@@ -5781,9 +5787,11 @@ D_{n - 1} + 2D_n &amp; = 3(y_n - y_{n - 1}). \tag{28.23}
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

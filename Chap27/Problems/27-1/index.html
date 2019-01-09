@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5722,15 +5724,19 @@
 </td></tr></table>
 
 <p>The work of $\text{NESTED-SUM-ARRAYS}$ is given by the recurrence</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T_1(n) &amp; = 2T_1(n / 2) + \Theta(1) \\
        &amp; = \Theta(n),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>by case 1 of the master theorem. The span of the procedure is given by the recurrence</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T_\infty(n) &amp; = T_\infty(n / 2) + \Theta(1) \\
             &amp; = \Theta(\lg n),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>by case 2 of the master theorem. Therefore, the above algorithm has $\Theta(n / \lg n)$ parallelism.</p>
 <p><strong>b.</strong> Because $\text{ADD-SUBARRAY}$ is serial, we can calculate both its work and span to be $\Theta(j - i + 1)$, which based on the arguments from the call in $\text{SUM-ARRAYS}'$ is $\Theta(grain\text-size)$, for all but the last call (which is $O(grain\text-size)$).</p>
 <p>If $grain\text-size = 1$, the procedure $\text{SUM-ARRAYS}'$ calculates $r$ to be $n$, and each of the $n$ iterations of the serial <strong>for</strong> loop spawns $\text{ADD-SUBARRAY}$ with the same value, $k + 1$, for the last two arguments. For example, when $k = 0$, the last two arguments to $\text{ADD-SUBARRAY}$ are $1$, when $k = 1$, the last two arguments are $2$, and so on. That is, in each call to $\text{ADD-SUBARRAY}$, its <strong>for</strong> loop iterates once and calculates a single value in the array $C$. When $grain\text-size = 1$, the <strong>for</strong> loop in $\text{SUM-ARRAYS}'$ iterates $n$ times and each iteration takes $\Theta(1)$ time, resulting in $\Theta(n)$ work.</p>
@@ -5827,9 +5833,11 @@ T_\infty(n) &amp; = T_\infty(n / 2) + \Theta(1) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

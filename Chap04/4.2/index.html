@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5826,15 +5828,18 @@ $$</p>
 <p>Show your work.</p>
 </blockquote>
 <p>The first matrices are</p>
-<p>\begin{array}{ll}
+<p>$$
+\begin{array}{ll}
 S_1 =  6 &amp; S_6    =  8 \\
 S_2 =  4 &amp; S_7    = -2 \\
 S_3 = 12 &amp; S_8    =  6 \\
 S_4 = -2 &amp; S_9    = -6 \\
 S_5 =  5 &amp; S_{10} = 14.
-\end{array}</p>
+\end{array}
+$$</p>
 <p>The products are</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P_1 &amp; =  1 \cdot 6  =   6 \\
 P_2 &amp; =  4 \cdot 2  =   8 \\
 P_3 &amp; =  6 \cdot 12 =  72 \\
@@ -5842,20 +5847,24 @@ P_4 &amp; = -2 \cdot 5  = -10 \\
 P_5 &amp; =  6 \cdot 8  =  48 \\
 P_6 &amp; = -2 \cdot 6  = -12 \\
 P_7 &amp; = -6 \cdot 14 = -84.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The four matrices are</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 C_{11} &amp; = 48 + (-10) - 8 + (-12) = 18 \\
 C_{12} &amp; =  6 + 8 = 14 \\
 C_{21} &amp; = 72 + (-10) = 62 \\
 C_{22} &amp; = 48 + 6 - 72 - (-84) = 66.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The result is</p>
 <p>$$
 \begin{pmatrix}
 18 &amp; 14 \\
 62 &amp; 66
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$</p>
 <h2 id="42-2">4.2-2</h2>
 <blockquote>
@@ -5866,17 +5875,20 @@ A =
 \begin{pmatrix}
 A_{11} &amp; A_{12} \\
 A_{21} &amp; A_{22}
-\end{pmatrix},
+\end{pmatrix}
+,
 B =
 \begin{pmatrix}
 B_{11} &amp; B_{12} \\
 B_{21} &amp; B_{22}
-\end{pmatrix},
+\end{pmatrix}
+,
 C =
 \begin{pmatrix}
 C_{11} &amp; C_{12} \\
 C_{21} &amp; C_{22}
-\end{pmatrix}.
+\end{pmatrix}
+.
 \tag{4.9}
 $$</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -5967,11 +5979,13 @@ $$</p>
 <p>V. Pan has discovered a way of multiplying $68 \times 68$ matrices using $132464$ multiplications, a way of multiplying $70 \times 70$ matrices using $143640$ multiplications, and a way of multiplying $72 \times 72$ matrices using $155424$ multiplications. Which method yields the best asymptotic running time when used in a divide-and-conquer matrix-multiplication algorithm? How does it compare to Strassen's algorithm?</p>
 </blockquote>
 <p>Using what we know from the last exercise, we need to pick the smallest of the following</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \log_{68} 132464 &amp; \approx 2.795128 \\
 \log_{70} 143640 &amp; \approx 2.795122 \\
 \log_{72} 155424 &amp; \approx 2.795147.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The fastest one asymptotically is $70 \times 70$ using $143640$.</p>
 <h2 id="42-6">4.2-6</h2>
 <blockquote>
@@ -5986,11 +6000,13 @@ $$</p>
 <p>Show how to multiply the complex numbers $a + bi$ and $c + di$ using only three multiplications of real numbers. The algorithm should take $a$, $b$, $c$ and $d$ as input and produce the real component $ac - bd$ and the imaginary component $ad + bc$ separately.</p>
 </blockquote>
 <p>The three matrices are</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 A &amp; = (a + b)(c + d) = ac + ad + bc + bd \\
 B &amp; = ac \\
 C &amp; = bd.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The result is</p>
 <p>$$(B - C) + (A - B - C)i.$$</p>
                 
@@ -6081,9 +6097,11 @@ C &amp; = bd.
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5785,7 +5787,8 @@
 <blockquote>
 <p>Using Figure 8.4 as a model, illustrate the operation of $\text{BUCKET-SORT}$ on the array $A = \langle .79, .13, .16, .64, .39, .20, .89, .53, .71, .42 \rangle$.</p>
 </blockquote>
-<p>\begin{array}{cl}
+<p>$$
+\begin{array}{cl}
 R &amp;         \\
 \hline
 0 &amp;         \\
@@ -5798,7 +5801,8 @@ R &amp;         \\
 7 &amp;         \\
 8 &amp; .79 .71 \\
 9 &amp; .89     \\
-\end{array}</p>
+\end{array}
+$$</p>
 <p>$$A = \langle.13, .16, .20, .39, .42, .53, .64, .71, .79, .89 \rangle.$$</p>
 <h2 id="84-2">8.4-2</h2>
 <blockquote>
@@ -5810,20 +5814,24 @@ R &amp;         \\
 <blockquote>
 <p>Let $X$ be a random variable that is equal to the number of heads in two flips of a fair coin. What is $\text E[X^2]$? What is $\text E^2[X]$?</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
   \text E[X] &amp; = 2 \cdot \frac{1}{4} + 1 \cdot \frac{1}{2} + 0 \cdot \frac{1}{4} = 1 \\
 \text E[X^2] &amp; = 4 \cdot \frac{1}{4} + 1 \cdot \frac{1}{2} + 0 \cdot \frac{1}{4} = 1.5 \\
 \text E^2[X] &amp; = \text E[X] \cdot \text E[X] = 1 \cdot 1 = 1.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="84-4-star">8.4-4 $\star$</h2>
 <blockquote>
 <p>We are given $n$ points in the unit circle, $p_i = (x_i, y_i)$, such that $0 &lt; x_i^2 + y_i^2 \le 1$ for $i = 1, 2, \ldots, n$. Suppose that the points are uniformly distributed; that is, the probability of finding a point in any region of the circle is proportional to the area of that region. Design an algorithm with an average-case running time of $\Theta(n)$ to sort the $n$ points by their distances $d_i = \sqrt{x_i^2 + y_i^2}$ from the origin. ($\textit{Hint:}$ Design the bucket sizes in $\text{BUCKET-SORT}$ to reﬂect the uniform distribution of the points in the unit circle.)</p>
 </blockquote>
 <p>Bucket sort by radius,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \pi r_i^2 &amp; = \frac{i}{10} \cdot \pi 1^2 \\
 r_i &amp; = \sqrt{\frac{i}{10}}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="84-5-star">8.4-5 $\star$</h2>
 <blockquote>
 <p>A <strong><em>probability distribution function</em></strong> $P(x)$ for a random variable $X$ is defined by $P(x) = \Pr\{X \le x\}$. Suppose that we draw a list of $n$ random variables $X_1, X_2, \ldots, X_n$ from a continuous probability distribution function $P$ that is computable in $O(1)$ time. Give an algorithm that sorts these numbers in linear average-case time.</p>
@@ -5918,9 +5926,11 @@ r_i &amp; = \sqrt{\frac{i}{10}}.
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

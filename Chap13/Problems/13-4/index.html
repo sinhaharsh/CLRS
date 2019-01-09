@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5691,16 +5693,20 @@
 <p>$$X_{ik} = \text{I\{$y$ is in the right spine of the left subtree of $x$\}}.$$</p>
 <p><strong>f.</strong> Show that $X_{ik} = 1$ if and only if $y.priority &gt; x.priority$, $y.key &lt; x.key$, and, for every $z$ such that $y.key &lt; z.key &lt; x.key$, we have $y.priority &lt; z.priority$.</p>
 <p><strong>g.</strong> Show that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{X_{ik} = 1\}
     &amp; = \frac{(k - i - 1)!}{(k - i + 1)!} \\
     &amp; = \frac{1}{(k - i + 1)(k - i)}. \\
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>h.</strong> Show that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[C] &amp; = \sum_{j = 1}^{k - 1} \frac{1}{j(j + 1)} \\
            &amp; = 1 - \frac{1}{k}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>i.</strong> Use a symmetry argument to show that</p>
 <p>$$\text E[D] = 1 - \frac{1}{n - k + 1}.$$</p>
 <p><strong>j.</strong> Conclude that the expected number of rotations performed when inserting a node into a treap is less than $2$.</p>
@@ -5715,16 +5721,20 @@
 <p><strong>g.</strong> </p>
 <p>$$\Pr\{X_{ik} = 1\} = \frac{(k - i - 1)!}{(k - i + 1)!} = \frac{1}{(k - i + 1)(k - i)}.$$</p>
 <p><strong>h.</strong> </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[C] &amp; = \sum_{j = 1}^{k - 1} \frac{1}{(k - i + 1)(k - i)} \\
            &amp; = \sum_{j = 1}^{k - 1} (\frac{1}{k - i} - \frac{1}{k - i + 1}) \\
            &amp; = 1 - \frac{1}{k}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>i.</strong> </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[D] &amp; = \sum_{j = 1}^{n - k} \frac{1}{(k - i + 1)(k - i)} \\
            &amp; = 1 - \frac{1}{n - k + 1}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>j.</strong> By part (e), the number of rotations is $C + D$. By linearity of expectation, $\text E[C + D] = 2 - \frac{1}{k} - \frac{1}{n - k + 1} \le 2$ for any choice of $k$.</p>
                 
                   
@@ -5814,9 +5824,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

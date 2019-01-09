@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5771,13 +5773,15 @@
 <blockquote>
 <p>Find all solutions to the equations $x \equiv 4 (\mod 5)$ and $x \equiv 5 (\mod 11)$.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
      m_1 &amp; = 11, m_2 = 5. \\
 m_1^{-1} &amp; = 1, m_2^{-1} = 9. \\
      c_1 &amp; = 11, c_2 = 45. \\
        a &amp; = (c_1 \cdot a_1 + c_2 \cdot a_2) \mod (n_1 \cdot n_2) \\
          &amp; = (11 \cdot 4 + 45 \cdot 5) \mod 55 = 49.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="315-2">31.5-2</h2>
 <blockquote>
 <p>Find all integers $x$ that leave remainders $1$, $2$, $3$ when divided by $9$, $8$, $7$ respectively.</p>
@@ -5883,9 +5887,11 @@ m_1^{-1} &amp; = 1, m_2^{-1} = 9. \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5859,24 +5861,28 @@
 <ul>
 <li>
 <p>For the approach of selecting the activity of least duration from those that are compatible with previously selected activities:</p>
-<p>\begin{array}{l|ccc}
+<p>$$
+\begin{array}{l|ccc}
   i             &amp; 1 &amp; 2 &amp; 3 \\
 \hline
 s_i             &amp; 0 &amp; 2 &amp; 3 \\
 f_i             &amp; 3 &amp; 4 &amp; 6 \\
 \text{duration} &amp; 3 &amp; 2 &amp; 3
-\end{array}</p>
+\end{array}
+$$</p>
 <p>This approach selects just $\{a_2\}$, but the optimal solution selects $\{a_1, a_3\}$.</p>
 </li>
 <li>
 <p>For the approach of always selecting the compatible activity that overlaps the fewest other remaining activities:</p>
-<p>\begin{array}{l|ccc}
-  i             &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 &amp; 11 \\
+<p>$$
+\begin{array}{l|ccc}
+  i              &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 &amp; 11 \\
 \hline
-s_i             &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 5 &amp;  5 &amp;  6 \\
-f_i             &amp; 2 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 7 &amp;  7 &amp;  8 \\
-\text{# of overlapping activities} &amp; 3 &amp; 4 &amp; 4 &amp; 4 &amp; 4 &amp; 2 &amp; 4 &amp; 4 &amp; 4 &amp;  4 &amp;  3
-\end{array}</p>
+s_i              &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 5 &amp;  5 &amp;  6 \\
+f_i              &amp; 2 &amp; 3 &amp; 3 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 7 &amp;  7 &amp;  8 \\
+\text{\# of overlapping activities} &amp; 3 &amp; 4 &amp; 4 &amp; 4 &amp;  4 &amp;  2 &amp; 4 &amp; 4 &amp; 4 &amp; 4 &amp; 3
+\end{array}
+$$</p>
 <p>This approach frst selects $a_6$, and after that choice it can select only two other activities (one of $a_1$, $a_2$, $a_3$, $a_4$ and one of $a_8$, $a_9$, $a_{10}$, $a_{11}$). An optimal solution is $\{a_1, a_5, a_7, a_{11}\}$.</p>
 </li>
 <li>
@@ -6064,9 +6070,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

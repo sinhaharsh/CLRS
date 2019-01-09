@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5784,21 +5786,27 @@
 <p>over all executions of this loop. (Assume that the naive algorithm stops comparing characters for a given shift once it finds a mismatch or matches the entire pattern.) Thus, for randomly chosen strings, the naive algorithm is quite efficient.</p>
 </blockquote>
 <p>Suppose for each shift, the number of compared characters is $L$, then:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[L] &amp; = 1 \cdot \frac{d - 1}{d} + 2 \cdot (\frac{1}{d})^1 \frac{d - 1}{d} + \cdots + m \cdot (\frac{1}{d})^{m - 1} \frac{d - 1}{d} + m \cdot (\frac{1}{d})^{m} \\
            &amp; = (1 + 2 \cdot (\frac{1}{d})^1 + \cdots + m \cdot (\frac{1}{d})^{m}) \frac{d - 1}{d} + m \cdot (\frac{1}{d})^{m}.
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
                 S &amp; = 1 + 2 \cdot (\frac{1}{d})^1 + \cdots + m \cdot (\frac{1}{d})^{m - 1} \\
      \frac{1}{d}S &amp; = 1 \cdot (\frac{1}{d})^1 + \cdots + (m - 1) \cdot (\frac{1}{d})^{m - 1} + m \cdot (\frac{1}{d})^{m} \\
  \frac{d - 1}{d}S &amp; = 1 + (\frac{1}{d})^1 + \cdots + \cdot (\frac{1}{d})^{m - 1} - m \cdot (\frac{1}{d})^{m} \\
  \frac{d - 1}{d}S &amp; = \frac{1 - d^{-m}}{1 - d^{-1}} - m \cdot (\frac{1}{d})^{m}.
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 \text E[L] &amp; = (1 + 2 \cdot (\frac{1}{d})^1 + \cdots + m \cdot (\frac{1}{d})^{m}) \frac{d - 1}{d} + m \cdot (\frac{1}{d})^{m} \\
            &amp; = \frac{1 - d^{-m}}{1 - d^{-1}} - m \cdot (\frac{1}{d})^{m} + m \cdot (\frac{1}{d})^{m} \\
            &amp; = \frac{1 - d^{-m}}{1 - d^{-1}}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>There are $n - m + 1$ shifts, therefore the expected number of comparisons is:</p>
 <p>$$(n - m + 1) \cdot \text E[L] = (n - m + 1) \frac{1 - d^{-m}}{1 - d^{-1}}$$</p>
 <p>Since $d \ge 2$, $1 - d^{-1} \ge 0.5$, $1 - d^{-m} &lt; 1$, and $ \frac{1 - d^{-m}}{1 - d^{-1}} \le 2$, therefore </p>
@@ -5900,9 +5908,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

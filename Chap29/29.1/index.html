@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5855,52 +5857,60 @@
 <h2 id="291-4">29.1-4</h2>
 <blockquote>
 <p>Convert the following linear program into standard form:</p>
-<p>\begin{array}{lccccccc}
+<p>$$
+\begin{array}{lccccccc}
 \text{minimize}   &amp; 2x_1 &amp; + &amp; 7x_2 &amp; + &amp; x_3 &amp;     &amp; \\
 \text{subject to} &amp;      &amp;   &amp;      &amp;   &amp; \\
                   &amp;  x_1 &amp;   &amp;      &amp; - &amp; x_3 &amp; =   &amp;  7 \\
                   &amp; 3x_1 &amp; + &amp;  x_2 &amp;   &amp;     &amp; \ge &amp; 24 \\
                   &amp;      &amp;   &amp;  x_2 &amp;   &amp;     &amp; \ge &amp;  0 \\
                   &amp;      &amp;   &amp;      &amp;   &amp; x_3 &amp; \le &amp;  0.
-\end{array}</p>
+\end{array}
+$$</p>
 </blockquote>
 <p>(Omit!)</p>
 <h2 id="291-5">29.1-5</h2>
 <blockquote>
 <p>Convert the following linear program into slack form:</p>
-<p>\begin{array}{lccccccc}
+<p>$$
+\begin{array}{lccccccc}
 \text{minimize}   &amp; 2x_1 &amp;   &amp;      &amp; - &amp; 6x_3 \\
 \text{subject to} &amp; \\
                   &amp;  x_1 &amp; + &amp;  x_2 &amp; - &amp;  x_3 &amp; \le &amp; 7 \\
                   &amp; 3x_1 &amp; - &amp;  x_2 &amp;   &amp;      &amp; \ge &amp; 8 \\
                   &amp; -x_1 &amp; + &amp; 2x_2 &amp; + &amp; 2x_3 &amp; \ge &amp; 0 \\
                   &amp;      &amp; x_1, x_2, x_3 &amp; &amp; &amp; &amp; \ge &amp; 0.
-\end{array}</p>
+\end{array}
+$$</p>
 <p>What are the basic and nonbasic variables?</p>
 </blockquote>
 <p>(Omit!)</p>
 <h2 id="291-6">29.1-6</h2>
 <blockquote>
 <p>Show that the following linear program is infeasible:</p>
-<p>\begin{array}{lccccc}
+<p>$$
+\begin{array}{lccccc}
 \text{minimize}   &amp;  3x_1 &amp; - &amp; 2x_2 \\
 \text{subject to} &amp; \\
                   &amp;   x_1 &amp; + &amp;  x_2   &amp; \le &amp;   2 \\
                   &amp; -2x_1 &amp; - &amp; 2x_2   &amp; \le &amp; -10 \\
                   &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;   0.
-\end{array}</p>
+\end{array}
+$$</p>
 </blockquote>
 <p>(Omit!)</p>
 <h2 id="291-7">29.1-7</h2>
 <blockquote>
 <p>Show that the following linear program is unbounded:</p>
-<p>\begin{array}{lccccc}
+<p>$$
+\begin{array}{lccccc}
 \text{minimize}   &amp;   x_1 &amp; - &amp;  x_2 \\
 \text{subject to} &amp; \\
                   &amp; -2x_1 &amp; + &amp;  x_2   &amp; \le &amp; -1 \\
                   &amp;  -x_1 &amp; - &amp; 2x_2   &amp; \le &amp; -2 \\
                   &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;  0.
-\end{array}</p>
+\end{array}
+$$</p>
 </blockquote>
 <p>(Omit!)</p>
 <h2 id="291-8">29.1-8</h2>
@@ -6001,9 +6011,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

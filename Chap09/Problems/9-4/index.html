@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5693,25 +5695,30 @@ $$</p>
 <p>$$|Z_{ijk}| = \max(j - i + 1, j - k + 1, k - i + 1).$$</p>
 <p>As in the quicksort analysis, we observe that until an element from $Z_{ijk}$ is chosen as the pivot, the whole set $Z_{ijk}$ is together in the same partition, and so each element of $Z_{ijk}$ is equally likely to be the first one chosen as the pivot.</p>
 <p>Letting $C$ be the event that $z_i$ is compared with $z_j$ during the execution of the algorithm, we have that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_{ijk}] 
     &amp; = \Pr\{C\} \\
     &amp; = \Pr\{z_i \text{ or } z_j \text{ is the first pivot chosen from } Z_{ijk}\} \\
     &amp; = \Pr\{z_i \text{ is the first pivot chosen from } Z_{ijk}\} + \Pr\{z_j \text{ is the first pivot chosen from } Z_{ijk}\} \\
     &amp; = \frac{1}{|Z_{ijk}|} + \frac{1}{|Z_{ijk}|} \\
     &amp; = \frac{2}{\max(j - i + 1, j - k + 1, k - i + 1)}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>b.</strong> Adding up all the possible pairs that might be compared gives</p>
 <p>$$X_k = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ijk},$$</p>
 <p>and so, by linearity of expectation, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_k]
     &amp; = \text E \Bigg[\sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n X_{ijk} \Bigg] \\
     &amp; = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n \text E[X_{ijk}] \\
     &amp; = \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n \frac{2}{\max(j - i + 1, j - k + 1, k - i + 1)}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>We break this sum into the same three cases as before: $i \le k \le j$, $k &lt; i$ and $j &lt; k$. With $k$ fixed, we vary $i$ and $j$. We get an inequality because we cannot have $i = k = j$, but our summation will allow it:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_k]
     &amp; \le 2\Bigg(\sum_{i = 1}^k \sum_{j = k}^n \frac{1}{j - i + 1} 
                + \sum_{j = k + 1}^n \sum_{i = k + 1}^{j - 1} \frac{1}{j - k + 1} 
@@ -5719,16 +5726,19 @@ $$</p>
     &amp; =   2\Bigg(\sum_{i = 1}^k \sum_{j = k}^n \frac{1}{j - i + 1} 
                + \sum_{j = k + 1}^n \frac{j - k - 1}{j - k + 1} 
                + \sum_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}\Bigg).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>c.</strong> First, let's focus on the latter two summations. Each one sums fractions that are strictly less than 1. The middle summation has $n - k$ terms, and the right-hand summation has $k - 2$ terms, and so the latter two summations sum to less than $n$.</p>
 <p>Now we look at the first summation. Let $m = j - i$. There is only one way for $m$ to equal $0$: if $i = k = j$. There are only two ways for $m$ to equal $1$: if $i = k - 1$ and $j = k$, or if $i = k$ and $j = k + 1$. There are only three ways for $m$ to equal $2$: if $i = k - 2$ and $j = k$, if $i = k - 1$ and $j = k + 1$, or if $i = k$ and $j = k + 2$. Continuing on, we see that there are at most $m + 1$ ways for $j - i$ to equal $m$. Since $j - i \le n - 1$, we can rewrite the first summation as</p>
 <p>$$\sum_{m = 0}^{n - 1} \frac{m + 1}{m + 1} = n.$$</p>
 <p>Thus, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_k]
     &amp; &lt; 2(n + n) \\
     &amp; = 4n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> To show that $\text{RANDOMIZED-SELECT}$ runs in expected time $O(n)$, we adapt Lemma 7.1 for $\text{RANDOMIZED-SELECT}$. The adaptation is trivial: just replace the variable $X$ in the lemma statement by the random variable $X_k$ that we just analyzed. Thus, the expected running time of $\text{RANDOMIZED-SELECT}$ is $O(n + X_k) = O(n)$.</p>
                 
                   
@@ -5818,9 +5828,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

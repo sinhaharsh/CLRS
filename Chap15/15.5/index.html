@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5770,7 +5772,8 @@
                 <h2 id="155-1">15.5-1</h2>
 <blockquote>
 <p>Write pseudocode for the procedure $\text{CONSTRUCT-OPTIMAL-BST}(root)$ which, given the table $root$, outputs the structure of an optimal binary search tree. For the example in Figure 15.10, your procedure should print out the structure </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 &amp; \text{$k_2$ is the root} \\
 &amp; \text{$k_1$ is the left  child of $k_2$} \\
 &amp; \text{$d_0$ is the left  child of $k_1$} \\
@@ -5782,7 +5785,8 @@
 &amp; \text{$d_3$ is the right child of $k_3$} \\
 &amp; \text{$d_4$ is the right child of $k_4$} \\
 &amp; \text{$d_5$ is the right child of $k_5$}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>corresponding to the optimal binary search tree shown in Figure 15.9(b).</p>
 </blockquote>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -5812,12 +5816,14 @@
 <h2 id="155-2">15.5-2</h2>
 <blockquote>
 <p>Determine the cost and structure of an optimal binary search tree for a set of $n = 7$ keys with the following probabilities</p>
-<p>\begin{array}{c|cccccccc}
+<p>$$
+\begin{array}{c|cccccccc}
 i   &amp; 0    &amp; 1    &amp; 2    &amp; 3    &amp; 4    &amp; 5    &amp; 6    &amp; 7 \\
 \hline
 p_i &amp;      &amp; 0.04 &amp; 0.06 &amp; 0.08 &amp; 0.02 &amp; 0.10 &amp; 0.12 &amp; 0.14 \\
 q_i &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.05 &amp; 0.05 &amp; 0.05 &amp; 0.05
-\end{array}</p>
+\end{array}
+$$</p>
 </blockquote>
 <h2 id="155-3">15.5-3</h2>
 <blockquote>
@@ -5927,9 +5933,11 @@ q_i &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.06 &amp; 0.05 &amp; 0.05 &amp; 0.05
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

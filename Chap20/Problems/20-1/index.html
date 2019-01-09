@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5707,10 +5709,12 @@
 <p><strong>a.</strong> Lets look at what has to be stored for a vEB tree. Each vEB tree contains one vEB tree of size $\sqrt[+]u$ and $\sqrt[+]u$ vEB trees of size $\sqrt[1]u$. It also is storing three numbers each of order $O(u)$, so they need $\Theta(\lg(u))$ space each. Lastly, it needs to store $\sqrt u$ many pointers to the cluster vEB trees. We'll combine these last two contributions which are $\Theta(\lg(u))$ and $\Theta(\sqrt u)$ respectively into a single term that is $\Theta(\sqrt u)$. This gets us the recurrence</p>
 <p>$$P(u) = P(\sqrt[+]u) + \sqrt[+]u P(\sqrt[-]u) + \Theta(\sqrt u).$$</p>
 <p>Then, we have that $u = 2^{2m}$ (which follows from the assumption that $\sqrt u$ was an integer), this equation becomes</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P(u) &amp; = (1 + 2^m)P(2^m) + \Theta(\sqrt u) \\
      &amp; = (1 + \sqrt u)P(\sqrt u) + \Theta(\sqrt u)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>as desired.</p>
 <p><strong>b.</strong> We recall from our solution to problem 3-6.e (it seems like so long ago now) that given a number $n$, a bound on the number of times that we need to take the squareroot of a number before it falls below $2$ is $\lg\lg n$. So, if we just unroll out recurrence, we get that</p>
 <p>$$P(u) \le \Big(\prod_{i = 1}^{\lg\lg u}(u^{1 / 2^i} + 1) \Big) P(2) + \sum_{i = 1}^{\lg\lg u} \Theta(u^{1 / 2^i})(u^{1 / 2i} + 1).$$</p>
@@ -5808,9 +5812,11 @@ P(u) &amp; = (1 + 2^m)P(2^m) + \Theta(\sqrt u) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

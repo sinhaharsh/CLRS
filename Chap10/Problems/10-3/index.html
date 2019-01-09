@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5769,7 +5771,8 @@
 <p><strong>d.</strong> Since we have that $t &gt; 0$, we know that the function $f(x) = x^t$ is increasing, so, that means that $\lfloor x \rfloor^t \le f(x)$. So,</p>
 <p>$$\sum_{r = 0}^{n - 1} r^t = \int_0^n \lfloor r \rfloor^t dr \le \int_0^n f(r)dr = \frac{n^{t + 1}}{t + 1}.$$</p>
 <p><strong>e.</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_t] &amp; \le \sum_{r = 1}^n (1 - r / n)^t \\
              &amp; =   \sum_{r = 1}^n \sum_{i = 0}^t \binom{t}{i} (-r / n)^i \\
              &amp; =   \sum_{i = 0}^t \sum_{r = 1}^n \binom{t}{i} (-r / n)^i \\
@@ -5778,7 +5781,8 @@
              &amp; \le \sum_{i = 0}^t \binom{t}{i} (-1)^i \frac{n^i}{i + 1} \\
              &amp; =   \frac{1}{t + 1} \sum_{i = 0}^t \binom{t + 1}{i + 1} (-n)^i \\
              &amp; \le \frac{(1 - n)^{t + 1}}{t + 1}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>f.</strong> We just put together parts (b) and (e) to get that it runs in time $O(t + n / (t + 1))$. But, this is the same as $O(t + n / t)$.</p>
 <p><strong>g.</strong> Since we have that for any number of iterations $t$ that the first algorithm takes to find its answer, the second algorithm will return it in time $O(t + n / t)$. In particular, if we just have that $t = \sqrt n$. The second algorithm takes time only $O(\sqrt n)$. This means that tihe first list search algorithm is $O(\sqrt n)$ as well.</p>
 <p><strong>h.</strong> If we don't have distinct key values, then, we may randomly select an element that is further along than we had been before, but not jump to it because it has the same key as what we were currently at. The analysis will break when we try to bound the probability that $X_t \ge i$.</p>
@@ -5870,9 +5874,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

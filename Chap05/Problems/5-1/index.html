@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5681,57 +5683,71 @@
 <li>Let $V_n$ be the value represented by the counter after $n$ $\text{INCREMENT}$ operations.</li>
 </ul>
 <p>Then $V_n = X_1 + X_2 + \cdots + X_n$. We want to compute $\text E[V_n]$. By linearity of expection,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[V_n] &amp; = \text E[X_1 + X_2 + \cdots + X_n] \\
              &amp; = \text E[X_1] + \text E[X_2] + \cdots + \text E[X_n].
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>We shall show that $\text E[X_j] = 1$ for $j = 1, 2, \ldots, n$, which will prove that $\text E[V_n] = n$.</p>
 <p>We actually show that $\text E[X_j] = 1$ in two ways, the second more rigorous than the first:</p>
 <ol>
 <li>
 <p>Suppose that at the start of the $j$th $\text{INCREMENT}$ operation, the counter holds the value $i$, which represents $n_i$. If the counter increases due to this $\text{INCREMENT}$ operation, then the value it represents increases by $n_{i + 1} - n_i$. The counter increases with probability $1 / (n_{i + 1} - n_i)$, and so</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_j] &amp; = (0 \cdot \Pr\{\text{counter does not increase}\}) + ((n_{i + 1} - n_i) \cdot \Pr\{\text{counter increases}\}) \\
              &amp; = \Big(0 \cdot\Big(1 - \frac{1}{n_{i + 1} - n_i}\Big)\Big) + \Big((n_{i + 1} - n_i) \cdot \frac{1}{n_{i + 1} - n_i}\Big) \\
              &amp; = 1,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and so $\text E[X_j] = 1$ regardless of the value held by the counter.</p>
 </li>
 <li>
 <p>Let $C_j$ be the random variable denoting the value held in the counter at the start of the $j$th $\text{INCREMENT}$ operation. Since we can ignore values of $C_j$ greater than $2^b - 1$, we use a formula for conditional expectation:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_j] &amp; = \text E[\text E[X_j\mid C_j]] \\
              &amp; = \sum_{i = 0}^{2^b - 1} \text E[X_j \mid C_j = i] \cdot \Pr\{C_j = i\}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>To compute $\text E[X_j \mid C_j = i]$, we note that</p>
-<p>$$\Pr\{X_j = 0 \mid C_j = i\} = 1 - 1 / (n_{i + 1} - n_i),$$
-$$\Pr\{X_j = n_{i + 1} - n_i \mid C_j = i\} = 1 / (n_{i + 1} - n_i),$$ and
-$$\Pr\{X_j = k \mid C_j = i\} = 0$$ for all other $k$.</p>
+<p>$$\Pr\{X_j = 0 \mid C_j = i\} = 1 - 1 / (n_{i + 1} - n_i),$$</p>
+<p>$$\Pr\{X_j = n_{i + 1} - n_i \mid C_j = i\} = 1 / (n_{i + 1} - n_i),$$</p>
+<p>and</p>
+<p>$$\Pr\{X_j = k \mid C_j = i\} = 0$$</p>
+<p>for all other $k$.</p>
 <p>Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_j \mid C_j = i] &amp; = \sum_k k \cdot \Pr\{X_j = k \mid C_j = i\} \\
                        &amp; = \Big(0 \cdot \Big(1 - \frac{1}{n_{i + 1} - n_i}\Big)\Big) + \Big((n_{i + 1} - n_i) \cdot \frac{1}{n_{i + 1} - n_i}\Big) \\
                        &amp; = 1.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Therefore, noting that</p>
 <p>$$\sum_{i = 0}^{2^b - 1}\Pr\{C_j = i\} = 1,$$</p>
 <p>we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_j] &amp; = \sum_{i = 0}^{2^b - 1}1 \cdot \Pr\{C_j = i\} \\
              &amp; = 1.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Why is the second way more rigorous than the first? Both ways condition on the value held in the counter, but only the second way incorporates the conditioning into the expression for $\text E[X_j]$.</p>
 </li>
 </ol>
 <p><strong>b.</strong> Defining $V_n$ and $X_j$ as in part (a), we want to compute $\text{Var}[V_n]$, where $n_i = 100i$. The $X_j$ are pairwise independent, and so by equation $\text{(C.29)}$,</p>
 <p>$$\text{Var[$V_1$]} + \text{Var[$V_2$]} + \cdots + \text{Var[$V_n$]}.$$</p>
 <p>Since $n_i = 100i$, we see that $n_{i + 1} - n_i = 100(i + 1) - 100i = 100$. Therefore, with probability $99 / 100$, the increase in the value represented by the counter due to the $j$th $\text{INCREMENT}$ operation is $0$, and with probability $1 / 100$, the value represented increases by $100$. Thus, by equation $\text{(C.27)}$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text{Var[$X_j$]} &amp; = \text E[X_j^2] - \text E^2[X_j] \\
                   &amp; = \Big(\Big(0^2 \cdot \frac{99}{100}\Big) + \Big(100^2 \cdot \frac{1}{100}\Big)\Big) - 1^2 \\
                   &amp; = 100 - 1 \\
                   &amp; = 99.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Summing up the variances of the $X_j$ gives $\text{Var}[V_n] = 99n$.</p>
                 
                   
@@ -5821,9 +5837,11 @@ $$\Pr\{X_j = k \mid C_j = i\} = 0$$ for all other $k$.</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

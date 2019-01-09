@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5690,12 +5692,14 @@
 Using the recursion tree shown below, we get a guess of $T(n) = \Theta(n^2)$.</p>
 <p><img alt="" src="https://i.imgur.com/W0FxTiC.png" /></p>
 <p>First, we prove the $T(n) = \Omega(n^2)$ part by induction. The inductive hypothesis is $T(n) \ge cn^2$ for some constant $c &gt; 0$.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T(n) &amp; =   T(n - 1) + n \\
      &amp; \ge c(n - 1)^2 + n \\
      &amp; =   cn^2 - 2cn + c + n \\
      &amp; \ge cn^2,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>if $-2cn + n + c \ge 0$ or, equivalently, $n(1 - 2c) + c \ge 0$. This condition holds when $n \ge 0$ and $0 &lt; c \le 1 / 2$.</p>
 <p>For the upper bound, $T(n) = O(n^2)$, we use the inductive hypothesis that $T(n) \le cn^2$ for some constant $c &gt; 0$. By a similar derivation, we get that $T(n) \le cn^2$ if $-2cn + n + c \le 0$ or, equivalently, $n(1 - 2c) + c \le 0$. This condition holds for $c = 1$ and $n \ge 1$.</p>
 <p>Thus, $T(n) = \Omega(n^2)$ and $T(n) = O(n^2)$, so we conclude that $T(n) = \Theta(n^2)$.</p>
@@ -5789,9 +5793,11 @@ The easy way to do this is with a change of variables, as on page 86 of the text
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

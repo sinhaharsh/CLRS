@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5669,17 +5671,20 @@
                 
                 <blockquote>
 <p><strong>a.</strong> Rank the following functions by order of growth; that is, find an arrangement $g_1, g_2, \ldots , g_{30}$ of the functions $g_1 = \Omega(g_2), g_2 = \Omega(g_3), \ldots, g_{29} = \Omega(g_{30})$. Partition your list into equivalence classes such that functions $f(n)$ and $g(n)$ are in the same class if and only if $f(n) = \Theta(g(n))$.</p>
-<p>\begin{array}{cccccc}
+<p>$$
+\begin{array}{cccccc}
 \lg(\lg^{^*}n) \quad &amp; \quad 2^{\lg^*n} \quad &amp; \quad (\sqrt 2)^{\lg n} \quad &amp; \quad n^2 \quad &amp; \quad n! \quad &amp; \quad (\lg n)! \\
 (\frac{3}{2})^n \quad &amp; \quad n^3 \quad &amp; \quad \lg^2 n \quad &amp; \quad \lg(n!) \quad &amp; \quad 2^{2^n} \quad &amp; \quad n^{1/\lg n} \\
 \lg\lg n \quad &amp; \quad \lg^* n \quad &amp; \quad n\cdot 2^n \quad &amp; \quad n^{\lg\lg n} \quad &amp; \quad \lg n \quad &amp; \quad 1 \\
 2^{\lg n} \quad &amp; \quad (\lg n)^{\lg n} \quad &amp; \quad e^n \quad &amp; \quad 4^{\lg n}  \quad &amp; \quad (n + 1)! \quad &amp; \quad \sqrt{\lg n} \\
 \lg^*(\lg n) \quad &amp; \quad 2^{\sqrt{2\lg n}} \quad &amp; \quad n \quad &amp; \quad 2^n \quad &amp; \quad n\lg n \quad &amp; \quad 2^{2^{n + 1}}
-\end{array}</p>
+\end{array}
+$$</p>
 <p><strong>b.</strong> Give an example of a single nonnegative function $f(n)$ such that for all functions $g_i(n)$ in part (1), $f(n)$ is neither $O(g_i(n))$ nor $\Omega(g_i(n))$.</p>
 </blockquote>
 <p><strong>a.</strong> Here is the ordering, where functions on the same line are in the same equivalence class, and those higher on the page are $\Omega$ of those below them:</p>
-<p>\begin{array}{ll}
+<p>$$
+\begin{array}{ll}
 2^{2^{n + 1}}                      &amp; \\
 2^{2^n}                            &amp; 
 (n + 1)!                           &amp; \\
@@ -5704,7 +5709,8 @@ n = 2^{\lg n}                      &amp; \text{see identity 3} \\
 \lg^*n \text{ and } \lg^*(\lg n) &amp; \text{see identity 7} \\
 \lg(\lg^*)n                       &amp; \\
 n^{1 / \lg n}(= 2) \text{ and } 1  &amp; \text{see identity 4} 
-\end{array}</p>
+\end{array}
+$$</p>
 <p>Much of the ranking is based on the following properties:</p>
 <ul>
 <li>Exponential functions grow faster than polynomial functions, which grow faster than polylogarithmic functions.</li>
@@ -5826,9 +5832,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

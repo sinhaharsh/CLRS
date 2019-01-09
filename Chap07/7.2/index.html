@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5800,12 +5802,14 @@
 <p>Use the substitution method to prove that the recurrence $T(n) = T(n - 1) + \Theta(n)$ has the solution $T(n) = \Theta(n^2)$, as claimed at the beginning of section 7.2.</p>
 </blockquote>
 <p>We represent $\Theta(n)$ as $c_2n$ and we guess that $T(n) \le c_1n^2$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T(n) &amp; =   T(n - 1) + c_2n \\
      &amp; \le c_1(n - 1)^2 + c_2n \\
      &amp; =   c_1n^2 - 2c_1n + c_1 + c_2n &amp; (2c_1 &gt; c_2, n \ge c_1 / (2c_1 - c_2)) \\
      &amp; \le c_1n^2. 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="72-2">7.2-2</h2>
 <blockquote>
 <p>What is the running time of $\text{QUICKSORT}$ when all elements of the array $A$ have the same value?</p>
@@ -5923,9 +5927,11 @@ T(n) &amp; =   T(n - 1) + c_2n \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

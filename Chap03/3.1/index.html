@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5848,22 +5850,28 @@ $$</p>
 </blockquote>
 <p>To show that $(n + a)^b = \Theta(n^b)$, we want to find constants $c_1, c_2, n_0 &gt; 0$ such that $0 \le c_1 n^b \le (n + a)^b \le c_2 n^b$ for all $n \ge n_0$.</p>
 <p>Note that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 n + a &amp; \le n + |a| &amp; \\
       &amp; \le 2n      &amp; \text{ when } |a| \le n,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 n + a &amp; \ge n - |a|           &amp; \\
       &amp; \ge \frac{1}{2}n      &amp; \text{ when } |a| \le \frac{1}{2}n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, when $n \ge 2|a|$,</p>
 <p>$$0 \le \frac{1}{2}n \le n + a \le 2n.$$</p>
 <p>Since $b &gt; 0$, the inequality still holds when all parts are raised to the power $b$:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 0 \le \Big(\frac{1}{2}n\Big)^b    &amp; \le (n + a)^b \le (2n)^b, \\
 0 \le \Big(\frac{1}{2}\Big)^b n^b &amp; \le (n + a)^b \le 2^b n^b.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, $c_1 = (1 / 2)^b$, $c_2 = 2^b$, and $n_0 = 2|a|$ satisfy the definition.</p>
 <h2 id="31-3">3.1-3</h2>
 <blockquote>
@@ -5903,10 +5911,12 @@ $$</p>
 <p>$$0 \le c_1 g(n) \le f(n) \le c_2g(n) \text{ for } n &gt; n_0.$$</p>
 <p>We can pick the constants from here and use them in the definitions of $O$ and $\Omega$ to show that both hold.</p>
 <p>From $f(n) = \Omega(g(n))$ and $f(n) = O(g(n))$, we have that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
             &amp; 0 \le c_3g(n) \le f(n) &amp; \text{ for all } n \ge n_1 \\
 \text{and } &amp; 0 \le f(n) \le c_4g(n) &amp; \text{ for all } n \ge n_2.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If we let $n_3 = \max(n_1, n_2)$ and merge the inequalities, we get</p>
 <p>$$0 \le c_3g(n) \le f(n) \le c_4g(n) \text{ for all } n &gt; n_3.$$</p>
 <p>Which is the definition of $\Theta$.</p>
@@ -5915,10 +5925,12 @@ $$</p>
 <p>Prove that the running time of an algorithm is $\Theta(g(n))$ if and only if its worst-case running time is $O(g(n))$ and its best-case running time is $\Omega(g(n))$.</p>
 </blockquote>
 <p>If $T_w$ is the worst-case running time and $T_b$ is the best-case running time, we know that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
             &amp; 0 \le c_1g(n) \le T_b(n) &amp; \text{ for } n &gt; n_b \\
 \text{and } &amp; 0 \le T_w(n) \le c_2g(n) &amp; \text{ for } n &gt; n_w.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Combining them we get</p>
 <p>$$0 \le c_1g(n) \le T_b(n) \le T_w(n) \le c_2g(n) \text{ for } n &gt; \max(n_b, n_w).$$</p>
 <p>Since the running time is bound between $T_b$ and $T_w$ and the above is the definition of the $\Theta$-notation, proved.</p>
@@ -5927,36 +5939,44 @@ $$</p>
 <p>Prove $o(g(n)) \cap w(g(n))$ is the empty set.</p>
 </blockquote>
 <p>We know that for any $c &gt; 0$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
             &amp; \exists n_1 &gt; 0: 0 \le f(n) &lt; cg(n) \\
 \text{and } &amp; \exists n_2 &gt; 0: 0 \le cg(n) &lt; f(n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If we pick $n_0 = \max(n_1, n_2)$, from the problem definition we get</p>
 <p>$$f(n) &lt; cg(n) &lt; f(n).$$</p>
 <p>There is no solutions, which means that the intersection is the empty set.</p>
 <h2 id="31-8">3.1-8</h2>
 <blockquote>
 <p>We can extend our notation to the case of two parameters $n$ and $m$ that can go to infinity independently at different rates. For a given function $g(n, m)$ we denote $O(g(n, m))$ the set of functions:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 O(g(n, m)) = \{f(n, m):
   &amp; \text{ there exist positive constants } c, n_0, \text{ and } m_0 \\
   &amp; \text{ such that } 0 \le f(n, m) \le cg(n, m) \\
   &amp; \text{ for all } n \ge n_0 \text{ or } m \ge m_0.\}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Give corresponding definitions for $\Omega(g(n, m))$ and $\Theta(g(n, m))$.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Omega(g(n, m)) = \{f(n, m): 
   &amp; \text{ there exist positive constants } c, n_0, \text{ and } m_0 \\
   &amp; \text{ such that } 0 \le cg(n, m) \le f(n, m) \\
   &amp; \text{ for all } n \ge n_0 \text{ or } m \ge m_0.\}
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 \Theta(g(n, m)) = \{f(n, m): 
   &amp; \text{ there exist positive constants } c_1, c_2, n_0, \text{ and } m_0 \\
   &amp; \text{ such that } 0 \le c_1 g(n, m) \le f(n, m) \le c_2 g(n, m) \\
   &amp; \text{ for all } n \ge n_0 \text{ or } m \ge m_0.\}
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -6045,9 +6065,11 @@ O(g(n, m)) = \{f(n, m):
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

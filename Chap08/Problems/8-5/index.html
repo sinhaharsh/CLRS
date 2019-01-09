@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5681,11 +5683,13 @@
 <p><strong>a.</strong> Ordinary sorting</p>
 <p><strong>b.</strong> $2, 1, 4, 3, 6, 5, 8, 7, 10, 9$.</p>
 <p><strong>c.</strong> </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{\sum_{j = i}^{i + k - 1} A[j]}{k} &amp; \le \frac{\sum_{j = i + 1}^{i + k}A[j]}{k} \\
           \sum_{j = i}^{i + k- 1 } A[j] &amp; \le \sum_{j = i + 1}^{i + k} A[j] \\
                                    A[i] &amp; \le A[i + k].
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> Shell-Sort, i.e., We split the $n$-element array into $k$ part. For each part, we use Insertion-Sort (or Quicksort) to sort in $O(n / k \lg(n / k))$ time. Therefore, the total running time is $k \cdot O(n / k \lg(n / k)) = O(n\lg(n / k))$.</p>
 <p><strong>e.</strong> Using a heap, we can sort a $k$-sorted array of length $n$ in $O(n\lg k)$ time. (The height of the heap is $\lg k$, the solution to Exercise 6.5-9.)</p>
 <p><strong>f.</strong> The lower bound of sorting each part is $\Omega(n / k\lg(n / k))$, so the total lower bound is $\Theta(n\lg n(/k))$. Since $k$ is a constant, therefore $\Theta(n\lg(n / k)) = \Omega(n\lg n)$.</p>
@@ -5777,9 +5781,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

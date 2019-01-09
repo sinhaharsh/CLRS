@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5829,13 +5831,19 @@ $$</p>
 <p>be a $2 \times 2$ symmetrix positive-definite matrix. Prove that its determinant $ac - b^2$ is positive by "completing the square" in a manner similar to that used in the proof of Lemma 28.5.</p>
 </blockquote>
 <p>Let $x = -by / a$. Since $A$ is positive-definite, we have</p>
-<p>\begin{align}
-0 &amp; &lt; \begin{pmatrix} x &amp; y \end{pmatrix}^T A \begin{pmatrix} x \\ y \end{pmatrix} \\
-  &amp; = \begin{pmatrix} x &amp; y \end{pmatrix}^T \begin{pmatrix} ax + by \\ bx + cy \end{pmatrix} \\
+<p>$$
+\begin{aligned}
+0 &amp; &lt;
+\begin{pmatrix} x &amp; y \end{pmatrix}^T A
+\begin{pmatrix} x \\ y \end{pmatrix} \\
+  &amp; =
+\begin{pmatrix} x &amp; y \end{pmatrix}^T
+\begin{pmatrix} ax + by \\ bx + cy \end{pmatrix} \\
   &amp; = ax^2 + 2bxy + cy^2 \\
   &amp; = cy^2 - \frac{b^2y^2}{a} \\
   &amp; = (c - b^2 / a)y^2.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, $c - b^2 / a &gt; 0$, which implies $ac - b^2 &gt; 0$, since $a &gt; 0$.</p>
 <h2 id="283-3">28.3-3</h2>
 <blockquote>
@@ -5863,12 +5871,14 @@ $$</p>
 <h2 id="283-7">28.3-7</h2>
 <blockquote>
 <p>Show that the pseudoinverse $A^+$ satisfies the following four equations:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
            AA^+A &amp; = A, \\
          A^+AA^+ &amp; = A^+, \\
 (AA^+)^{\text T} &amp; = AA^+, \\
 (A^+A)^{\text T} &amp; = A^+A.
-\end{align}</p>
+\end{aligned}
+$$</p>
 </blockquote>
 <p>(Omit!)</p>
                 
@@ -5959,9 +5969,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5950,10 +5952,12 @@ at $x.c_i$.</li>
 <p>Suppose that we were to implement $\text{B-TREE-SEARCH}$ to use binary search rather than linear search within each node. Show that this change makes the CPU time required $O(\lg n)$, independently of how $t$ might be chosen as a function of $n$.</p>
 </blockquote>
 <p>As in the $\text{TREE-SEARCH}$ procedure for binary search trees, the nodes encountered during the recursion form a simple path downward from the root of the tree. Thus, the $\text{B-TREE-SEARCH}$ procedure needs $O(h) = O(\log_t n)$ CPU time to search along the path, where $h$ is the height of the B-tree and $n$ is the number of keys in the B-tree, and we know that $h \le \log_t \frac{n + 1}{2}$. Since the number of keys in each nodeis less than $2t - 1$, a binary search within each node is $O(\lg t)$. So the total time is:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 O(\lg t \cdot \log_t n) &amp; = O(\lg t \cdot \frac{\lg n}{\lg t}) &amp; \text{by changing the base of the logarithm.} \\
                         &amp; = O(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the CPU time required is $O(\lg n)$.</p>
 <h2 id="182-7">18.2-7</h2>
 <blockquote>
@@ -5961,11 +5965,13 @@ O(\lg t \cdot \log_t n) &amp; = O(\lg t \cdot \frac{\lg n}{\lg t}) &amp; \text{b
 </blockquote>
 <p>$$\min \log_t n \cdot (a + bt) = \min \frac{a + bt}{\ln t}$$</p>
 <p>$$\frac{\partial}{\partial t} (\frac{a + bt}{\ln t}) = - \frac{a + bt - bt \ln t}{t \ln^2 t}$$</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
  a + bt &amp; = bt \ln t \\
 5 + 10t &amp; = 10t \ln t \\
       t &amp; = e^{W \left(\frac{1}{2e} \right) + 1}, \\
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where $W$ is the LambertW function, and we should choose $t = 3$.</p>
                 
                   
@@ -6055,9 +6061,11 @@ O(\lg t \cdot \log_t n) &amp; = O(\lg t \cdot \frac{\lg n}{\lg t}) &amp; \text{b
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

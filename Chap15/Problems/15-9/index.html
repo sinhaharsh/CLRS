@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5743,13 +5745,15 @@ $$</p>
 <p>Finally, we add the length of the substring $L[j] - L[i]$ to $cost[i, j]$ because, irrespective of what we choose as the first break, it costs us a price equal to the length of the substring to make a break.</p>
 <p>The lowest cost for the original problem ends up in $cost[1, m]$. By our initialization, $L[1] = 0$ and $L[m] = n$. Thus, $cost[1, m]$ will hold the optimum price of cutting the substring from $L[1] + 1 = 1$ to $L[m] = n$, which is the entire string.</p>
 <p>The running time is $\Theta(m^3)$, and it is dictated by the three nested <strong>for</strong> loops. They fill in the entries above the main diagonal of the two tables, except for entries in which $j = i + 1$. That is, they fill in rows $i = 1, 2, \ldots, m - 2$, entries $j = i + 2, i + 3, \ldots, m$. When filling in entry $[i, j]$, we check values of $k$ running from $i + 1$ to $j - 1$, or $j - i - 1$ entries. Thus, the total number of iterations of the innermost <strong>for</strong> loop is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum{i = 1}^{m - 2} \sum{j = i + 2}^m (j - i - 1) 
     &amp; = \sum_{i = 1}^{m - 2} \sum{d = 1}^{m - i - 1} d &amp; \text{($d = j - i - 1$)} \\
     &amp; = \sum_{i = 1}^{m - 2} \Theta((m - i)^2)         &amp; \text{(equation (A.2))} \\
     &amp; = \sum_{h = 2}^{m - 1} \Theta(h^2)               &amp; (h = m - i) \\
     &amp; = \Theta(m^3).                                   &amp; \text{(equation (A.3))}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Since each iteration of the innermost <strong>for</strong> loop takes constant time, the total running time is $\Theta(m^3)$. Note in particular that the running time is independent of the length of the string $n$.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -5852,9 +5856,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

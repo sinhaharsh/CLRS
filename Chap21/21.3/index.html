@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5795,7 +5797,8 @@
 <blockquote>
 <p>Give a sequence of $m$ $\text{MAKE-SET}$, $\text{UNION}$, and $\text{FIND-SET}$ operations, $n$ of which are $\text{MAKE-SET}$ operations, that takes $\Omega(m\lg n)$ time when we use union by rank only.</p>
 </blockquote>
-<p>You need to find a sequence of $m$ operations on $n$ elements that takes $\Omega(m\lg n)$ time. Start with $n$ $\text{MAKE-SET}$s to create singleton sets ${x_1}, {x_2}, \ldots, {x_n}$. Next perform the $n - 1$ $\text{UNION}$ operations shown below to create a single set whose tree has depth $\lg n$.
+<p>You need to find a sequence of $m$ operations on $n$ elements that takes $\Omega(m\lg n)$ time. Start with $n$ $\text{MAKE-SET}$s to create singleton sets ${x_1}, {x_2}, \ldots, {x_n}$. Next perform the $n - 1$ $\text{UNION}$ operations shown below to create a single set whose tree has depth $\lg n$.</p>
+<p>$$
 \begin{array}{ll}
 \hline
 \text{UNION($x_1, x_2$)} &amp; \text{$n / 2$ of these} \\
@@ -5820,7 +5823,8 @@
 \hline
 \text{UNION($x_{n / 2}, x_n$)} &amp; \text{$1$ of these} \\
 \hline
-\end{array}</p>
+\end{array}
+$$</p>
 <p>Finally, perform $m - 2n + 1$ $\text{FIND-SET}$ operations on the deepest element in the tree. Each of these $\text{FIND-SET}$ operations takes $\Omega(\lg n)$ time. Letting $m \ge 3n$, we have more than $m / 3$ $\text{FIND-SET}$ operations, so that the total cost is $\Omega(m\lg n)$.</p>
 <h2 id="213-4">21.3-4</h2>
 <blockquote>
@@ -5925,9 +5929,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

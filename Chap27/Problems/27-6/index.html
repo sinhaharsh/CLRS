@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5676,11 +5678,13 @@
 <p><strong>e.</strong> Analyze your multithreaded algorithm for randomized quicksort. ($\textit{Hint:}$ Review the analysis of $\text{RANDOMIZED-SELECT}$ on page 216.)</p>
 </blockquote>
 <p><strong>a.</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[T_P] &amp; \ge \text E[T_1] / P \\
 \text E[T_P] &amp; \ge \text E[T_\infty] \\
 \text E[T_P] &amp; \le \text E[T_1]/P + \text E[T_\infty].
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>b.</strong></p>
 <p>$$\text E[T_1] \approx \text E[T_{10,000}] \approx 9.9 \times 10^8, \text E[T_1]/\text E[T_P] = 1.$$</p>
 <p>$$\text E[T_1 / T_{10,000}] = 10^4 * 0.01 + 0.99 = 100.99.$$</p>
@@ -5701,11 +5705,13 @@
 </td></tr></table>
 
 <p><strong>e.</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[T_1] &amp; = O(n\lg n) \\
 \text E[T_\infty] &amp; = O(\lg n) \\
 \text E[T_1] / \text E[T_\infty] &amp; = O(n).
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5794,9 +5800,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

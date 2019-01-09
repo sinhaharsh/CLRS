@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5897,22 +5899,26 @@
 <blockquote>
 <p>Prove that if $a &gt; b &gt; 0$ and $c = a + b$, then $c \mod a = b$.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 c \mod a &amp; = (a + b) \mod a \\
          &amp; = (a \mod a) + (b \mod a) \\
          &amp; = 0 + b \\
          &amp; = b.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="311-2">31.1-2</h2>
 <blockquote>
 <p>Prove that there are infinitely many primes.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
     ((p_1 p_2 \cdots p_k) + 1) \mod p_i
-= &amp; (p_1 p_2 \cdots p_k) \mod p_i + (1 \mod p_i) \\
-= &amp; 0 + 1 \\
-= &amp; 1.
-\end{align}</p>
+&amp; = (p_1 p_2 \cdots p_k) \mod p_i + (1 \mod p_i) \\
+&amp; = 0 + 1 \\
+&amp; = 1.
+\end{aligned}
+$$</p>
 <h2 id="311-3">31.1-3</h2>
 <blockquote>
 <p>Prove that if $a \mid b$ and $b \mid c$, then $a \mid c$.</p>
@@ -5935,10 +5941,12 @@ c \mod a &amp; = (a + b) \mod a \\
 <p>For all positive integers $n$, $a$, and $b$, if $n \mid ab$ and $\gcd(a, n) = 1$, then $n \mid b$.</p>
 </blockquote>
 <p>Since $n \mid ab$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
     ab &amp; = nk \\
     b  &amp; = nk / a.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Since $\gcd(a, n) = 1$, $n / a$ could not be an integer.</p>
 <p>Since $b$ is an integer, then $k / a$ must be an integer, we have</p>
 <p>$$b = nk / a = n (k / a) = n k',$$</p>
@@ -5948,11 +5956,13 @@ c \mod a &amp; = (a + b) \mod a \\
 <p>Prove that if $p$ is prime and $0 &lt; k &lt; p$, then $p \mid \binom{p}{k}$. Conclude that for all integers $a$ and $b$ and all primes $p$,</p>
 <p>$(a + b)^p \equiv a^p + b^p (\mod p)$.</p>
 </blockquote>
-<p>\begin{array}{rlll}
+<p>$$
+\begin{array}{rlll}
 (a + b) ^ p &amp; \equiv &amp; a^p + \binom{p}{1} a^{p - 1}b^{1} + \cdots + \binom{p}{p - 1} a^{1}b^{p - 1} + b^p &amp; (\mod p) \\
             &amp; \equiv &amp; a^p + 0 + \cdots + 0 + b^p                                                         &amp; (\mod p) \\
             &amp; \equiv &amp; a^p + b^p                                                                          &amp; (\mod p)
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="311-7">31.1-7</h2>
 <blockquote>
 <p>Prove that if $a$ and $b$ are any positive integers such that $a \mid b$, then</p>
@@ -6088,9 +6098,11 @@ c \mod a &amp; = (a + b) \mod a \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

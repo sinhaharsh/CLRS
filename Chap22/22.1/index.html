@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5838,7 +5840,8 @@
 <ul>
 <li>
 <p><strong>Adjacency-list representation</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 1 &amp;: 2 \rightarrow 3 \\
 2 &amp;: 1 \rightarrow 4 \rightarrow 5 \\
 3 &amp;: 1 \rightarrow 6 \rightarrow 7 \\
@@ -5846,7 +5849,8 @@
 5 &amp;: 2 \\
 6 &amp;: 3 \\
 7 &amp;: 3.
-\end{align}</p>
+\end{aligned}
+$$</p>
 </li>
 <li>
 <p><strong>Adjacency-matrix representation</strong></p>
@@ -6008,7 +6012,7 @@ $$</p>
 BB^\text T(i, j) =
 \begin{cases}
 \text{degree of $i$ = in-degree + out-degree}   &amp; \text{if $i = j$}, \\
-\text{$-$(# of edges connecting $i$ and $j$)}  &amp; \text{if $i \ne j$}.
+\text{$-$(\# of edges connecting $i$ and $j$)} &amp; \text{if $i \ne j$}.
 \end{cases}
 $$</p>
 <h2 id="221-8">22.1-8</h2>
@@ -6104,9 +6108,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

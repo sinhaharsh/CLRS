@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5882,7 +5884,8 @@
                 <h2 id="244-1">24.4-1</h2>
 <blockquote>
 <p>Find a feasible solution or determine that no feasible solution exists for the following system of difference constraints:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 x_1 - x_2 &amp; \le &amp; 1,  \\
 x_1 - x_4 &amp; \le &amp; -4, \\
 x_2 - x_3 &amp; \le &amp; 2,  \\
@@ -5893,7 +5896,8 @@ x_4 - x_2 &amp; \le &amp; 2,  \\
 x_5 - x_1 &amp; \le &amp; -1, \\
 x_5 - x_4 &amp; \le &amp; 3,  \\
 x_6 - x_3 &amp; \le &amp; 8
-\end{align}</p>
+\end{aligned}
+$$</p>
 </blockquote>
 <p>Our vertices of the constraint graph will be </p>
 <p>$$\{v_0, v_1, v_2, v_3, v_4, v_5, v_6\}.$$</p>
@@ -5909,7 +5913,8 @@ x_6 - x_3 &amp; \le &amp; 8
 <h2 id="244-2">24.4-2</h2>
 <blockquote>
 <p>Find a feasible solution or determine that no feasible solution exists for the following system of difference constraints:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 x_1 - x_2 &amp; \le &amp;4, \\
 x_1 - x_5 &amp; \le &amp;5, \\
 x_2 - x_4 &amp; \le &amp;-6, \\
@@ -5919,7 +5924,8 @@ x_4 - x_3 &amp; \le &amp;5, \\
 x_4 - x_5 &amp; \le &amp;10, \\
 x_5 - x_3 &amp; \le &amp;-4, \\
 x_5 - x_4 &amp; \le &amp;-8.
-\end{align}</p>
+\end{aligned}
+$$</p>
 </blockquote>
 <p>There is no feasible solution because the constraint graph contains a negative-weight cycle: $(v_1, v_4, v_2, v_3, v_5, v_1)$ has weight $-1$.</p>
 <h2 id="244-3">24.4-3</h2>
@@ -5932,22 +5938,28 @@ x_5 - x_4 &amp; \le &amp;-8.
 <p>Express the single-pair shortest-path problem as a linear program.</p>
 </blockquote>
 <p>Let $\delta(u)$ be the shortest-path weight from $s$ to $u$. Then we want to find $\delta(t)$. $\delta$ must satisfy</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
             \delta(s) &amp; =   0 \\
 \delta(v) - \delta(u) &amp; \le w(u, v) \text{ for all $(u, v) \in E$} &amp; \text{(Lemma 24.10)},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where $w(u, v)$ is the weight of edge $(u, v)$.</p>
 <p>Thus $x_v = \delta(v)$ is a solution to</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
       x_s &amp; = 0 \\
 x_v - x_u &amp; \le w(u, v).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>To turn this into a set of inequalities of the required form, replace $x_s = 0$ by $x_s \le 0$ and $-x_s \le 0$ (i.e., $x_s \ge$). The constraints are now</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
       x_s &amp; \le 0, \\
      -x_s &amp; \le 0. \\
 x_v - x_u &amp; \le w(u, v),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which still has $x_v = \delta(v)$ as a solution.</p>
 <p>However, $\delta$ isn't the only solution to this set of inequalities. (For example, if all edge weights are nonnegative, all $x_i = 0$ is a solution.) To force $x_t = \delta(t)$ as required by the shortest-path problem, add the requirement to maximize (the objective function) $x_t$. This is correct because</p>
 <ul>
@@ -6097,9 +6109,11 @@ x_v - x_u &amp; \le w(u, v),
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

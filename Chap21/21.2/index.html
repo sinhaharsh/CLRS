@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5918,13 +5920,15 @@
 <p>Consider the usual sequence of $m$ $\text{MAKE-SET}$, $\text{UNION}$, and $\text{FIND-SET}$ operations, $n$ of which are $\text{MAKE-SET}$ operations, and let $l &lt; n$ be the number of $\text{UNION}$ operations. (Recall the discussion in Section 21.1 about there being at most $n - 1$ $\text{UNION}$ operations.) Then there are $n$ $\text{MAKE-SET}$ operations, $l$ $\text{UNION}$ operations, and $m - n - l$ $\text{FIND-SET}$ operations.</p>
 <p>The theorem didn't separately name the number $l$ of $\text{UNION}$s; rather, it bounded the number by $n$. If you go through the proof of the theorem with $l$ $\text{UNION}$s, you get the time bound $O(m - l + l\lg l) = O(m + l\lg l)$ for the sequence of operations. That is, the actual time taken by the sequence of operations is at most $c(m + l\lg l)$, for some constant $c$.</p>
 <p>Thus, we want to assign operation charges such that</p>
-<p>\begin{array}{ll}
+<p>$$
+\begin{array}{ll}
   \text{(MAKE-SET charge)} &amp; \cdot \quad n \\
 + \text{(FIND-SET charge)} &amp; \cdot \quad (m - n - l) \\
 + \text{(UNION charge)}    &amp; \cdot \quad l \\
 \hline
 \ge c(m + l\lg l),
-\end{array}</p>
+\end{array}
+$$</p>
 <p>so that the amortized costs give an upper bound on the actual costs.</p>
 <p>The following assignments work, where $c'$ is some constant $\ge c$:</p>
 <ul>
@@ -5933,12 +5937,14 @@
 <li>$\text{UNION}$: $c'(\lg n + 1)$</li>
 </ul>
 <p>Substituting into the above sum, we get</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 c'n + c'(m - n - l) + c'(\lg n + 1)l 
     &amp; = c'm + c'l\lg n \\
     &amp; = c'(m + l\lg n) \\
     &amp; &gt; c(m + l\lg l).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="212-4">21.2-4</h2>
 <blockquote>
 <p>Give a tight asymptotic bound on the running time of the sequence of operations in Figure 21.3 assuming the linked-list representation and the weighted-union heuristic.</p>
@@ -6042,9 +6048,11 @@ c'n + c'(m - n - l) + c'(\lg n + 1)l
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

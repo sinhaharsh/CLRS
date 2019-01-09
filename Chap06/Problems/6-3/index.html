@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5677,12 +5679,14 @@
 <p><strong>f.</strong> Give an $O(m + n)$-time algorithm to determine whether a given number is stored in a given $m \times n$ Young tableau.</p>
 </blockquote>
 <p><strong>a.</strong> </p>
-<p>\begin{matrix}
+<p>$$
+\begin{matrix}
      2 &amp;      3 &amp;     12 &amp; 14 \\
      4 &amp;      8 &amp;     16 &amp; \infty \\
      5 &amp;      9 &amp; \infty &amp; \infty \\
 \infty &amp; \infty &amp; \infty &amp; \infty
-\end{matrix}</p>
+\end{matrix}
+$$</p>
 <p><strong>b.</strong> If the top left element is $\infty$, then all the elements on the first row need to be $\infty$. But if this is the case, all other elements need to be $\infty$ because they are larger than the first element on their column.</p>
 <p>If the bottom right element is smaller than $\infty$, all the elements on the bottom row need to be smaller than $\infty$. But so are the other elements in the tableau, because each is smaller than the bottom element of its column.</p>
 <p><strong>c.</strong> The $A[1, 1]$ is the smallest elemnt. We store it, so we can return it later and then replace is with $\infty$. This breaks the Young tableau property and we need to perform a procedure, similar to $\text{MAX-HEAPIFY}$ to restore it.</p>
@@ -5781,9 +5785,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

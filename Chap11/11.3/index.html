@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5823,22 +5825,26 @@
 <p>$$h(x) - h(y) = \Big(\sum_{i = 0}^{n - 1} x_i 2^{ip}\Big) \mod (2^p - 1) - \Big(\sum_{i = 0}^{n - 1} y_i 2^{ip}\Big) \mod (2^p - 1).$$</p>
 <p>Since $0 \le h(x)$, $h(y) &lt; 2^p - 1$, we have that $-(2^p - 1) &lt; h(x) - h(y) &lt; 2^p - 1$. If we show that $(h(x) - h(y)) \mod (2^p - 1) = 0$, then $h(x) = h(y)$.</p>
 <p>Since the sums in the hash functions are the same except for indices $a$ and $b$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 (h(x) - h(y)) \mod (2^p - 1)
     &amp; = ((x_a 2^{ap} + x_b 2^{bp}) - (y_a 2^{ap} + y_b 2^{bp})) \mod (2^p - 1) \\
     &amp; = ((x_a 2^{ap} + x_b 2^{bp}) - (x_b 2^{ap} + x_a 2^{bp})) \mod (2^p - 1) \\
     &amp; = ((x_a - x_b)2^{ap} - (x_a - x_b) 2^{bp}) \mod (2^p - 1) \\
     &amp; = ((x_a - x_b)(2^{ap} - 2^{bp})) \mod (2^p - 1) \\
     &amp; = ((x_a - x_b)2^{bp}(2^{(a - b)p} - 1)) \mod (2^p - 1).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>By equation $\text{(A.5)}$,</p>
 <p>$$\sum_{i = 0}^{a - b - 1} 2^{pi} = \frac{2^{(a - b)p} - 1}{2^p - 1},$$</p>
 <p>and multiplying both sides by $s^p - 1$, we get $2^{(a - b)p} - 1 = \big(\sum_{i = 0}^{a - b - 1} 2^{pi}\big)(2^p - 1)$. Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 (h(x) - h(y))\mod(2^p - 1)
     &amp; = \Bigg((x_a - x_b)2^{bp}\Bigg(\sum_{i = 0}^{a - b - 1} 2^{pi}\Bigg)(2^p - 1)\Bigg) \mod (2^p - 1) \\
     &amp; = 0,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>since one of the factors is $2^p - 1$.</p>
 <p>We have shown that $(h(x) - h(y)) \mod (2^p - 1) = 0$, and so $h(x) = h(y)$.</p>
 <h2 id="113-4">11.3-4</h2>
@@ -5867,22 +5873,26 @@
 <p>We now show that each such move increases the number of collisions, so that all the moves together must increase the number of collisions. Suppose that we move an element from an underloaded value $j$ to an overloaded value $k$, and we leave all other elements alone. Because $j$ is underloaded and $k$ is overloaded, $u_j \le u / b\le u_k$. Considering just the collisions for values $j$ and $k$, we have $u_j(u_j - 1) / 2 + u_k(u_k - 1) / 2$ collisions before the move and $(u_j - 1)(u_j - 2) / 2 + (u_k + 1)u_k / 2$ collisions afterward. We wish to show that</p>
 <p>$$u_j(u_j - 1) / 2 + u_k(u_k - 1) / 2 &lt; (u_j - 1)(u_j - 2) / 2 + (u_k + 1)u_k / 2.$$</p>
 <p>We have the following sequence of equivalent inequalities:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
                                 u_j &amp; &lt; u_k + 1 \\
                                2u_j &amp; &lt; 2u_k + 2 \\
                                -u_k &amp; &lt; u_k - 2u_j + 2 \\
           u_j^2 - u_j + u_k^2 - u_k &amp; &lt; u_j^2 - 3u_j + 2 + u_k^2 + u_k \\
         u_j(u_j - 1) + u_k(u_k - 1) &amp; &lt; (u_j - 1)(u_j - 2) + (u_k + 1)u_k \\
 u_j(u_j - 1) / 2 + u_k(u_k - 1) / 2 &amp; &lt; (u_j - 1)(u_j - 2) / 2 + (u_k + 1)u_k / 2.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, each move increases the number of collisions. We conclude that the number of collisions is minimized when $u_j = u / b$ for each $j \in B$.</p>
 <p>By the above lemma, for any hash function, the total number of collisions must  be at least $b(u / b)(u / b - 1) / 2$. The number of pairs of distinct elements is $\binom{u}{2} = u(u - 1) / 2$. Thus, the number of collisions per pair of distinct elements must be at least</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{b(u / b)(u / b - 1) / 2}{u(u - 1) / 2}
     &amp; = \frac{u / b - 1}{u - 1} \\
     &amp; &gt; \frac{u / b - 1}{u} \\
     &amp; = \frac{1}{b} - \frac{1}{u}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the bound  on the probability of a collision for any pair of distinct elements can be no less than $1 / b - 1 / u = 1 / |B| - 1 / |U|$.</p>
 <h2 id="113-6-star">11.3-6 $\star$</h2>
 <blockquote>
@@ -5980,9 +5990,11 @@ probability that $h_b(x) = h_b(y)$ is bounded from above by $\frac{n - 1}{p}$, s
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

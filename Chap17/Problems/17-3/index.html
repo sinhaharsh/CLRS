@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5690,32 +5692,40 @@
 <p>which implies</p>
 <p>$$root.right.size &gt; root.size - \alpha \cdot root.size - 1.$$</p>
 <p>So, </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 root.right.size &amp; &gt;   (1 - \alpha)root.size - 1 \\
                 &amp; &gt;   (1 - \alpha)\alpha - d + d - 1 \\
                 &amp; =   (\alpha - 1 - 1)\alpha - d + 1 + d - 1 \\
                 &amp; \ge \alpha - d + 1 + d - 1,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which is a contradiction to the fact that it held for all smaller values of $d$ because any child of a tree of depth d has depth $d - 1$.</p>
 <p><strong>c.</strong> The potential function is a sum of $\Delta(x)$ each of which is the absolute value of a quantity, so, since it is a sum of nonnegative values, it is nonnegative regardless of the input $\text{BST}$.</p>
 <p>If we suppose that our tree is $1 / 2$-balanced, then, for every node $x$, we'll have that $\Delta(x) \le 1$, so, the sum we compute to find the potential will be over no nonzero terms.</p>
 <p><strong>d.</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
        \hat c_i &amp; =   c_i + \Phi(D_i) - \Phi(D_{i - 1}) \\
            O(1) &amp; =   m + \Phi(D_i) - \Phi(D_{i - 1}) \\
 \Phi(D_{i - 1}) &amp; =   m + \Phi(D_i) \\
 \Phi(D_{i - 1}) &amp; \ge m.
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 \Delta(x) &amp; =   x.left.size - x.right.size \\
           &amp; \ge \alpha \cdot m - ((1 - \alpha) m - 1) \\
           &amp; =   (2\alpha - 1)m + 1.
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 m &amp; \le c((2\alpha - 1)m + 1) \\
 c &amp; \ge \frac{m}{(2\alpha - 1)m + 1} \\
   &amp; \ge \frac{1}{2\alpha}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>e.</strong> Suppose that our tree is $\alpha$ balanced. Then, we know that performing a search takes time $O(\lg(n))$. So, we perform that search and insert the element that we need to insert or delete the element we found. Then, we may have made the tree become unbalanced. However, we know that since we only changed one position, we have only changed the $\Delta$ value for all of the parents of the node that we either inserted or deleted. Therefore, we can rebuild the balanced properties starting at the lowest such unbalanced node and working up. </p>
 <p>Since each one only takes ammortized constant time, and there are $O(\lg(n))$ many trees made unbalanced, tot total time to rebalanced every subtree is $O(\lg(n))$ ammortized time.</p>
                 
@@ -5806,9 +5816,11 @@ c &amp; \ge \frac{m}{(2\alpha - 1)m + 1} \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

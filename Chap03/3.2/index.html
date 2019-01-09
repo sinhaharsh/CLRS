@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5827,11 +5829,13 @@
 <blockquote>
 <p>Show that if $f(n)$ and $g(n)$ are monotonically increasing functions, then so are the functions $f(n) + g(n)$ and $f(g(n))$, and if $f(n)$ and $g(n)$ are in addition nonnegative, then $f(n) \cdot g(n)$ is monotonically increasing.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f(m) \le f(n) \quad \text{ for } m \le n \\
 g(m) \le g(n) \quad \text{ for } m \le n, \\
 \to f(m) + g(m) \le f(n) + g(n),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which proves the first function.</p>
 <p>Then</p>
 <p>$$f(g(m)) \le f(g(n)) \text{ for } m \le n.$$</p>
@@ -5842,23 +5846,27 @@ g(m) \le g(n) \quad \text{ for } m \le n, \\
 <blockquote>
 <p>Prove equation $\text{(3.16)}$.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 a^{\log_b c} = a^\frac{\log_a c}{\log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}} = c^{\log_b a}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="32-3">3.2-3</h2>
 <blockquote>
 <p>Prove equation $\text{(3.19)}$. Also prove that $n \ne \omega(2^n)$ and $n \ne o(n^n)$.</p>
 <p>$$\lg(n!) = \Theta(n\lg n) \tag{3.19}$$</p>
 </blockquote>
 <p>We use <strong>Stirling's approximation:</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \lg(n!) 
   &amp; = \lg\Bigg(\sqrt{2\pi n}\Big(\frac{n}{e}\Big)^n\Big(1 + \Theta(\frac{1}{n})\Big)\Bigg) \\
   &amp; = \lg\sqrt{2\pi n } + \lg\Big(\frac{n}{e}\Big)^n + \lg\Big(1+\Theta(\frac{1}{n})\Big) \\
   &amp; = \Theta(\sqrt n) + n\lg{\frac{n}{e}} + \lg\Big(\Theta(1) + \Theta(\frac{1}{n})\Big) \\
   &amp; = \Theta(\sqrt n) + \Theta(n\lg n) + \Theta(\frac{1}{n}) \\
   &amp; = \Theta(n\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The other two are</p>
 <p>$$\forall n &gt; 3: 2^n = \underbrace{2 \cdot 2 \cdot \cdots \cdot 2}_\text{n times} &lt; 1 \cdot 2 \cdot \cdots \cdot n = n! \quad \Rightarrow \quad n! = \omega(2^n).$$</p>
 <p>and</p>
@@ -5882,19 +5890,23 @@ a^{\log_b c} = a^\frac{\log_a c}{\log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}}
 </ul>
 </li>
 </ol>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \lg(\lceil \lg n \rceil!) &amp; = \Theta(\lceil \lg n \rceil \lg \lceil \lg n \rceil) \\
                         &amp; = \Theta(\lg n\lg\lg n) \\
                         &amp; = \omega(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Therefore, $\lg(\lceil \lg n \rceil!) \ne O(\lg n)$, and so $\lceil \lg n \rceil!$ is not polynomially bounded.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \lg(\lceil \lg\lg n \rceil!) &amp; = \Theta(\lceil \lg\lg n \rceil \lg \lceil \lg\lg n \rceil) \\
                              &amp; = \Theta(\lg\lg n\lg\lg\lg n) \\
                              &amp; = o((\lg\lg n)^2) \\
                              &amp; = o(\lg^2(\lg n)) \\
                              &amp; = o(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The last step above follows from the property that any polylogarithmic function grows more slowly than any positive polynomial function, i.e., that for constants $a, b &gt; 0$, we have $\lg^b = o(n^a)$. Substitute $\lg n$ for $n$, $2$ for $b$, and $1$ for $a$, giving $\lg^2(\lg n) = o(\lg n)$.</p>
 <p>Therefore, $\lg(\lceil \lg\lg n \rceil!) = O(\lg n)$, and so $\lceil \lg\lg n \rceil!$ is polynomially bounded.</p>
 <h2 id="32-5-star">3.2-5 $\star$</h2>
@@ -5906,18 +5918,22 @@ a^{\log_b c} = a^\frac{\log_a c}{\log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}}
 <blockquote>
 <p>Show that the golden ratio $\phi$ and its conjugate $\hat \phi$ both satisfy the equation $x^2 = x + 1$.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \phi^2 - \phi - 1
   &amp; = \big(\frac{1 + \sqrt 5}{2}\big)^2 - \frac{1 + \sqrt 5}{2} - 1 \\
   &amp; = \frac{1 + 2\sqrt 5 + 5 - 2 - 2\sqrt 5 - 4}{4} \\
   &amp; = 0.
-\end{align}
-\begin{align}
+\end{aligned}
+$$
+$$
+\begin{aligned}
 \hat\phi^2 - \hat\phi - 1 
   &amp; = \big(\frac{1 - \sqrt 5}{2}\big)^2 - \frac{1 - \sqrt 5}{2} - 1 \\
   &amp; = \frac{1 - 2\sqrt 5 + 5 - 2 + 2\sqrt 5 - 4}{4} \\
   &amp; = 0.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="32-7">3.2-7</h2>
 <blockquote>
 <p>Prove by induction that the $i$th Fibonacci number satisfies the equality  </p>
@@ -5925,28 +5941,34 @@ a^{\log_b c} = a^\frac{\log_a c}{\log_a b} = (a^{\log_a c})^{\frac{1}{\log_a b}}
 <p>where $\phi$ is the golden ratio and $\hat\phi$ is its conjugate.</p>
 </blockquote>
 <p>We have two base cases: $i = 0$ and $i = 1$. For $i = 0$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{\phi^0 - \hat\phi^0}{\sqrt 5} 
     &amp; = \frac{1 - 1}{\sqrt 5} \\
     &amp; = 0 \\
     &amp; = F_0,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and for $i = 1$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{\phi^1 - \hat\phi^1}{\sqrt 5} 
     &amp; = \frac{(1 + \sqrt 5) - (1 - \sqrt 5)}{2\sqrt 5} \\
     &amp; = \frac{2\sqrt 5}{2\sqrt 5} \\
     &amp; = 1 \\
     &amp; = F_1.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>For the inductive case, the inductive hypothesis is that $F_{i - 1} = (\phi^{i - 1} - \hat\phi^{i - 1}) / \sqrt 5$ and $F_{i - 2} = (\phi^{i - 2} - \hat\phi^{i - 2}) / \sqrt 5$. We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 F_i &amp; = F_{i - 1} + F_{i - 2} &amp; \text{(equation (3.22)} \\
     &amp; = \frac{\phi^{i - 1} - \hat\phi^{i - 1}}{\sqrt 5} + \frac{\phi^{i - 2} - \hat\phi^{i - 2}}{\sqrt 5} &amp; \text{(inductive hypothesis)} \\
     &amp; = \frac{\phi^{i - 2}(\phi + 1) - \hat\phi^{i - 2}(\hat\phi + 1)}{\sqrt 5}  \\
     &amp; = \frac{\phi^{i - 2}\phi^2 - \hat\phi^{i - 2}\hat\phi^2}{\sqrt 5} &amp; \text{(Exercise 3.2-6)} \\
     &amp; = \frac{\phi^i - \hat\phi^i}{\sqrt 5}. 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="32-8">3.2-8</h2>
 <blockquote>
 <p>Show that $k\ln k = \Theta(n)$ implies $k = \Theta(n / \ln n)$.</p>
@@ -6045,9 +6067,11 @@ F_i &amp; = F_{i - 1} + F_{i - 2} &amp; \text{(equation (3.22)} \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

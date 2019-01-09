@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5862,7 +5864,8 @@
 </blockquote>
 <p>The $\text{PERMUTE-WITH-ALL}$ procedure does not produce a uniform random permutation. Consider the permutations it produces when $n = 3$. The procedure makes 3 calls to $\text{RANDOM}$, each of which returns one of 3 values, and so calling $\text{PERMUTE-WITH-ALL}$ has 27 possible outcomes. Since there are $3! = 6$ permutations, if $\text{PERMUTE-WITH-ALL}$ did produce a uniform random permutation, then each permutation would occur $1 / 6$ of the time. That would mean that each permutation would have to occur an integer number $m$ times, where $m / 27 = 1 / 6$. No integer $m$ satisfies this condition.</p>
 <p>In fact, if we were to work out the possible permutations of $\langle 1, 2, 3 \rangle$ and how often they occur with $\text{PERMUTE-WITH-ALL}$, we would get the following probabilities:</p>
-<p>\begin{array}{cc}
+<p>$$
+\begin{array}{cc}
 \text{permutation} &amp; \text{probability} \\
 \hline
 \langle 1, 2, 3 \rangle &amp; 4 / 27 \\
@@ -5871,7 +5874,8 @@
 \langle 2, 3, 1 \rangle &amp; 5 / 27 \\
 \langle 3, 1, 2 \rangle &amp; 4 / 27 \\
 \langle 3, 2, 1 \rangle &amp; 4 / 27 
-\end{array}</p>
+\end{array}
+$$</p>
 <p>Although these probabilities sum to $1$, none are equal to $1 / 6$.</p>
 <h2 id="53-4">5.3-4</h2>
 <blockquote>
@@ -5908,14 +5912,16 @@
 <p>Prove that in the array $P$ in procedure $\text{PERMUTE-BY-SORTING}$, the probability that all elements are unique is at least $1 - 1 / n$.</p>
 </blockquote>
 <p>Let $\Pr\{j\}$ be the probability that the element with index $j$ is unique. If there are $n^3$ elements, then the $\Pr\{j\} = 1 - \frac{j - 1}{n^3}$.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{1 \cap 2 \cap 3 \cap \ldots\}
     &amp; =   \Pr\{1\} \cdot \Pr\{2 \mid 1\} \cdot \Pr\{3 \mid 1 \cap 2\} \cdots \\
     &amp; =   1 (1 - \frac{1}{n^3})(1 - \frac{2}{n^3})(1 - \frac{3}{n^3}) \cdots \\
     &amp; \ge 1 (1 - \frac{n}{n^3}) (1 - \frac{n}{n^3})(1 - \frac{n}{n^3}) \cdots \\
     &amp; \ge (1 - \frac{1}{n^2})^n \\
     &amp; \ge 1 - \frac{1}{n}, \\
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where the last step holds for $(1 - x)^n \ge 1 - nx$.</p>
 <h2 id="53-6">5.3-6</h2>
 <blockquote>
@@ -5968,7 +5974,8 @@
 <li>$j \notin S'$ and $R_j$ (these events are independent),</li>
 </ul>
 <p>Thus</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{j \in S\}
     &amp; = \Pr\{j \in S'\} + \Pr\{j \notin S' \text{ and } R_j\} &amp; \text{ (the events are disjoint)} \\
     &amp; = \frac{m - 1}{n - 1} + \Big(1 - \frac{m - 1}{n - 1}\Big) \cdot \frac{1}{n} &amp; \text{ (by the inductive hypothesis)} \\
@@ -5978,13 +5985,15 @@
     &amp; = \frac{mn - n + n - m}{(n - 1)n} \\
     &amp; = \frac{m(n - 1)}{(n - 1)n} \\
     &amp; = \frac{m}{n}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>The event that $n \in S$ is also the union of two disjoint events:</p>
 <ul>
 <li>$R_n$, and</li>
 <li>$R_j$ and $j \in S'$ for some $j &lt; n$ (these events are independent).</li>
 </ul>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{n \in S\}
     &amp; = \Pr\{R_n\} + \Pr\{R_j \text{ and } j\in S' \text{ for some } j &lt; n\} &amp; \text{ (the events are disjoint)} \\
     &amp; = \frac{1}{n} + \frac{n - 1}{n} \cdot \frac{m - 1}{n - 1} &amp; \text{ (by the inductive hypothesis)} \\
@@ -5993,7 +6002,8 @@
     &amp; = \frac{nm-m}{n(n - 1)} \\
     &amp; = \frac{m(n - 1)}{n(n - 1)} \\
     &amp; = \frac{m}{n}.
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -6082,9 +6092,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

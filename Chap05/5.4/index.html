@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5814,19 +5816,23 @@
 <p>How many people must there be in a room before the probability that someone has the same birthday as you do is at least $1 / 2$? How many people must there be before the probability that at least two people have a birthday on July 4 is greater than $1 / 2$?</p>
 </blockquote>
 <p>The probability of a person not having the same birthday as me is $(n - 1) / n$. The probability of $k$ people not having the same birthday as me is that, squared. We apply the same approach as the text - we take the complementary event and solve it for $k$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
         1 - \big(\frac{n - 1}{k}\big)^k &amp; \ge \frac{1}{2} \\
             \big(\frac{n - 1}{k}\big)^k &amp; \le \frac{1}{2} \\
           k\lg\big(\frac{n - 1}{n}\big) &amp; \ge \lg\frac{1}{2} \\
 k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>As for the other question,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{\text{2 born on Jul 4}\}
     &amp; = 1 - \Pr\{\text{1 born on Jul 4}\} - \Pr\{\text{0 born on Jul 4}\} \\
     &amp; = 1 - \frac{k}{n}\big(\frac{n - 1}{n}\big)^{k - 1} - \big(\frac{n - 1}{n}\big)^k \\
     &amp; = 1 - \big(\frac{n - 1}{n}\big)^{k - 1}\big(\frac{n + k - 1}{n}\big). 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Writing a Ruby programme to find the closest integer, we get $115$.</p>
 <h2 id="54-2">5.4-2</h2>
 <blockquote>
@@ -5844,24 +5850,28 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 </blockquote>
 <p>The answer is $88$. I reached it by trial and error. But let's analyze it with indicator random variables.</p>
 <p>Let $X_{ijk}$ be the indicator random variable for the event of the people with indices $i$, $j$ and $k$ have the same birthday. The probability is $1 / n^2$. Then,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] 
     &amp; = \sum_{i = 1}^n\sum_{j = i + 1}^n \sum_{k = j + 1}^n X_{ijk} \\
     &amp; = \sum_{i = 1}^n\sum_{j = i + 1}^n \sum_{k = j + 1}^n \frac{1}{n^2} \\
     &amp; = \binom{n}{3}\frac{1}{n^2} \\
     &amp; = \frac{k(k - 1)(k - 2)}{6n^2}. 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Solving this yields $94$. It's a bit more, but again, indicator random variables are approximate.</p>
 <p>Finding more commentary online is tricky.</p>
 <h2 id="54-5-star">5.4-5 $\star$</h2>
 <blockquote>
 <p>What is the probability that a $k$-string over a set of size $n$ forms a $k$-permutation? How does this question relate to the birthday paradox?</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{k\text{-perm in }n\}
     &amp; = 1 \cdot \frac{n - 1}{n} \cdot \frac{n - 2}{n} \cdots \frac{n - k + 1}{n} \\
     &amp; = \frac{(n - 1)!}{(n - k)!n^k}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>This is the complementary event to the birthday problem, that is, the chance of $k$ people have distinct birthdays.</p>
 <h2 id="54-6-star">5.4-6 $\star$</h2>
 <blockquote>
@@ -5870,37 +5880,47 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 <p>First we determine the expected number of empty bins. We define a random variable $X$ to be the number of empty bins, so that we want to compute $\text E[X]$. Next, for $i = 1, 2, \ldots, n$, we define the indicator random variable $Y_i = I\{\text{bin } i \text{ is empty}\}$. Thus,</p>
 <p>$$X = \sum_{i = 1}^n Y_i,$$</p>
 <p>and so</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; = \text E \Bigg[\sum\limits_{i = 1}^n Y_i\Bigg] &amp; \\
            &amp; = \sum\limits_{i = 1}^n\text E[Y_i]                    &amp; \text{(by linearity of expectation)} \\
            &amp; = \sum\limits_{i = 1}^n\Pr\{\text{bin $i$ is empty}\}. &amp; \text{(by Lemma 5.1)}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Let us focus on a specific bin, say bin $i$. We view a toss as a success if it misses bin $i$ and as a failure if it lands in bin $i$. We have $n$ independent Bernoulli trials, each with probability of success $1 - 1 / n$. In order for bin $i$ to be empty, we need $n$ successes in $n$ trials. Using a binomial distribution, therefore, we have that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{\text{bin $i$ is empty}\} &amp; = \binom{n}{n}\Big(1 - \frac{1}{n}\Big)^n\Big(\frac{1}{n}\Big)^0 \\
                                &amp; = \Big(1 - \frac{1}{n}\Big)^n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; = \sum_{i = 1}^n\Big(1 - \frac{1}{n})^n \\
            &amp; = n\Big(1 - \frac{1}{n}\Big)^n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>By equation $\text{(3.14)}$, as $n$ approaches $\infty$, the quantity $(1 - 1 / n)^n$ approaches $1/e$, and so $\text E[X]$ approaches $n/e$.</p>
 <p>Now we determine the expected number of bins with exactly one ball. We redefine $X$ to be number of bins with exactly one ball, and we redefine $Y_i$ to be $I\{\text{bin $i$ gets exactly one ball}\}$. As before, we find that</p>
 <p>$$\text E[X] = \sum_{i = 1}^n \Pr\{\text{bin $i$ gets exactly one ball}\}.$$</p>
 <p>Again focusing on bin $i$, we need exactly $n - 1$ successes in $n$ independent Bernoulli trials, and so</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{\text{bin $i$ gets exactly one ball}\}
     &amp; = \binom{n}{n - 1} \Big(1 - \frac{1}{n}\Big)^{n - 1} \Big(\frac{1}{n}\Big)^1 \\
     &amp; = n \cdot \Big(1 - \frac{1}{n} \Big)^{n - 1} \frac{1}{n} \\
     &amp; = \Big(1 - \frac{1}{n})^{n - 1}, 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and so</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] 
     &amp; = \sum_{i = 1}^n \Big(1 - \frac{1}{n}\Big)^{n - 1} \\
     &amp; = n \Big(1 - \frac{1}{n})^{n - 1}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Because</p>
 <p>$$n\Big(1 - \frac{1}{n}\Big)^{n - 1} = \frac{n(1 - \frac{1}{n})^n}{1 - \frac{1}{n}},$$</p>
 <p>as $n$ approaches $\infty$, we find that $\text E[X]$ approaches</p>
@@ -5913,14 +5933,16 @@ k = \frac{\log(1 / 2)}{\log(364 / 365)} &amp; \approx 263.
 <p>$$\Pr(A_{i,\lg n - 2\lg(\lg n)}) = \frac{1}{2^{\lg n - 2\lg(\lg n)}} = \frac{\lg n^2}{n}.$$</p>
 <p>Since the groups are based of of disjoint sets of IID coin flips, these probabilities
 are independent. so,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr(\bigwedge\neg A_{i,\lg n - 2\lg(\lg n)})
     &amp; =   \prod_i\Pr(\neg A_{i,\lg n - 2\lg(\lg n)}) \\
     &amp; =   \Big(1-\frac{\lg n^2}{n}\Big)^{\frac{n}{\lg n - 2\lg(\lg n)}} \\
     &amp; \le e^{-\frac{\lg n^2}{\lg n - 2\lg(\lg n)}} \\ &amp;= \frac{1}{n} e^{\frac{-2\lg(\lg n)\lg n}{\lg n - 2\lg(\lg n)}} \\
     &amp; =   n^{-1-\frac{2\lg(\lg n)}{\lg n - 2\lg(\lg n)}} \\
 &amp; &lt; n^{-1}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Showing that the probability that there is no run of length at least $\lg n - 2\lg(\lg n)$ to be $&lt; \frac{1}{n}$.</p>
                 
                   
@@ -6010,9 +6032,11 @@ are independent. so,</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

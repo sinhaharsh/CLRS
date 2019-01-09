@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5669,20 +5671,24 @@
                 
                 <blockquote>
 <p>This problem develops properties of the Fibonacci numbers, which are defined by recurrence $\text{(3.22)}$. We shall use the technique of generating functions to solve the Fibonacci recurrence. Define the <strong><em>generating function</em></strong> (or <strong><em>formal power series</em></strong>) $\mathcal F$ as</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \mathcal F(z)
     &amp; = \sum_{i = 0}^{\infty} F_iz^i \\
     &amp; = 0 + z + z^2 + 2z^3 + 3z^4 + 5z^5 + 8z^6 + 13z^7 + 21z^8 + \cdots,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where $F_i$ is the $i$th Fibonacci number.</p>
 <p><strong>a.</strong> Show that $\mathcal F(z) = z + z\mathcal F(z) + z^2\mathcal F$.</p>
 <p><strong>b.</strong> Show that  </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \mathcal F(z)
     &amp; = \frac{z}{1 - z - z^2} \\
     &amp; = \frac{z}{(1 - \phi z)(1 - \hat\phi z)} \\
     &amp; = \frac{1}{\sqrt 5}\Big(\frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi} z}\Big),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where</p>
 <p>$\phi = \frac{1 + \sqrt 5}{2} = 1.61803\ldots$  </p>
 <p>and  </p>
@@ -5692,15 +5698,18 @@
 <p><strong>d.</strong> Use part (c) to prove that $F_i = \phi^i / \sqrt 5$ for $i &gt; 0$, rounded to the nearest integer. ($\textit{Hint:}$ Observe that $|\hat{\phi}| &lt; 1$.)</p>
 </blockquote>
 <p><strong>a.</strong></p>
-<p>\begin{align} z + z\mathcal F(z) + z^2\mathcal F(Z)
+<p>$$
+\begin{aligned} z + z\mathcal F(z) + z^2\mathcal F(Z)
    &amp; = z + z\sum_{i = 0}^{\infty} F_iz^i + z^2\sum_{i = 0}^{\infty}F_i z^i \\
    &amp; = z + \sum_{i = 1}^{\infty} F_{i - 1}z^i + \sum_{i = 2}^{\infty}F_{i - 2} z^i \\
    &amp; = z + F_1z + \sum_{i = 2}^{\infty}(F_{i - 1} + F_{i - 2})z^i \\
    &amp; = z + F_1z + \sum_{i = 2}^{\infty}F_iz^i \\
    &amp; = \mathcal F(z).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>b.</strong> Note that $\phi - \hat\phi = \sqrt 5$, $\phi + \hat\phi = 1$ and $\phi\hat\phi = - 1$.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \mathcal F(z) &amp; = \frac{\mathcal F(z)(1 - z - z^2)}{1 - z - z^2} \\
               &amp; = \frac{\mathcal F(z) - z\mathcal F(z) - z^2\mathcal F(z) - z + z}{1 - z - z^2} \\
               &amp; = \frac{\mathcal F(z) - \mathcal F(z) + z}{1 - z - z^2} \\
@@ -5711,13 +5720,16 @@
               &amp; = \frac{(\phi - \hat\phi)z + 1 - 1}{\sqrt 5 (1 - \phi z)(1 - \hat\phi z)} \\
               &amp; = \frac{(1 - \hat\phi z) - (1 - \phi z)}{\sqrt 5 (1 - \phi z)(1 - \hat\phi z)} \\
               &amp; = \frac{1}{\sqrt 5}\Big(\frac{1}{1 - \phi z} - \frac{1}{1 - \hat\phi z}\Big).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>c.</strong> We have $\frac{1}{1 - x} = \sum_{k = 0}^{\infty}x^k$, when $|x| &lt; 1$, thus</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \mathcal F(n) &amp; = \frac{1}{\sqrt 5}\Big(\frac{1}{1 - \phi z} - \frac{1}{1 - \hat\phi z}\Big) \\
               &amp; = \frac{1}{\sqrt 5}\Big(\sum_{i = 0}^{\infty}\phi^i z^i - \sum_{i = 0}^{\infty}\hat{\phi}^i z^i\Big) \\
               &amp; = \sum_{i = 0}^{\infty}\frac{1}{\sqrt 5}(\phi^i - \hat{\phi}^i) z^i.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> $\mathcal F(z) = \sum_{i = 0}^{\infty}\alpha_i z^i$ where $\alpha_i = \frac{\phi^i - \hat{\phi}^i}{\sqrt 5}$. From this follows that $\alpha_i = F_i$, that is</p>
 <p>$$F_i = \frac{\phi^i - \hat{\phi}^i}{\sqrt 5} = \frac{\phi^i}{\sqrt 5} - \frac{\hat{\phi}^i}{\sqrt 5},$$</p>
 <p>For $i = 0$, $\phi / \sqrt 5 = (\sqrt 5 + 5) / 10 &gt; 0.5$. For $i &gt; 2$, $|\hat{\phi}^i| &lt; 0.5$.</p>
@@ -5809,9 +5821,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5700,12 +5702,15 @@ $$</p>
 </ol>
 <p>Thus, when $i &lt; n / 2$, the total number of comparisons is $\lfloor n / 2 \rfloor + U_i(\lceil n / 2 \rceil) + T(2i)$.</p>
 <p><strong>b.</strong> We show by substitution that if $i &lt; n / 2$, then $U_i(n) = n + O(T(2i)\lg(n / i))$. In particular, we show that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 U_i(n) &amp; \le n + cT (2i)\lg(n / i) - d(\lg\lg n)T(2i) \\
        &amp; =   n + cT(2i)\lg n - cT(2i)\lg i - d(\lg\lg n)T(2i)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>for some positive constant $c$, some positive constant $d$ to be chosen later, and $n \ge 4$. We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 U_i(n) 
     &amp; =   \lfloor n / 2 \rfloor + U_i(\lceil n / 2 \rceil) + T(2i) \\
     &amp; \le \lfloor n / 2 \rfloor + \lceil n / 2 \rceil + cT(2i)\lg\lceil n / 2 \rceil - cT(2i)\lg i - d(\lg\lg\lceil n / 2 \rceil)T(2i) \\
@@ -5713,40 +5718,49 @@ U_i(n)
     &amp; \le n + cT(2i)\lg(n / 2 + 1) - cT(2i)\lg i - d(\lg\lg(n / 2))T(2i) \\
     &amp; =   n + cT(2i)\lg(n / 2 + 1) - cT(2i)\lg i - d(\lg(\lg n - 1))T(2i) \\
     &amp; \le n + cT(2i)\lg n - cT(2i)\lg i - d(\lg\lg n)T(2i).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If</p>
 <p>$$cT(2i)\lg(n)2 + 1) - d(\lg(\lg n - 1))T(2i) \le cT(2i)\lg n - d(\lg\lg n)T(2i),$$</p>
 <p>simple algebraic manipulations gives the following sequence of equivalent conditions:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
         cT(2i)\lg(n / 2 + 1) - d(\lg(\lg n - 1))T(2i) &amp; \le cT(2i)\lg n - d(\lg\lg n)T(2i) \\
                   c\lg(n / 2 + 1) - d(\lg(\lg n - 1)) &amp; \le c\lg n - d(\lg\lg n) \\
                             c(\lg(n / 2 + 1) - \lg n) &amp; \le d(\lg(\lg n - 1) - \lg\lg n) \\
                   c\Bigg(\lg\frac{n / 2 + 1}{n}\Bigg) &amp; \le d\lg\frac{\lg n - 1}{\lg n} \\
 c\Bigg(\lg\Bigg(\frac{1}{2} + \frac{1}{n}\Bigg)\Bigg) &amp; \le d\lg\frac{\lg n - 1}{\lg n}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Observe that $1 / 2 + 1 / n$ decreases as $n$ increases, but $(\lg n - 1) / \lg n$ increases as $n$ increases. When $n = 4$, we have $1 / 2 + 1 / n = 3 / 4$ and $(\lg n - 1) = \lg n = 1 / 2$. Thus, we just need to choose $d$ such that $c\lg(3 / 4) \le d\lg(1 / 2)$ or, equivalently, $c\lg(3 / 4) \le -d$. Multiplying both sides by $-1$, we get $d \le -c\lg(3 / 4) = c\lg(4 / 3)$. Thus, any value of $d$ that is at most $c\lg(4 / 3)$ suffices.</p>
 <p><strong>c.</strong> When $i$ is a constant, $T(2i) = O(1)$ and $\lg(n / i) = \lg n - \lg i = O(\lg n)$.</p>
 <p>Thus, when $i$ is a constant less than $n / 2$, we have that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 U_i(n) &amp; = n + O(T(2i)\lg(n / i)) \\
        &amp; = n + O(O(1) \cdot O(\lg n)) \\
        &amp; = n + O(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> Suppose that $i = n / k$ for $k \ge 2$. Then $i \le n / 2$. If $k &gt; 2$, then $i &lt; n / 2$, and we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 U_i(n) &amp; = n + O(T(2i)\lg(n / i)) \\
        &amp; = n + O(T(2n / k)\lg(n/(n / k)) \\
        &amp; = n + O(T(2n / k)\lg k).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>If $k = 2$, then $n = 2i$ and $\lg k = 1$. We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 U_i(n) &amp; =   T(n) \\
        &amp; =   n + (T(n) - n) \\
        &amp; \le n + (T(2i) - n) \\
        &amp; =   n + (T(2n / k) - n) \\
        &amp; =   n + (T(2n / k)\lg k - n) \\
        &amp; =   n + O(T(2n / k)\lg k).
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5835,9 +5849,11 @@ U_i(n) &amp; =   T(n) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

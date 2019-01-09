@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5684,7 +5686,8 @@
 <p><strong>a.</strong> Since the pivot is selected as a random element in the array, which has size $n$, the probabilities of any particular element being selected are all equal, and add to one, so, are all $\frac{1}{n}$. As such, $\text E[X_i] = \Pr\{i \text{ smallest is picked}\} = \frac{1}{n}$.</p>
 <p><strong>b.</strong> We can apply linearity of expectation over all of the events $X_i$. Suppose we have a particular $X_i$ be true, then, we will have one of the sub arrays be length $i - 1$, and the other be $n - i$, and will of course still need linear time to run the partition procedure. This corresponds exactly to the summand in equation $\text{(7.5)}$.</p>
 <p><strong>c.</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 &amp; \text E\Bigg[\sum_{q = 1}^n X_q(T(q - 1) + T(n - q) + \Theta(n)) \Bigg] \\
 &amp; = \sum_{q = 1}^n \text E[X_q(T(q - 1) + T(n - q) + \Theta(n))] \\
 &amp; = \sum_{q = 1}^n(T(q - 1) + T(n - q) + \Theta(n))/n \\
@@ -5694,19 +5697,23 @@
 &amp; = \Theta(n) + \frac{2}{n} \sum_{q = 1}^n T(q - 1) \\
 &amp; = \Theta(n) + \frac{2}{n} \sum_{q = 0}^{n - 1} T(q) \\
 &amp; = \Theta(n) + \frac{2}{n} \sum_{q = 2}^{n - 1} T(q).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> We will prove this inequality in a different way than suggested by the hint. If
 we let $f(k) = k\lg k$ treated as a continuous function, then $f'(k) = \lg k + 1$. Note now that the summation written out is the left hand approximation of the integral of $f(k)$ from $2$ to $n$ with step size $1$. By integration by parts, the anti-derivative of $k\lg k$ is</p>
 <p>$$\frac{1}{\lg 2}(\frac{k^2}{2}\ln k-\frac{k^2}{4}).$$</p>
 <p>So, plugging in the bounds and subtracting, we get $\frac{n^2\lg n}{2} - \frac{n^2}{4\ln 2} - 1$. Since $f$ has a positive derivative over the entire interval that the integral is being evaluated over, the left hand rule provides a underapproximation of the integral, so, we have that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{k = 2}^{n - 1} k\lg k
     &amp; \le \frac{n^2\lg n}{2} - \frac{n^2}{4\ln 2} - 1 \\
     &amp; \le \frac{n^2\lg n}{2} - \frac{n^2}{8},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where the last inequality uses the fact that $\ln 2 &gt; 1 / 2$.</p>
 <p><strong>e.</strong> Assume by induction that $T(q) \le q \lg(q) + \Theta(n)$. Combining $\text{(7.6)}$ and $\text{(7.7)}$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[T(n)]
     &amp; =   \frac{2}{n} \sum_{q = 2}^{n - 1} \text E[T(q)] + \Theta(n) \\
     &amp; \le \frac{2}{n} \sum_{q = 2}^{n - 1}(q\lg q + \Theta(n)) + \Theta(n) \\
@@ -5714,7 +5721,8 @@ we let $f(k) = k\lg k$ treated as a continuous function, then $f'(k) = \lg k + 1
     &amp; \le \frac{2}{n}(\frac{1}{2}n^2\lg n - \frac{1}{8}n^2) + \Theta(n) \\
     &amp; =   n\lg n -\frac{1}{4}n + \Theta(n) \\
     &amp; =   n\lg n+\Theta(n).
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5803,9 +5811,11 @@ we let $f(k) = k\lg k$ treated as a continuous function, then $f'(k) = \lg k + 1
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

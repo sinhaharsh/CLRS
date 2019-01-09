@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5679,24 +5681,30 @@
 <p><strong>b.</strong> Substituting $k = 2\lg n$ into the statement of part (a) yields that the probability that the $i$th insertion requires more than $k = 2\lg n$ probes is at most $2^{-2\lg n} = (2^{\lg n})^{-2} = n^{-2} = 1 / n^2$.</p>
 <p>We must deal with the possibility that $2\lg n$ is not an integer, however. Then the event that the $i$th insertion requires more than $2\lg n$ probes is the same as the event that the $i$th insertion requires more than $\lfloor 2\lg n \rfloor$ probes. Since $\lfloor 2\lg n \rfloor &gt; 2\lg n - 1$, we have that the probability of this event is at most $2^{-\lfloor 2\lg n \rfloor} &lt; 2^{-(2\lg n - 1)} = 2 / n^2 = O(1 / n^2)$.</p>
 <p><strong>c.</strong> Let the event $A$ be $X &gt; 2\lg n$, and for $i = 1, 2, \ldots, n$, let the event $A_i$ be $X_i &gt; 2\lg n$. In part (b), we showed that $\Pr\{A_i\} = O(1 / n^2)$ for $i = 1, 2, \ldots, n$. From how we defined these events, $A = A_1 \cup A_2 \cup \cdots \cup A_n$. Using Boole's inequality, $\text{(C.19)}$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{A\} &amp; \le \Pr\{A_1\} + \Pr\{A_1\} + \cdots + \Pr\{A_n\} \\
          &amp; \le n \cdot O(1 / n^2) \\
          &amp; =   O(1 / n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> We use the definition of expectation and break the sum into two parts:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; =   \sum_{k = 1}^n k \cdot \Pr\{X = k\} \\
            &amp; =   \sum_{k = 1}^{\lceil 2\lg n \rceil} k \cdot \Pr\{X = k\} + \sum_{\lceil 2\lg n \rceil + 1}^n k \cdot \Pr\{X = k\} \\
            &amp; \le \sum_{k = 1}^{\lceil 2\lg n \rceil} \lceil 2\lg n \rceil \cdot \Pr\{X = k\} + \sum_{\lceil 2\lg n \rceil + 1}^n n \cdot \Pr\{X = k\} \\
            &amp; =   \lceil 2\lg n \rceil \sum_{k = 1}^{\lceil 2\lg n \rceil} \Pr\{X = k\} + n \sum_{\lceil 2\lg n \rceil + 1}^n \Pr\{X = k\}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Since $X$ takes on exactly one value, we have that $\sum_{k = 1}^{\lceil 2\lg n \rceil} \Pr\{X = k\} = \Pr\{X \le \lceil 2\lg n \rceil\} \le 1$ and $\sum_{k = \lceil 2\lg n \rceil + 1}^n \Pr\{X = k\} \le \Pr\{X &gt; 2\lg n\} = O(1 / n)$, by part (c). Therefore,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; \le \lceil 2\lg n \rceil \cdot 1 + n \cdot O(1 / n) \\
            &amp; =   \lceil 2\lg n \rceil + O(1) \\
            &amp; =   O(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5785,9 +5793,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

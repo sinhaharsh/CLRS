@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5709,12 +5711,14 @@
 <p><strong>d.</strong> This is modelled by the balls and bins problem, explored in section 5.4.2. The answer is $n(\ln n + O(1))$.</p>
 <p><strong>e.</strong> The worst-case running time is $n$. The average-case is $(n + 1) / 2$ (obviously).</p>
 <p><strong>f.</strong> The worst-case running time is $n - k + 1$. The average-case running time is $(n + 1) / (k + 1)$. Let $X_i$ be an indicator random variable that the $i$th element is a match. $\Pr\{X_i\} = 1 / (k + 1)$. Let $Y$ be an indicator random variable that we have found a match after the first $n - k + 1$ elements ($\Pr\{Y\} = 1$). Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X]
     &amp; = \text E[X_1 + X_2 + \ldots + X_{n - k} + Y] \\
     &amp; = 1 + \sum_{i = 1}^{n - k}\text E[X_i] = 1 + \frac{n - k}{k + 1} \\
     &amp; = \frac{n + 1}{k + 1}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>g.</strong> Both the worst-case and average case is $n$.</p>
 <p><strong>h.</strong> It's the same as $\text{DETERMINISTIC-SEARCH}$, only we replace "average-case" with "expected".</p>
 <p><strong>i.</strong> Definitelly $\text{DETERMINISTIC-SEARCH}$. $\text{SCRAMBLE-SEARCH}$ gives better expected results, but for the cost of randomly permuting the array, which is a linear operation. In the same time we could have scanned the full array and reported a result.</p>
@@ -5806,9 +5810,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

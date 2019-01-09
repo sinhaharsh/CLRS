@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5675,11 +5677,13 @@
 <p>Taking the book's hint, we sort the points by $x$-coordinate, left to right, in $O(n\lg n)$ time. Let the sorted points be, left to right, $\langle p_1, p_2, p_3, \ldots, p_n \rangle$. Therefore, $p_1$ is the leftmost point, and $p_n$ is the rightmost.</p>
 <p>We define as our subproblems paths of the following form, which we call bitonic paths. A <strong><em>bitonic path</em></strong> $P_{i, j}$, where $i \le j$, includes all points $p_1, p_2, \ldots, p_j$; it starts at some point $p_i$, goes strictly left to point $p_1$, and then goes strictly right to point $p_j$. By "going strictly left," we mean that each point in the path has a lower $x$-coordinate than the previous point. Looked at another way, the indices of the sorted points form a strictly decreasing sequence. Likewise, "going strictly right" means that the indices of the sorted points form a strictly increasing sequence. Moreover, $P_{i, j}$ contains all the points $p_1, p_2, p_3, \ldots, p_j$ Note that $p_j$ is the rightmost point in $P_{i, j}$ and is on the rightgoing subpath. The leftgoing subpath may be degenerate, consisting of just $p_1$.</p>
 <p>Let us denote the euclidean distance between any two points $p_i$ and $p_j$ by $|p_i p_j|$. And let us denote by $b[i, j]$, for $1 \le i \le j \le n$, the length of the shortest bitonic path $P_{i, j}$. Since the leftgoing subpath may be degenerate, we can easily compute all values $b[1, j]$. The only value of $b[i, i]$ that we will need is $b[n, n]$, which is the length of the shortest bitonic tour. We have the following formulation of $b[i, j]$ for $1 \le i \le j \le n$:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 b[1, 2] &amp; = |p_1 p_2|, \\
 b[i, j] &amp; = b[i, j - 1] + |p_{j - 1} p_j| &amp; \text{for $i &lt; j - 1$}, \\
 b[j - 1, j] &amp; = \min_{1\le k &lt; j - 1} \{b[k, j - 1] + |p_k p_j|\}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Why are these formulas correct? Any bitonic path ending at $p_2$ has $p_2$ as its rightmost point, so it consists only of $p_1$ and $p_2$. Its length, therefore, is $|p_1 p_2|$.</p>
 <p>Now consider a shortest bitonic path $P_{i, j}$. The point $p_{j - 1}$ is somewhere on this path. If it is on the rightgoing subpath, then it immediately preceeds $p_j$ on this subpath. Otherwise, it is on the leftgoing subpath, and it must be the rightmost point on this subpath, so $i = j - 1$. In the first case, the subpath from $p_i$ to $p_{j - 1}$ must be a shortest bitonic path $P_{i, j - 1}$, for otherwise we could use a cut-and-paste argument to come up with a shorter bitonic path than $P_{i, j}$. (This is part of our optimal substructure.) The length of $P_{i, j}$, therefore, is given by $b[i, j - 1] + |p_{j - 1} p_j|$. In the second case, $p_j$ has an immediate predecessor $p_k$, where $k &lt; j - 1$, on the rightgoing subpath. Optimal substructure again applies: the subpath from $p_k$ to $p_{j - 1}$ must be a shortest bitonic path $P_{k, j - 1}$, for otherwise we could use cut-and-paste to come up with a shorter bitonic path than $P_{i, j}$. (We have implicitly relied on paths having the same length regardless of which direction we traverse them.) The length of $P_{i, j}$, therefore, is given by $\min_{1 \le k \le j - 1} \{b[k, j - 1] + |p_k p_j|\}$.</p>
 <p>We need to compute $b[n, n]$. In an optimal bitonic tour, one of the points adjacent to $p_n$ must be $p_{n - 1}$, and so we have</p>
@@ -5848,9 +5852,11 @@ b[j - 1, j] &amp; = \min_{1\le k &lt; j - 1} \{b[k, j - 1] + |p_k p_j|\}.
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

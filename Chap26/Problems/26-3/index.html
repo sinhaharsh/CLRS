@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5688,30 +5690,36 @@
 <p>Since the capacity of the cut is finite, there cannot be any edges of the form $(A_k, J_i)$ crossing the cut, where $A_k \in S$ and $J_i \in T$. All edges going from a vertex in $S$ to a vertex in $T$ must be either of the form $(s, A_k)$ or of the form $(J_i, t)$. Let $E_A$ be the set of edges of the form $(s, A_k)$ that cross the cut, and let $E_J$ be the set of edges of the form $(J_i, t)$ that cross the cut, so that</p>
 <p>$$c(S, T) = \sum_{(s, A_k) \in E_A} c(s, A_k) + \sum_{(J_i, j) \in E_J} c(J_i, t).$$</p>
 <p>Consider edges of the form $(s, A_k)$. We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 (s, A_k) \in E_A
     &amp; \text{ if and only if $A_k \in T$} \\
     &amp; \text{ if and only if $A_k \in P.A$}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>By construction, $c(s, A_k) = c_k$. Taking summations over $E_A$ and over $P.A$, we obtain</p>
 <p>$$\sum_{(s, A_k) \in E_A} c(s, A_k) = \sum_{A_k \in P.A} c_k.$$</p>
 <p>Similarly, consider edges of the form $(J_i, t)$. We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 (J_i, t) \in E_J
     &amp; \text{ if and only if $J_i \in S$} \\
     &amp; \text{ if and only if $J_i \notin T$} \\
     &amp; \text{ if and only if $J_i \notin P.J$}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>By construction, $c(J_i, t) = p_i$. Taking summations over $E_J$ and over $P.J$, we obtain</p>
 <p>$$\sum_{(J_i, t) \in E_J} c(J_i, t) = \sum_{J_i \notin P.J} p_i.$$</p>
 <p>Let $v$ be the net revenue of $P$. Then, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 v &amp; = \sum_{J_i \in P.J} p_i - \sum_{A_k \in P.A} c_k \\
   &amp; = \Bigg( \sum_{J_i \in J} p_i - \sum_{J_i \notin P.J} p_i \Bigg) - \sum_{A_k \in P.A} c_k \\
   &amp; = \sum_{J_i \in J} p_i - \Bigg( \sum_{J_i \notin P.J} p_i + \sum_{A_k \in P.A} c_k \Bigg) \\
   &amp; = \sum_{J_i \in J} p_i - \Bigg( \sum_{(J_i, t) \in E_J} c(J_i, t) + \sum_{(s, A_k) \in E_A} c(s, A_k) \Bigg) \\
   &amp; = \Bigg( \sum_{J_i \in J} p_i \Bigg) - c(S, T).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Now, we prove the other direction of the lemma by constructing the required cut from a valid project-plan.</p>
 <p>Construct the cut $(S, T)$ as follows. For every $J_i \in P.J$, let $J_i \in T$. For every $A_k \in P.A$, let $A_k \in T$.</p>
 <p>First, we prove that the cut $(S, T)$ is a finite-capacity cut. Since edges of the form $(A_k, J_i)$ are the only infinite-capacity edges, it suffices to prove that there are no edges $(A_k, J_i)$ such that $A_k \in S$ and $J_i \in T$.</p>
@@ -5809,9 +5817,11 @@ v &amp; = \sum_{J_i \in P.J} p_i - \sum_{A_k \in P.A} c_k \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

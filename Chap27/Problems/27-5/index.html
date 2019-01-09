@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5676,7 +5678,8 @@ A =
 \begin{pmatrix}
 A_{11} &amp; A_{12} \\
 A_{21} &amp; A_{22} \tag{27.11}
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$</p>
 <p>Observe now that we can fill in subarray $A_{11}$ recursively, since it does not depend on the entries of the other three subarrays. Once $A_{11}$ is complete, we can continue to fill in $A_{12}$ and $A_{21}$ recursively in parallel, because although they both depend on $A_{11}$ , they do not depend on each other. Finally, we can fill in $A_{22}$ recursively.</p>
 <p><strong>a.</strong> Give multithreaded pseudocode that performs this simple stencil calculation using a divide-and-conquer algorithm $\text{SIMPLE-STENCIL}$ based on the decomposition $\text{(27.11)}$ and the discussion above. (Don't worry about the details of the base case, which depends on the specific stencil.) Give and solve recurrences for the work and span of this algorithm in terms of $n$. What is the parallelism?</p>
@@ -5759,7 +5762,8 @@ $$</p>
 1 &amp; 2 &amp; 3 \\
 2 &amp; 3 &amp; 4 \\
 3 &amp; 4 &amp; 5
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$</p>
 <p>Each entry in the above matrix specifies the group of the corresponding $n / 3 \times n / 3$ submatrix of $A$; we can compute in parallel the entries of all submatrices that fall in the same group. In general, for $i = 2, 3, 4, 5$, we can calculate group $i$ after completing the computation of group $i - 1$.</p>
 <p>The recurrence for the work is
@@ -5778,7 +5782,8 @@ $$T_1(n) = 9T_1(n / 3) + \Theta(1) = \Theta(n^2).$$</p>
 b - 2 &amp; b - 1 &amp; b     &amp; \cdots &amp; 2b - 5 &amp; 2b - 4 &amp; 2b - 3 \\
 b - 1 &amp; b     &amp; b + 1 &amp; \cdots &amp; 2b - 4 &amp; 2b - 3 &amp; 2b - 2 \\
 b     &amp; b + 1 &amp; b + 2 &amp; \cdots &amp; 2b - 3 &amp; 2b - 2 &amp; 2b - 1
-\end{pmatrix}.
+\end{pmatrix}
+.
 $$</p>
 <p>The recurrence for the work is</p>
 <p>$$T_1(n) = b^2 T_1(n / b) + \Theta(1) = \Theta(n^2).$$</p>
@@ -5812,11 +5817,13 @@ $$</p>
 
 <p>For each value of index $i$ of the first serial <strong>for</strong> loop, the inner loop iterates $i$ times, doing constant work in each iteration. Because index $i$ ranges from $1$ to $n$ in the first <strong>for</strong> loop, we require $\Theta(1 + 2 + \cdots + n) = \Theta(n^2)$ work to calculate all entries on the antidiagonal and above it. For each value of index $i$ of the second serial <strong>for</strong> loop, the inner loop iterates $n - i + 1$ times, doing constant work in each iteration. Because index $i$ ranges from $2$ to $n$ in the second <strong>for</strong> loop, we require $\Theta((n - 1) + (n - 2) + \cdots + 1) = \Theta(n^2)$ work to calculate all entries on the antidiagonal and above it. Therefore, the work of $\text{P-STENCIL}$ is $T_1(n) = \Theta(n^2)$.</p>
 <p>Note that both <strong>for</strong> loops in $\text{P-STENCIL}$, which execute <strong>parallel for</strong> loops within, are serial. Therefore, in order to calculate the span of $\text{P-STENCIL}$, we must add the spans of all the <strong>parallel for</strong> loops. Given that any <strong>parallel for</strong> loop in $\text{P-STENCIL}$ does constant work in each iteration, the span of a <strong>parallel for</strong> loop with $n'$ iterations is $\Theta(\lg n')$. Hence,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T_\infty(n) &amp; = \Theta((\lg 1 + \lg 2 + \cdots + \lg n) + (\lg(n - 1) + \cdots + 1)) \\
             &amp; = \Theta(\lg(n!) + \lg(n - 1)!) \\
             &amp; = \Theta(n\lg n),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>giving us $\Theta(n / \lg n)$ parallelism.</p>
                 
                   
@@ -5906,9 +5913,11 @@ T_\infty(n) &amp; = \Theta((\lg 1 + \lg 2 + \cdots + \lg n) + (\lg(n - 1) + \cdo
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

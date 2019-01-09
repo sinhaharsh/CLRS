@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5676,11 +5678,13 @@
 <p>To prove the claim, we use a cut-and-paste argument. If $p'$ were not a longest path, then there exists a longer path $p''$ from $v$ to $t$. We could cut out $p'$ and paste in $p''$ to produce a path $u \to v \overset{p''}{\leadsto} t$ which is longer than $p$, thus contradicting the assumption that $p$ is a longest path from $u$ to $t$.</p>
 <p>It is important to note that the graph is <em>acyclic</em>. Because the graph is acyclic, path $p''$ cannot include the vertex u, for otherwise there would be a cycle of the form $u \to v \leadsto u$ in the graph. Thus, we can indeed use $p''$ to construct a longer path. The acyclicity requirement ensures that by pasting in path $p''$ , the overall path is still a <em>simple</em> path (there is no cycle in the path). This difference between the cyclic and the acyclic case allows us to use dynamic programming to solve the acyclic case.</p>
 <p>Let $dist[u]$ denote the weight of a longest path from $u$ to $t$. The optimal substructure property allows us to write a recurrence for $dist[u]$ as</p>
-<p>dist[u] =
+<p>$$
+dist[u] =
 \begin{cases}
                                            0 &amp; \text{if $u = t$}, \\
 \max\limits_{(u, v)\in E}{w(u, v) + dist[v]} &amp; \text{otherwise}.
-\end{cases}</p>
+\end{cases}
+$$</p>
 <p>This recurrence allows us to construct the following procedure:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -5878,9 +5882,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

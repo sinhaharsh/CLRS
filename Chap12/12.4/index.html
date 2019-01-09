@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5789,14 +5791,16 @@
 <blockquote>
 <p>$$\sum_{i = 0}^{n - 1} \binom{i + 3}{3} = \binom{n + 3}{4}. \tag{12.3}$$</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 0}^{n - 1} \binom{i + 3}{3}
     &amp; =  \sum_{i = 0}^{n - 1} \frac{(i + 3)(i + 2)(i + 1)}{6} \\
     &amp; =  \frac{1}{6} \sum_{i = 0}^{n - 1} i^3 + 6i^2 + 11i + 6 \\
     &amp; =  \frac{1}{6} (\frac{(n - 1)^2 n^2}{4} + \frac{6(n - 1)n(2n - 1)}{6} + \frac{11n(n - 1)}{2} + 6n) \\
     &amp; =  \frac{n(n + 1)(n + 2)(n + 3)}{24} \\
     &amp; =  \binom{n + 3}{4}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="124-2">12.4-2</h2>
 <blockquote>
 <p>Describe a binary search tree on n nodes such that the average depth of a node in the tree is $\Theta(\lg n)$ but the height of the tree is $\omega(\lg n)$. Give an asymptotic upper bound on the height of an $n$-node binary search tree in which the average depth of a node is $\Theta(\lg n)$.</p>
@@ -5806,39 +5810,49 @@
 <p>If the average depth of p a node in an $n$-node binary search tree is $\Theta(\lg n)$, then the height of the tree is $O(\sqrt{n\lg n})$.</p>
 <p><strong><em>Proof</em></strong></p>
 <p>Suppose that an $n$-node binary search tree has average depth $\Theta(\lg n)$ and height $h$. Then there exists a path from the root to a node at depth $h$, and the depths of the nodes on this path are $0, 1, \ldots, h$. Let $P$ be the set of nodes on this path and $Q$ be all other nodes. Then the average depth of a node is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{1}{n} \Big(\sum_{x \in P} \text{depth($x$)} + \sum_{y \in Q} \text{depth($y$)}\Big)
     &amp; \ge \frac{1}{n} \sum_{x \in P} \text{depth($x$)} \\
     &amp; =   \frac{1}{n} \sum_{d = 0}^h d \\
     &amp; =   \frac{1}{n} \cdot \Theta(h^2).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>For the purpose of contradiction, suppose that $h$ is not $O(\sqrt{n\lg n})$, so that $h = \omega(\sqrt{n\lg n})$. Then we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{1}{n} \cdot \Theta(h^2)
     &amp; = \frac{1}{n} \cdot \omega(n\lg n) \\
     &amp; = \omega(\lg n),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which contradicts the assumption that the average depth is $\Theta(\lg n)$. Thus, the height is $O(\sqrt{n\lg n})$.</p>
 <p>Here is an example of an $n$-node binary search tree with average node depth $\Theta(\lg n)$ but height $\omega(\lg n)$:</p>
 <p><img alt="" src="https://i.imgur.com/fHpe1vR.png" /></p>
 <p>In this tree, $n - \sqrt{n\lg n}$ nodes are a complete binary tree, and the other $\sqrt{n\lg n}$ nodes protrude from below as a single chain. This tree has height</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Theta(\lg(n - \sqrt{n\lg n})) + \sqrt{n\lg n}
     &amp; = \Theta(\sqrt{n\lg n}) \\
     &amp; = \omega(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>To compute an upper bound on the average depth of a node, we use $O(\lg n)$ as an upper bound on the depth p of each of the $n - \sqrt{n\lg n}$ nodes in the complete binary tree part and $O(\lg n + \sqrt{n\lg n})$ as an upper bound on the depth of each of the $\sqrt{n\lg n}$ nodes in the protruding chain. Thus, the average depth of a node is bounded from above by </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{1}{n} \cdot O(\sqrt{n\lg n}(\lg n + \sqrt{n\lg n}) + (n - \sqrt{n\lg n})\lg n)
     &amp; = \frac{1}{n} \cdot O(n\lg n) \\
     &amp; = O(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>To bound the average depth of a node from below, observe that the bottommost level of the complete binary tree part has $\Theta(n - \sqrt{n - \lg n})$ nodes, and each of these nodes has depth $\Theta(\lg n)$. Thus, the average node depth is at least</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{1}{n} \cdot \Theta((n - \sqrt{n - \lg n})\lg n)
     &amp; = \frac{1}{n} \cdot \Omega(n\lg n) \\
     &amp; = \Omega(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Because the average node depth is both $O(\lg n)$ and $\Omega(\lg n)$, it is $\Theta(\lg n)$.</p>
 <h2 id="124-3">12.4-3</h2>
 <blockquote>
@@ -5863,7 +5877,8 @@
 <p>Also substitute $y$ for $a$ and $z$ for $b$, giving</p>
 <p>$$c^y \ge c^z + (y - z)c^z\ln c.$$</p>
 <p>If we multiply the first inequality by $\lambda$ and the second by $1 - \lambda$ and then add the resulting inequalities, we get</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \lambda c^x + (1 - \lambda)c^y
     &amp; \ge \lambda(c^z + (x - z)c^z\ln c) + (1 - \lambda)(c^z + (y - z)c^z\ln c) \\
     &amp; =   \lambda c^z + \lambda x c^z\ln c - \lambda z c^z\ln c + (1 - \lambda)c^z + (1 - \lambda)yc^z\ln c - (1 - \lambda)zc^z\ln c \\
@@ -5871,7 +5886,8 @@
     &amp; =   c^z + zc^z\ln c - zc^z\ln c \\
     &amp; =   c^z \\
     &amp; =   c^{\lambda x + (1 - \lambda)y},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>as we wished to show.</p>
 <h2 id="124-5-star">12.4-5 $\star$</h2>
 <blockquote>
@@ -5969,9 +5985,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5686,43 +5688,54 @@
 </blockquote>
 <p><strong>a.</strong> A root with two subtree.</p>
 <p><strong>b.</strong></p>
-<p>\begin{align}
-B(x)^2 &amp; = (b_0 x^0 + b_1 x^1 + b_2 x^2 + \cdots) ^ 2 \\<br />
-       &amp; = b_0^2 x^0 + (b_0 b_1 + b_1 b_0) x^1 + (b_0 b_2 + b_1 b_1 + b_2 b_0) x^2 + \cdots \\<br />
-       &amp; = \sum_{k = 0}^0 b_k b_{0 - k} x^0 + \sum_{k = 0}^1 b_k b_{1 - k} x^1 + \sum_{k = 0}^2 b_k b_{2 - k} x^2 + \cdots \\<br />
-\end{align}</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
+B(x)^2 &amp; = (b_0 x^0 + b_1 x^1 + b_2 x^2 + \cdots)^2 \\
+       &amp; = b_0^2 x^0 + (b_0 b_1 + b_1 b_0) x^1 + (b_0 b_2 + b_1 b_1 + b_2 b_0) x^2 + \cdots \\
+       &amp; = \sum_{k = 0}^0 b_k b_{0 - k} x^0 + \sum_{k = 0}^1 b_k b_{1 - k} x^1 + \sum_{k = 0}^2 b_k b_{2 - k} x^2 + \cdots
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 xB(x)^2 + 1 &amp; = 1 + \sum_{k = 0}^0 b_k b_{1 - 1 - k} x^1 + \sum_{k = 0}^2 b_k b_{2-1 - k} x^3 + \sum_{k = 0}^2 b_k b_{3-1 - k} x^2 + \cdots \\
             &amp; = 1 + b_1 x^1 + b_2 x^2 + b_3 x^3 + \cdots \\
             &amp; = b_0 x^0 + b_1 x^1 + b_2 x^2 + b_3 x^3 + \cdots \\
             &amp; = \sum_{n = 0}^\infty b_n x^n \\
             &amp; = B(x).
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 x B(x)^2 + 1 &amp; = x \cdot \frac{1}{4x^2} (1 + 1 - 4x - 2\sqrt{1 - 4x}) + 1 \\
              &amp; = \frac{1}{4x} (2 - 2\sqrt{1 - 4x}) - 1 + 1 \\
              &amp; = \frac{1}{2x} (1 - \sqrt{1 - 4x}) \\
              &amp; = B(x).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>c.</strong> Let $f(x) = \sqrt{1 - 4x}$, the numerator of the derivative is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 2 \cdot (1 \cdot 2) \cdot (3 \cdot 2) \cdot (5 \cdot 2) \cdots 
     &amp; = 2^k \cdot \prod_{i = 0}^{k - 2} (2k + 1) \\
     &amp; = 2^k \cdot \frac{(2(k - 1))!}{2^{k - 1}(k - 1)!} \\
     &amp; = \frac{2(2(k - 1))!}{(k - 1)!}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>$$f(x) = 1 - 2x - 2x^2 - 4 x^3 - 10x^4 - 28x^5 - \cdots.$$</p>
 <p>The coefficient is $\frac{2(2(k - 1))!}{k!(k - 1)!}$.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 B(x) &amp; = \frac{1}{2x}(1 - f(x)) \\
      &amp; = 1 + x + 2x^2 + 5x^3 + 14x^4 + \cdots \\
      &amp; = \sum_{n = 0}^\infty \frac{(2n)!}{(n + 1)!n!} x \\
      &amp; = \sum_{n = 0}^\infty \frac{1}{n + 1} \frac{(2n)!}{n!n!} x \\
      &amp; = \sum_{n = 0}^\infty \frac{1}{n + 1} \binom{2n}{n} x.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>$$b_n = \frac{1}{n + 1} \binom{2n}{n}.$$</p>
 <p><strong>d.</strong></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 b_n &amp; =       \frac{1}{n + 1} \frac{(2n)!}{n!n!} \\
     &amp; \approx \frac{1}{n + 1} \frac{\sqrt{4 \pi n}(2n / e)^{2n}}{2 \pi n (n / e)^{2n}} \\
     &amp; =       \frac{1}{n + 1} \frac{4^n}{\sqrt{\pi n} } \\
@@ -5730,7 +5743,8 @@ b_n &amp; =       \frac{1}{n + 1} \frac{(2n)!}{n!n!} \\
     &amp; =       (\frac{1}{n} - \frac{1}{n^2 + n}) \frac{4^n}{\sqrt{\pi n}} \\
     &amp; =       \frac{1}{n} (1 - \frac{1}{n + 1}) \frac{4^n}{\sqrt{\pi n}} \\
     &amp; =       \frac{4^n}{\sqrt{\pi}n^{3 / 2}} (1 + O(1 / n)).
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5819,9 +5833,11 @@ b_n &amp; =       \frac{1}{n + 1} \frac{(2n)!}{n!n!} \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

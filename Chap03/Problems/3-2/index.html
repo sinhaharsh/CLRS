@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5670,7 +5672,8 @@
                 <blockquote>
 <p>Indicate for each pair of expressions $(A, B)$ in the table below, whether $A$ is $O$, $o$, $\Omega$, $\omega$, or $\Theta$ of $B$. Assume that $k \ge 1$, $\epsilon &gt; 0$, and $c &gt; 1$ are constants. Your answer should be in the form of the table with "yes" or "no" written in each box.</p>
 </blockquote>
-<p>\begin{array}{ccccccc}
+<p>$$
+\begin{array}{ccccccc}
 A         &amp; B          &amp; O   &amp;  o  &amp; \Omega &amp; \omega &amp; \Theta \\
 \hline
 \lg^k n   &amp; n^\epsilon &amp; yes &amp; yes &amp;  no    &amp; no     &amp; no     \\
@@ -5679,7 +5682,8 @@ n^k       &amp; c^n        &amp; yes &amp; yes &amp;  no    &amp; no     &amp; n
 2^n       &amp; 2^{n / 2}  &amp; no  &amp; no  &amp;  yes   &amp; yes    &amp; no     \\
 n^{\lg c} &amp; c^{\lg n}  &amp; yes &amp; no  &amp;  yes   &amp; no     &amp; yes    \\
 \lg(n!)   &amp; \lg(n^n)   &amp; yes &amp; no  &amp;  yes   &amp; no     &amp; yes
-\end{array}</p>
+\end{array}
+$$</p>
                 
                   
                 
@@ -5768,9 +5772,11 @@ n^{\lg c} &amp; c^{\lg n}  &amp; yes &amp; no  &amp;  yes   &amp; no     &amp; y
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

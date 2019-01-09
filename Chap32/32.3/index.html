@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5791,7 +5793,8 @@
 <p>Draw a state-transition diagram for a string-matching automaton for the pattern
 $ababbabbababbababbabb$ over the alphabet $\sigma = \{a, b\}$.</p>
 </blockquote>
-<p>\begin{array}{c|c|c}
+<p>$$
+\begin{array}{c|c|c}
  0 &amp;  1 &amp;  0 \\
  1 &amp;  1 &amp;  2 \\
  2 &amp;  3 &amp;  0 \\
@@ -5814,7 +5817,8 @@ $ababbabbababbababbabb$ over the alphabet $\sigma = \{a, b\}$.</p>
 19 &amp;  1 &amp; 20 \\
 20 &amp;  3 &amp; 21 \\
 21 &amp;  9 &amp;  0
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="323-3">32.3-3</h2>
 <blockquote>
 <p>We call a pattern $P$ <strong><em>nonoverlappable</em></strong> if $P_k \sqsupset P_q$ implies $k = 0$ or $k = q$. Describe the state-transition diagram of the string-matching automaton for a nonoverlappable pattern.</p>
@@ -5918,9 +5922,11 @@ $ababbabbababbababbabb$ over the alphabet $\sigma = \{a, b\}$.</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

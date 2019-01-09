@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5699,18 +5701,21 @@ At each recursive invocation of quicksort, we choose a random pivot element to p
 <p>Following the hint in Problem 7-3(d), we split the summation into two parts:</p>
 <p>$$\sum_{k = 2}^{n - 1} k\lg k = \sum_{k = 2}^{\lceil n / 2\rceil - 1} k\lg k + \sum_{k = \lceil n / 2\rceil}^{n - 1} k\lg k.$$</p>
 <p>The $\lg k$ in the first summation on the right is less than $\lg(n / 2) = \lg n - 1$, and the $\lg k$ in the second summation is less than $\lg n$. Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{k = 2}^{n - 1} k\lg k 
     &amp; &lt;   (\lg n - 1) \sum_{k = 2}^{\lceil n / 2\rceil - 1} k + \lg n \sum_{k = \lceil n / 2\rceil}^{n - 1} k \\
     &amp; =   \lg n \sum_{k = 2}^{n - 1} k - \sum_{k = 2}^{\lceil n / 2 \rceil - 1} k \\
     &amp; \le \frac{1}{2} n(n - 1)\lg n - \frac{1}{2}\Big(\frac{n}{1} - 1\Big) \frac{n}{2} \\
     &amp; \le \frac{1}{2} n^2\lg n - \frac{1}{8} n^2 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>if $n \ge 2$.</p>
 <p>Now we show that the recurrence</p>
 <p>$$P(n) = \frac{2}{n} \sum_{k = 2}^{n - 1} P(k) + \Theta(n)$$</p>
 <p>has the solution $P(n) = O(n\lg n)$. We use the substitution method. Assume inductively that $P(n) \le an\lg n + b$ for some positive constants $a$ and $b$ to be determined. We can pick $a$ and $b$ sufficiently large so that $an\lg n + b \ge P(1)$. Then, for $n &gt; 1$, we have by substitution</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P(n) &amp; =   \frac{2}{n} \sum_{k = 2}^{n - 1} P(k) + \Theta(n) \\
      &amp; \le \frac{2}{n} \sum_{k = 2}^{n - 1} (ak\lg k + b) + \Theta(n) \\
      &amp; =   \frac{2a}{n} \sum_{k = 2}^{n - 1} k\lg k + \frac{2b}{n} (n - 2) + \Theta(n) \\
@@ -5718,7 +5723,8 @@ P(n) &amp; =   \frac{2}{n} \sum_{k = 2}^{n - 1} P(k) + \Theta(n) \\
      &amp; \le an\lg n - \frac{a}{4}n + 2b + \Theta(n) \\
      &amp; =   an\lg n + b + \Big(\Theta(n) + b - \frac{a}{4}n\Big) \\
      &amp; \le an\lg n + b,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>since we can choose $a$ large enough so that $\frac{a}{4}n$ dominates $\Theta(n) + b$. Thus, $P(n) = O(n\lg n)$.</p>
 <p><strong>f.</strong> We draw an analogy between inserting an element into a subtree of a binary search tree and sorting a subarray in quicksort. Observe that once an element $x$ is chosen as the root of a subtree $T$, all elements that will be inserted after $x$ into $T$ will be compared to $x$. Similarly, observe that once an element $y$ is chosen as the pivot in a subarray $S$, all other elements in $S$ will be compared to $y$. Therefore, the quicksort implementation in which the comparisons are the same as those made when inserting into a binary search tree is simply to consider the pivots in the same order as the order in which the elements are inserted into the tree.</p>
                 
@@ -5809,9 +5815,11 @@ P(n) &amp; =   \frac{2}{n} \sum_{k = 2}^{n - 1} P(k) + \Theta(n) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

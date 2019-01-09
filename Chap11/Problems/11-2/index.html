@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5683,7 +5685,8 @@
 <p>Since there are $\binom{n}{k}$ ways to choose our $k$ keys, we get</p>
 <p>$$Q_k = \Big(\frac{1}{n}\Big)^k \Big(1 - \frac{1}{n}\Big)^{n - k} \binom{n}{k}.$$</p>
 <p><strong>b.</strong> For $i = 1, 2, \ldots, n$, let $X_i$ be a random variable denoting the number of keys that hash to slot $i$, and let $A_i$ be the event that $X_i = k$, i.e., that exactly $k$ keys hash to slot $i$. From part (a), we have $\Pr\{A\} = Q_k$. Then,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P_k &amp; =   \Pr\{M = k\} \\
     &amp; =   \Pr\Big\{\Big(\max_{1 \le i \le n} X_i\Big) = k\Big\} \\
     &amp; =   \Pr\{\text{there exists $i$ such that $X_i = k$ and that $X_i\le k$ for $i = 1, 2, \ldots, n$}\} \\
@@ -5691,26 +5694,33 @@ P_k &amp; =   \Pr\{M = k\} \\
     &amp; =   \Pr\{A_1 \cup A_2 \cup \cdots \cup A_n\} \\
     &amp; \le \Pr\{A_1\} + \Pr\{A_2\} + \cdots + \Pr\{A_n\} \qquad \text{(by inequality (C.19))} \\
     &amp; =   nQ_k.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>c.</strong> We start by showing two facts. First, $1 - 1 / n &lt; 1$, which implies $(1 - 1 / n)^{n - k} &lt; 1$. Second, $n! / (n - k)! = n \cdot (n - 1) \cdot (n - 2) \cdots (n - k + 1) &lt; n^k$. Using these facts, along with the simplification $k! &gt; (k / e)^k$ of equation $\text{(3.18)}$, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 Q_k &amp; = \Big(\frac{1}{n}\Big)^k \Big(1 - \frac{1}{n}\Big)^{n - k} \frac{n!}{k!(n - k)!} \\
     &amp; &lt; \frac{n!}{n^k k! (n - k)!} &amp; ((1 - 1 / n)^{n - k} &lt; 1) \\
     &amp; &lt; \frac{1}{k!}               &amp; (n! / (n - k)! &lt; n^k) \\
     &amp; &lt; \frac{e^k}{k^k}.           &amp; (k! &gt; (k / e)^k)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> Notice that when $n = 2$, $\lg\lg n = 0$, so to be precise, we need to assume that $n \ge 3$.</p>
 <p>In part (c), we showed that $Q_k &lt; e^k / k^k$ for any $k$; in particular, this inequality holds for $k_0$. Thus, it suffices to show that $e^{k_0} / k_0^{k_0} &lt; 1 / n^3$ or, equivalently, that $n^3 &lt; k_0^{k_0} / e^{k_0}$.</p>
 <p>Taking logarithms of both sides gives an equivalent condition:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 3\lg n &amp; &lt; k_0(\lg k_0 - \lg e) \\
        &amp; = \frac{c\lg n}{\lg\lg n}(\lg c + \lg\lg n - \lg\lg\lg n - \lg e).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Dividing both sides by $\lg n$ gives the condition</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 3 &amp; &lt; \frac{c}{\lg\lg n} (\lg c + \lg\lg n - \lg\lg\lg n - \lg e) \\
   &amp; = c \Big(1 + \frac{\lg c - \lg e}{\lg\lg n} - \frac{\lg\lg\lg n}{\lg\lg n}\Big).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Let $x$ be the last expression in parentheses:</p>
 <p>$$x = \Big(1 + \frac{\lg c - \lg e}{\lg\lg n} - \frac{\lg\lg\lg n}{\lg\lg n}\Big).$$</p>
 <p>We need to show that there exists a constant $c &gt; 1$ such that $3 &lt; cx$.</p>
@@ -5723,35 +5733,43 @@ Q_k &amp; = \Big(\frac{1}{n}\Big)^k \Big(1 - \frac{1}{n}\Big)^{n - k} \frac{n!}{
 <p>Thus, we have shown that $Q_{k_0} &lt; 1 / n^3$, as desired.</p>
 <p>To see that $P_k &lt; 1 / n^2$ for $k \ge k_0$, we observe that by part (b), $P_k \le nQ_k$ for all $k$. Choosing $k = k_0$ gives $P_{k_0} \le nQ_{k_0} &lt; n \cdot (1 / n^3) = 1 / n^2$. For $k &gt; k_0$, we will show that we can pick the constant $c$ such that $Q_k &lt; 1 / n^3$ for all $k \ge k_0$, and thus conclude that $P_k &lt; 1 / n^2$ for all $k \ge k_0$.</p>
 <p>To pick $c$ as required, we let $c$ be large enough that $k_0 &gt; 3 &gt; e$. Then $e / k &lt; 1$ for all $k \ge k_0$, and so $e^k / k^k$ decreases as $k$ increases. Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 Q_k &amp; &lt;   e^k / k^k \\
     &amp; \le e^{k_0} / k^{k_0} \\
     &amp; &lt;   1 / n^3 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>for $k \ge k_0$.</p>
 <p><strong>e.</strong> The expectation of $M$ is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[M] &amp; =   \sum_{k = 0}^n k \cdot \Pr\{M = k\} \\
            &amp; =   \sum_{k = 0}^{k_0} k \cdot \Pr\{M = k\} + \sum_{k = k_0 + 1}^n k \cdot \Pr\{M = k\} \\
            &amp; \le \sum_{k = 0}^{k_0} k_0 \cdot \Pr\{M = k\} + \sum_{k = k_0 + 1}^n n \cdot \Pr\{M = k\} \\
            &amp; \le k_0 \sum_{k = 0}^{k_0} \Pr\{M = k\} + n \sum_{k = k_0 + 1}^n \Pr\{M = k\} \\
            &amp; =   k_0 \cdot \Pr\{M \le k_0\} + n \cdot \Pr\{M &gt; k_0\},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which is what we needed to show, since $k_0 = c \lg n / \lg\lg n$.</p>
 <p>To show that $\text E[M] = O(\lg n / \lg\lg n)$, note that $\Pr\{M \le k_0\} \le 1$ and</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{M &gt; k_0\} &amp; = \sum_{k = k_0 + 1}^n \Pr\{M = k\} \\
                &amp; = \sum_{k = k_0 + 1}^n P_k \\
                &amp; &lt; \sum_{k = k_0 + 1}^n 1 / n^2 &amp; \text{(by part (d))} \\
                &amp; &lt; n \cdot (1 / n^2) \\
                &amp; = 1 / n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>We conclude that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[M] &amp; \le k_0 \cdot 1 + n \cdot (1 / n) \\
            &amp; =   k_0 + 1 \\
            &amp; =   O(\lg n / \lg\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5840,9 +5858,11 @@ Q_k &amp; &lt;   e^k / k^k \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

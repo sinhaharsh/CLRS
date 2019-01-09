@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5849,13 +5851,15 @@ $S[j]$ contains the value $k$. Let us call this situation, in which $1 \le T[k] 
 <li><strong>INSERT:</strong> To insert object $x$ with key $k$, assuming that this object is not already in the dictionary, we increment $S.top$, set $S[S.top] = k$, set $S'[S.top] = x$, and set $T[k] = S.top$.  </li>
 <li><strong>DELETE:</strong> To delete object $x$ with key $k$, assuming that this object is in the dictionary, we need to break the validating cycle. The trick is to also ensure that we don't leave a "hole" in the stack, and we solve this problem by moving the top entry of the stack into the position that we are vacating-and then fixing up <em>that</em> entry's validating cycle. That is, we execute the following sequence of assignments:  </li>
 </ul>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
     &amp; S[T[k]] = S[S.top]   \\
     &amp; S'[T[k]] = S'[S.top] \\
     &amp; T[S[T[k]]] = T[k]    \\
     &amp; T[k] = 0             \\
     &amp; S.top = S.top - 1
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Each of these operation - initialization, $\text{SEARCH}$, $\text{INSERT}$, and $\text{DELETE}$-takes $O(1)$ time.</p>
                 
                   
@@ -5945,9 +5949,11 @@ $S[j]$ contains the value $k$. Let us call this situation, in which $1 \le T[k] 
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

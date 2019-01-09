@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5700,13 +5702,15 @@
 <p><strong>Termination:</strong> The <strong>for</strong> loop of lines 1–4 terminates when $i = n$, so that $i - 1 = n - 1$. By the statement of the loop invariant, $A[1..i - 1]$ is the subarray $A[1..n - 1]$, and it consists of the $n - 1$ smallest values originally in $A[1..n]$, in sorted order. The remaining element must be the largest value in $A[1..n]$, and it is in $A[n]$. Therefore, the entire array $A[1..n]$ is sorted.</p>
 <p><strong><em>Note:</em></strong> Tn the second edition, the <strong>for</strong> loop of lines 1–4 had an upper bound of $A.length$. The last iteration of the outer <strong>for</strong> loop would then result in no iterations of the inner <strong>for</strong> loop of lines 1–4, but the termination argument would simplify: $A[1..i - 1]$ would be the entire array $A[1..n]$, which, by the loop invariant, is sorted.</p>
 <p><strong>d.</strong> The running time depends on the number of iterations of the <strong>for</strong> loop of lines 2–4. For a given value of $i$, this loop makes $n - i$ iterations, and $i$ takes on the values $1, 2, \ldots, n - 1$. The total number of iterations, therefore, is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^{n - 1} (n - i) 
     &amp; = \sum_{i = 1}^{n - 1} n - \sum_{i = 1}^{n - 1} i \\
     &amp; = n(n - 1) - \frac{n(n - 1)}{2} \\
     &amp; = \frac{n(n - 1)}{2} \\
     &amp; = \frac{n^2}{2} - \frac{n}{2}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the running time of bubblesort is $\Theta(n^2)$ in all cases. The worst-case running time is the same as that of insertion sort.</p>
                 
                   
@@ -5796,9 +5800,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

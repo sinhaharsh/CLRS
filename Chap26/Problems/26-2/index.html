@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5670,10 +5672,12 @@
                 <blockquote>
 <p>A <strong><em>path cover</em></strong> of a directed graph $G = (V, E)$ is a set $P$ of vertex-disjoint paths such that every vertex in $V$ is included in exactly one path in $P$. Paths may start and end anywhere, and they may be of any length, including $0$. A <strong><em>minimum path cover</em></strong> of $G$ is a path cover containing the fewest possible paths.</p>
 <p><strong>a.</strong> Give an efficient algorithm to find a minimum path cover of a directed acyclic graph $G = (V, E)$. ($\textit{Hint:}$ Assuming that $V = \{1, 2, \ldots, n\}$, construct the graph $G' = (V', E')$, where</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 V' &amp; = \{x_0, x_1, \ldots, x_n\} \cup \{y_0, y_1, \ldots, y_n\}, \\
 E' &amp; = \{(x_0, x_i): i \in V\} \cup \{(y_i, y_0): i \in V\} \cup \{(x_i, y_j): (i, j) \in E\},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and run a maximum-flow algorithm.)</p>
 <p><strong>b.</strong> Does your algorithm work for directed graphs that contain cycles? Explain.</p>
 </blockquote>
@@ -5699,13 +5703,15 @@ E' &amp; = \{(x_0, x_i): i \in V\} \cup \{(y_i, y_0): i \in V\} \cup \{(x_i, y_j
 <p>Every edge in $M$ is used in some path because we visit every $x_i$, and we incorporate the single edge, if any, from each visited $x_i$. Thus, there is a one-to-one correspondence between edges in the matching and edges in the constructed path cover.</p>
 <p>We now show that the path cover $P$ constructed above has the fewest possible paths when the matching is maximum.</p>
 <p>Let $f$ be the flow corresonding to the bipartite matching $M$.</p>
-<p>\begin{align}
-|V| &amp; = \sum_{p \in P} \text{(# vertices in $p$)} &amp; \text{(every vertex is on exactly 1 path)} \\
-    &amp; = \sum_{p \in P} \text{(1 + # edges in $p$)} \\
-    &amp; = \sum_{p \in P} 1 + \sum_{p \in P} \text{(# edges in $p$)} \\
+<p>$$
+\begin{aligned}
+|V| &amp; = \sum_{p \in P} \text{(\# vertices in $p$)} &amp; \text{(every vertex is on exactly 1 path)} \\
+    &amp; = \sum_{p \in P} \text{(1 + \# edges in $p$)} \\
+    &amp; = \sum_{p \in P} 1 + \sum_{p \in P} \text{(\# edges in $p$)} \\
     &amp; = |P| + |M|                                 &amp; \text{(by 1-to-1 correspondence)} \\
     &amp; = |P| + |f|.                                &amp; \text{(by Lemma 26.9)}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, for the fixed set $V$ in our graph $G$, $|P|$ (the number of paths) is minimized when the flow $f$ is maximized.</p>
 <p>The overall algorithm is as follows:</p>
 <ul>
@@ -5815,9 +5821,11 @@ E' &amp; = \{(x_0, x_i): i \in V\} \cup \{(y_i, y_0): i \in V\} \cup \{(x_i, y_j
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

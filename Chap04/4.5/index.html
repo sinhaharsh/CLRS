@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5802,18 +5804,21 @@
 <blockquote>
 <p>Use the master method to show that the solution to the binary-search recurrence $T(n) = T(n / 2) + \Theta(1)$ is $T(n) = \Theta(\lg n)$. (See exercise 2.3-5 for a description of binary search.)</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
    a &amp; = 1, b = 2, \\
 f(n) &amp; = \Theta(n^{\lg 1}) = \Theta(1), \\
 T(n) &amp; = \Theta(\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="45-4">4.5-4</h2>
 <blockquote>
 <p>Can the master method be applied to the recurrence $T(n) = 4T(n / 2) + n^2\lg n$? Why or why not? Give an asymptotic upper bound for this recurrence.</p>
 </blockquote>
 <p>With $a = 4$, $b = 2$, we have $f(n) = n^2\lg n \ne O(n^{2 - \epsilon}) \ne \Omega(n^{2 - \epsilon})$, so we cannot apply the master method.</p>
 <p>We guess $T(n) \le cn^2\lg^2 n$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T(n) &amp; \le 4T(n / 2) + n^2\lg n \\
      &amp; =   4c(n / 2)^2\lg^2(n / 2) + n^2\lg n \\
      &amp; =   cn^2\lg(n / 2)\lg n - cn^2\lg(n / 2)\lg 2 + n^2\lg n \\
@@ -5821,7 +5826,8 @@ T(n) &amp; \le 4T(n / 2) + n^2\lg n \\
      &amp; =   cn^2\lg^2 n + (1 - c)n^2\lg n - cn^2\lg(n / 2) &amp; (c &gt; 1) \\
      &amp; \le cn^2\lg^2 n - cn^2\lg(n / 2) \\
      &amp; \le cn^2\lg^2 n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Exercise 4.6-2 is the general case for this.</p>
 <h2 id="45-5-star">4.5-5 $\star$</h2>
 <blockquote>
@@ -5829,11 +5835,13 @@ T(n) &amp; \le 4T(n / 2) + n^2\lg n \\
 </blockquote>
 <p>$a = 1$, $b = 2$ and $f(n) = n(2 - \cos n)$.</p>
 <p>If we try to prove it,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac{n}{2}(2 - \cos\frac{n}{2}) &amp; &lt;   cn \\
         \frac{1 - cos(n / 2)}{2} &amp; &lt;   c \\
         1 - \frac{cos(n / 2)}{2} &amp; \le c.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Since $\min\cos(n / 2) = -1$, this implies that $c \ge 3 / 2$. But $c &lt; 1$.</p>
                 
                   
@@ -5923,9 +5931,11 @@ T(n) &amp; \le 4T(n / 2) + n^2\lg n \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

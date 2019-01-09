@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5842,17 +5844,21 @@
 <p>Explain why, in the proof of Lemma 16.2, if $x.freq = b.freq$, then we must have $a.freq = b.freq = x.freq = y.freq$.</p>
 </blockquote>
 <p>We are given that $x.freq \le y.freq$ are the two lowest frequencies in order, and that $a.freq \le b.freq$. Now,</p>
-<p>\begin{array}{rcl}
+<p>$$
+\begin{array}{rcl}
             b.freq &amp; =   &amp; x.freq \\
 \Rightarrow a.freq &amp; \le &amp; x.freq \\
 \Rightarrow a.freq &amp; =   &amp; x.freq &amp; \text{(since $x.freq$ is the lowest frequency)},
-\end{array}</p>
+\end{array}
+$$</p>
 <p>and since $y.freq \le b.freq$,</p>
-<p>\begin{array}{rcl}
+<p>$$
+\begin{array}{rcl}
             b.freq &amp; =   &amp; x.freq \\
 \Rightarrow y.freq &amp; \le &amp; x.freq \\
 \Rightarrow y.freq &amp; =   &amp; x.freq &amp; \text{(since $x.freq$ is the lowest frequency)}.
-\end{array}</p>
+\end{array}
+$$</p>
 <p>Thus, if we assume that $x.freq = b.freq$, then we have that each of $a.freq$, $b.freq$, and $y.freq$ equals $x.freq$, and so </p>
 <p>$$a.freq = b.freq = x.freq = y.freq.$$</p>
 <h2 id="163-2">16.3-2</h2>
@@ -5869,7 +5875,8 @@ the first $8$ Fibonacci numbers?</p>
 <p>$$a:1 \quad b:1 \quad c:2 \quad d:3 \quad e:5 \quad f:8 \quad g:13 \quad h:21$$</p>
 <p>Can you generalize your answer to find the optimal code when the frequencies are the first $n$ Fibonacci numbers?</p>
 </blockquote>
-<p>\begin{array}{c|l}
+<p>$$
+\begin{array}{c|l}
 a &amp; 1111111 \\
 b &amp; 1111110 \\
 c &amp; 111110 \\
@@ -5878,49 +5885,60 @@ e &amp; 1110 \\
 f &amp; 110 \\
 g &amp; 10 \\
 h &amp; 0
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="163-4">16.3-4</h2>
 <blockquote>
 <p>Prove that we can also express the total cost of a tree for a code as the sum, over all internal nodes, of the combined frequencies of the two children of the node.</p>
 </blockquote>
 <p>Let tree be a full binary tree with $n$ leaves. Apply induction hypothesis on the number of leaves in $T$. When $n = 2$ (the case $n = 1$ is trivially true), there are two leaves $x$ and $y$ with the same parent $z$, then the cost of $T$ is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 B(T) &amp; = f(x) d_T(x) + f(y) d_T(y) \\
      &amp; = f(x) + f(y) &amp; \text{since $d_T(x) = d_T(y) = 1$}  \\
      &amp; = f(\text{child}_1\text{ of }z) + f(\text{child}_2\text{ of }z).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the statement of theorem is true. Now suppose $n &gt; 2$ and also suppose that theorem is true for trees on $n - 1$ leaves.<br />
 Let $c_1$ and $c_2$ are two sibling leaves in $T$ such that they have the same parent $p$. Letting $T'$ be the tree obtained by deleting $c_1$ and $c_2$, by induction we know that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 B(T) &amp; = \sum_{\text{leaves } l'\in T'} f(l')d_T(l') \\
      &amp; = \sum_{\text{internal nodes } i'\in T'} f(\text{child}_1\text{ of }i') + f(\text{child}_2\text{ of }i').
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Using this information, calculates the cost of $T$.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 B(T) &amp; = \sum_{\text{leaves }l \in T} f(l)d_T(l) \\
      &amp; = \sum_{l \ne c_1, c_2} f(l)d_T(l) + f(c_1)d_T(c_1) - 1 + f(c_2)d_T(c_2) - 1 + f(c_1) + f(c_2) \\
      &amp; = \sum_{\text{internal nodes }i'\in T'} f(\text{child}_1\text{ of }i') + f(\text{child}_2\text{ of }i') + f(c_1) + f(c_2) \\
      &amp; = \sum_{\text{internal nodes }i\in T} f(\text{child}_1\text{ of }i) + f(\text{child}_1\text{ of }i).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus the statement is true.</p>
 <h2 id="163-5">16.3-5</h2>
 <blockquote>
 <p>Prove that if we order the characters in an alphabet so that their frequencies are monotonically decreasing, then there exists an optimal code whose codeword lengths are monotonically increasing.</p>
 </blockquote>
 <p>It were a contradiction to have an optimal tree whose frequencies and codewords were monotonically increasing in the strict sense; since, given $f(x_1) &gt; \ldots &gt; f(x_n) \wedge d_T(x_1) &gt; \cdots &gt; d_T(x_n)$, it follows that (where $n$ is odd):</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 &amp; f(x_1)d_T(x_1) + \cdots + f(x_n)d_T(x_n) &gt; f(x_1)d_T(x_n) + \cdots + f(x_n)d_T(x_1) &gt; 0 \\
 &amp; f(x_1)(d_T(x_1) - d_T(x_n)) + \cdots + f(x_n)(d_T(x_n) - d_T(x_1)) &gt; 0 \\
 &amp; f(x_1)(d_T(x_1) - d_T(x_n)) + \cdots + f(x_{\lfloor \frac{n}{2} - 1 \rfloor})(d_T(x_{\lfloor \frac{n}{2} \rfloor - 1}) - d_T(x_{\lfloor \frac{n}{2} \rfloor + 1})) \\
 &amp; &gt; f(x_{\lfloor \frac{n}{2} + 1 \rfloor})(d_T(x_{\lfloor \frac{n}{2} \rfloor - 1}) - d_T(x_{\lfloor \frac{n}{2} \rfloor + 1}))+ \cdots + f(x_n)(d_T(x_1) - d_T(x_n)).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>That is, where $i$ and $j$ are the upper and lower median,<br />
 respectively; and $c_i = d_T(x_i) - d_T(x_{n - i + 1})$:</p>
 <p>$$f(x_1)c_1 + \cdots + f(x_i)c_i &gt; f(x_j)c_i + \cdots + f(x_n)c_1$$</p>
 <p>since</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f(x_i) &amp; &gt; f(x_{n - i + 1}) &amp; 1 \le i \le \Big\lfloor \frac{n}{2} \Big\rfloor.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="163-6">16.3-6</h2>
 <blockquote>
 <p>Suppose we have an optimal prefix code on a set $C = \{0, 1, \ldots, n - 1 \}$ of characters and we wish to transmit this code using as few bits as possible. Show how to represent any optimal prefix code on $C$ using only $2n - 1 + n \lceil \lg n \rceil$ bits. ($\textit{Hint:}$ Use $2n - 1$ bits to specify the structure of the tree, as discovered by a walk of the tree.)</p>
@@ -6033,9 +6051,11 @@ so the total length of the file will not decrease at all.</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

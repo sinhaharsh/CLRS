@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5681,55 +5683,70 @@
 <p>These $n!$ leaves will each have probability $1 / n!$, since each of the $n!$ possible permutations is the input with the probability $1 / n!$. Any remaining leaves will have probability $0$, since they are not reached for any input.</p>
 <p>Without loss of generality, we can assume for the rest of this problem that paths leading only to $0$-probability leaves aren't in the tree, since they cannot affect the running time of the sort. That is, we can assume that $T_A$ consists of only the $n!$ leaves labeled $1 / n!$ and their ancestors.</p>
 <p><strong>b.</strong> If $k &gt; 1$, then the root of $T$ is not a leaf. This implies that all of $T$'s leaves are leaves in $LT$ and $RT$. Since every leaf at depth $h$ in $LT$ or $RT$ has depth $h + 1$ in $T$, $D(T)$ must be the sum of $D(LT)$, $D(RT)$, and $k$, the total number of leaves. To prove this last assertion, let $d_T(x) =$ depth of node $x$ in tree $T$. Then,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 D(T) &amp; = \sum_{x \in T} d_T(x) \\
      &amp; = \sum_{x \in LT} d_T(x) + \sum_{x \in RT} d_T(x) \\
      &amp; = \sum_{x \in LT} (d_{LT}(x) + 1) + \sum_{x \in RT} (d_{RT}(x) + 1) \\
      &amp; = \sum_{x \in LT} d_{LT}(x) + \sum_{x \in RT} d_{RT}(x) + \sum_{x \in T} 1 \\
      &amp; = D(LT) + D(RT) + k. \\
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>c.</strong> To show that $d(k) = \min_{1\le i\le k - 1}{d(i) + d(k - i) + k}$ we will show separately that</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
             &amp; d(k) \le \min_{1\le i\le k - 1}{d(i) + d(k - i) + k} \\
 \text{and } &amp; d(k) \ge \min_{1\le i\le k - 1}{d(i) + d(k - i) + k}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <ul>
 <li>
 <p>To show that $d(k) \le \min_{1\le i\le k - 1}{d(i) + d(k - i) + k}$, we need only show that $d(k) \le d(i) + d(k - i) + k$, for $i = 1, 2, \ldots, k - 1$. For any $i$ from $1$ to $k - 1$ we can find trees $RT$ with $i$ leaves and $LT$ with $k - i$ leaves such that $D(RT) = d(i)$ and $D(LT) = d(k - i)$. Construct $T$ such that $RT$ and $LT$ are the right and left subtrees of $T$'s root respectively. Then</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 d(k) &amp; \le D(T)                 &amp; \text{(by definition of $d$ as min $D(T)$ value)} \\
      &amp; =   D(RT) + D(LT) + k    &amp; \text{(by part (b))} \\
      &amp; =   d(i) + d(k - i) + k. &amp; \text{(by choice of $RT$ and $LT$)}
-\end{align}</p>
+\end{aligned}
+$$</p>
 </li>
 <li>
 <p>To show that $d(k) \ge \min_{1\le i\le k - 1}{d(i) + d(k - i) + d}$, we need only show that $d(k) \ge d(i) + d(k - i) + k$, for some $i$ in ${1, 2, \ldots, k - 1}$. Take the tree $T$ with $k$ leaves such that $D(T) = d(k)$, let $RT$ and $LT$ be $T$'s right and left subtree, respectively, and let $i$ be the number of leaves in $RT$. Then $k - i$ is the number of leaves in $LT$ and</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 d(k) &amp; =   D(T)                 &amp; \text{(by choice of $T$)} \\
      &amp; =   D(RT) + D(LT) + k    &amp; \text{(by part (b))} \\
      &amp; \ge d(i) + d(k - i) + k. &amp; \text{(by definition of $d$ as min $D(T)$ value)}
-\end{align}</p>
+\end{aligned}
+$$</p>
 </li>
 </ul>
 <p>Neither $i$ nor $k - i$ can be $0$ (and hence $1 \le i \le k - 1$), since if one of these were $0$, either $RT$ or $LT$ would contain all $k$ leaves of $T$, and that $k$-leaf subtree would have a $D$ equal to $D(T) - k$ (by part (b)), contradicting the choice of $T$ as the $k$-leaf tree with the minimum $D$.</p>
 <p><strong>d.</strong> Let $f_k(i) = i\lg i + (k - i)\lg(k - i)$. To find the value of $i$ that minimizes $f_k$, find the $i$ for which the derivative of $f_k$ with respect to $i$ is $0$:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f_k'(i) &amp; = \frac{d}{di} \Big(\frac{i\ln i + (k - i)\ln(k - i)}{\ln 2}\Big) \\
         &amp; = \frac{\ln i + 1 - \ln(k - i) - 1}{\ln 2} \\
         &amp; = \frac{\ln i - \ln(k - i)}{\ln 2}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>is $0$ at $i = k / 2$. To verify this is indeed a minimum (not a maximum), check that the second derivative of $f_k$ is positive at $i = k / 2$:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f_k''(i) &amp; = \frac{d}{di}\Big(\frac{\ln i - \ln(k - i)}{\ln 2}\Big) \\
          &amp; = \frac{1}{\ln 2}\Big(\frac{1}{i} + \frac{1}{k - i}\Big).
-\end{align}
-\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 f_k''(k / 2) &amp; = \frac{1}{\ln 2}\Big(\frac{2}{k} + \frac{2}{k}\Big) \\
            &amp; = \frac{1}{\ln 2} \cdot \frac{4}{k} \\
            &amp; &gt; 0 &amp; \text{since $k &gt; 1$}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Now we use substitution to prove $d(k) = \Omega(k\lg k)$. The base case of the induction is satisfied because $d(1) \ge 0 = c \cdot 1 \cdot \lg 1$ for any constant $c$. For the inductive step we assume that $d(i) \ge ci\lg i$ for $1 \le i \le k - 1$, where $c$ is some constant to be determined.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 d(k) &amp; =   \min_{1\le i\le k - 1} {d(i) + d(k - i) + k} \\
      &amp; \ge \min_{1\le i\le k - 1} {c(i\lg i + (k - i)\lg(k - i)) + k} \\
      &amp; =   \min_{1\le i\le k - 1} {cf_k(i) + k} \\
@@ -5738,7 +5755,8 @@ d(k) &amp; =   \min_{1\le i\le k - 1} {d(i) + d(k - i) + k} \\
      &amp; =   c(k\lg k - k) + k \\
      &amp; =   ck\lg k + (k - ck) \\
      &amp; \ge ck\lg k &amp; \text{if $c \le 1$},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and so $d(k) = \Omega(k\lg k)$.</p>
 <p><strong>e.</strong> Using the result of part (d) and the fact that $T_A$ (as modified in our solution to part (a)) has $n!$ leaves, we can conclude that</p>
 <p>$$D(T_A) \ge d(n!) = \Omega(n!\lg(n!)).$$</p>
@@ -5841,9 +5859,11 @@ d(k) &amp; =   \min_{1\le i\le k - 1} {d(i) + d(k - i) + k} \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5824,14 +5826,12 @@ For $\text{RB-DELETE-FIXUP}$, there are 4 cases to examine.</p>
 <li>Nodes $A$, $C$, and $E$ keep the same subtrees, so their black-heights don't change.</li>
 <li>Add these two constant-time assignments in $\text{RB-DELETE-FIXUP}$ after line 20:</li>
 <li>
-<p><div>
-$$
-\begin{align}
+<p>$$
+\begin{aligned}
   x.p.bh &amp; = x.bh + 1 \\
 x.p.p.bh &amp; = x.p.bh + 1
-\end{align}
-$$
-</div></p>
+\end{aligned}
+$$</p>
 </li>
 <li>
 <p>The extra black is taken care of. Loop terminates.</p>
@@ -5941,9 +5941,11 @@ $$
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

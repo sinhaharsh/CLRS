@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5907,13 +5909,15 @@
 <li>For Tree Edge and Forward Edge $(u, v)$, we must have $u.d &lt; v.d &lt; v.f &lt; u.f$, then it could be $\text{GRAY}$ to $\text{WHITE}$, $\text{GRAY}$ to $\text{GRAY}$ and $\text{GRAY}$ to $\text{BLACK}$.</li>
 <li>For Back Edge $(u, v)$, we must have $v.d &lt; u.d &lt; u.f &lt; v.f$, then it could be $\text{WHITE}$ to $\text{GRAY}$, $\text{GRAY}$ to $\text{GRAY}$ and $\text{BLACK}$ to $\text{GRAY}$.</li>
 </ol>
-<p>\begin{array}{c|ccc}
+<p>$$
+\begin{array}{c|ccc}
 from\backslash to &amp; \text{BLACK}                &amp; \text{GRAY}                &amp; \text{WHITE} \\
 \hline
 \text{BLACK}      &amp; \text{Allkinds}             &amp; \text{Back}                &amp; - \\
 \text{GRAY}       &amp; \text{Tree, Forward, Cross} &amp; \text{Tree, Forward, Back} &amp; \text{Tree, Forward} \\
 \text{WHITE}      &amp; \text{Cross}                &amp; \text{Cross, Back}         &amp; \text{Allkinds}
-\end{array}</p>
+\end{array}
+$$</p>
 </li>
 <li>
 <p>For Undirected Graph, starting from Directed Chart, we remove the Forward Edge and Cross Edge, and when a Back Edge exist, we add Tree Edge; when a Tree Edge exist, we add Back Edge. This is correct for following reason:</p>
@@ -5921,13 +5925,15 @@ from\backslash to &amp; \text{BLACK}                &amp; \text{GRAY}           
 <li>Theorem 22.10: In a depth-first search of an undirected graph $G$, every edge of $G$ is either a tree edge or a back edge. So Tree edge and back edge only.</li>
 <li>If $(u, v)$ is a Tree edge from $u$'s perspective, $(u, v)$ is also a Back Edge from $v$'s perspective.</li>
 </ol>
-<p>\begin{array}{c|ccc}
+<p>$$
+\begin{array}{c|ccc}
 from\backslash to &amp; \text{BLACK}      &amp; \text{GRAY}       &amp; \text{WHITE} \\
 \hline
 \text{BLACK}      &amp; \text{Tree, Back} &amp; \text{Tree, Back} &amp; - \\
 \text{GRAY}       &amp; \text{Tree, Back} &amp; \text{Tree, Back} &amp; \text{Tree, Back} \\
 \text{WHITE}      &amp; -                 &amp; \text{Tree, Back} &amp; \text{Tree, Back}
-\end{array}</p>
+\end{array}
+$$</p>
 </li>
 </ul>
 <h2 id="223-2">22.3-2</h2>
@@ -5935,7 +5941,8 @@ from\backslash to &amp; \text{BLACK}      &amp; \text{GRAY}       &amp; \text{WH
 <p>Show how depth-first search works on the graph of Figure 22.6. Assume that the <strong>for</strong> loop of lines 5–7 of the $\text{DFS}$ procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically. Show the discovery and finishing times for each vertex, and show the classification of each edge.</p>
 </blockquote>
 <p>The following table gives the discovery time and finish time for each vetex in the graph.</p>
-<p>\begin{array}{ccc}
+<p>$$
+\begin{array}{ccc}
 \text{Vertex} &amp; \text{Discovered} &amp; \text{Finished} \\
 \hline
 q &amp;  1 &amp; 16 \\
@@ -5948,7 +5955,8 @@ w &amp;  4 &amp;  5 \\
 x &amp;  9 &amp; 12 \\
 y &amp; 13 &amp; 14 \\
 z &amp; 10 &amp; 11
-\end{array}</p>
+\end{array}
+$$</p>
 <ul>
 <li><strong>Tree edges:</strong> $(q, s)$, $(s, v)$, $(v, w)$, $(q, t)$, $(t, x)$, $(x, z)$, $(t, y)$, $(r, u)$.</li>
 <li><strong>Back edges:</strong> $(w, s)$, $(z, x)$, $(y, q)$. </li>
@@ -5993,13 +6001,15 @@ z &amp; 10 &amp; 11
 <p>Give a counterexample to the conjecture that if a directed graph $G$ contains a path from $u$ to $v$, and if $u.d &lt; v.d$ in a depth-first search of $G$, then $v$ is a descendant of $u$ in the depth-first forest produced.</p>
 </blockquote>
 <p>Let us consider the example graph depth-first search below.</p>
-<p>\begin{array}{c|cc}
+<p>$$
+\begin{array}{c|cc}
   &amp; d &amp; f \\
 \hline
 w &amp; 1 &amp; 6 \\
 u &amp; 2 &amp; 3 \\
 v &amp; 4 &amp; 5
-\end{array}</p>
+\end{array}
+$$</p>
 <p><img alt="" src="https://i.imgur.com/7dO8rAp.png" /></p>
 <p>Clearly, there is a path from $u$ to $v$ in $G$. The bold edges are in the depth-first forest produced. We can see that $u.d &lt; v.d$ in the depth-first search but $v$ is not a descendant of $u$ in the forest.</p>
 <h2 id="223-9">22.3-9</h2>
@@ -6007,13 +6017,15 @@ v &amp; 4 &amp; 5
 <p>Give a counterexample to the conjecture that if a directed graph $G$ contains a path from $u$ to $v$, then any depth-first search must result in $v.d \le u.f$.</p>
 </blockquote>
 <p>Let us consider the example graph depth-first search below.</p>
-<p>\begin{array}{c|cc}
+<p>$$
+\begin{array}{c|cc}
   &amp; d &amp; f \\
 \hline
 w &amp; 1 &amp; 6 \\
 u &amp; 2 &amp; 3 \\
 v &amp; 4 &amp; 5
-\end{array}</p>
+\end{array}
+$$</p>
 <p><img alt="" src="https://i.imgur.com/7dO8rAp.png" /></p>
 <p>Clearly, there is a path from $u$ to $v$ in $G$. The bold edges are in the depth-first forest produced by search. However, $v.d &gt; u.f$ and the conjecture is false.</p>
 <h2 id="223-10">22.3-10</h2>
@@ -6058,13 +6070,15 @@ v &amp; 4 &amp; 5
 <p>Explain how a vertex $u$ of a directed graph can end up in a depth-first tree containing only $u$, even though $u$ has both incoming and outgoing edges in $G$.</p>
 </blockquote>
 <p>Let us consider the example graph and depth-first search below.</p>
-<p>\begin{array}{c|cc}
+<p>$$
+\begin{array}{c|cc}
   &amp; d &amp; f \\
 \hline
 w &amp; 1 &amp; 2 \\
 u &amp; 3 &amp; 4 \\
 v &amp; 5 &amp; 6
-\end{array}</p>
+\end{array}
+$$</p>
 <p><img alt="" src="https://i.imgur.com/MCHtL78.png" /></p>
 <p>Cleary $u$ has both incoming and outgoing edges in $G$ but a depth-first search of $G$ produced a depth-first forest where $u$ is in a tree by itself.</p>
 <h2 id="223-12">22.3-12</h2>
@@ -6226,9 +6240,11 @@ v &amp; 5 &amp; 6
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

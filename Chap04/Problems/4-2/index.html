@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5682,14 +5684,16 @@
 <li>$T(n) = T(n / 2) + c = \Theta(\lg n)$. (master method)</li>
 <li>
 <p>$\Theta(n\lg n)$.</p>
-<p>\begin{align}
+<p>$$
+   \begin{aligned}
 T(n) &amp; = T(n / 2) + cN \\
      &amp; = 2cN + T(n / 4) \\
      &amp; = 3cN + T(n / 8) \\
      &amp; = \sum_{i = 0}^{\lg n - 1}(2^icN / 2^i) \\
      &amp; = cN\lg n \\
      &amp; = \Theta(n\lg n).
-\end{align}</p>
+\end{aligned}
+   $$</p>
 </li>
 <li>
 <p>$T(n) = T(n / 2) + cn = \Theta(n)$. (master method)</p>
@@ -5700,7 +5704,8 @@ T(n) &amp; = T(n / 2) + cN \\
 <li>$T(n) = 2T(n / 2) + cn = \Theta(n\lg n)$. (master method)</li>
 <li>
 <p>$\Theta(n^2)$.</p>
-<p>\begin{align}
+<p>$$
+   \begin{aligned}
 T(n) &amp; = 2T(n / 2) + cn + 2N = 4N + cn + 2c(n / 2) + 4T(n / 4) \\
      &amp; = 8N + 2cn + 4c(n / 4) + 8T(n / 8) \\
      &amp; = \sum_{i = 0}^{\lg n - 1}(cn + 2^iN) \\
@@ -5708,15 +5713,18 @@ T(n) &amp; = 2T(n / 2) + cn + 2N = 4N + cn + 2c(n / 2) + 4T(n / 4) \\
      &amp; = cn\lg n + N\frac{2^{\lg n} - 1}{2 - 1} \\
      &amp; = cn\lg n + nN - N = \Theta(nN) \\
      &amp; = \Theta(n^2).
-\end{align}</p>
+\end{aligned}
+   $$</p>
 </li>
 <li>
 <p>$\Theta(n\lg n)$.</p>
-<p>\begin{align}
+<p>$$
+   \begin{aligned}
 T(n) &amp; = 2T(n / 2) + cn + 2n / 2 \\
      &amp; = 2T(n / 2) + (c + 1)n \\
      &amp; = \Theta(n\lg n).
-\end{align}</p>
+\end{aligned}
+   $$</p>
 </li>
 </ol>
                 
@@ -5807,9 +5815,11 @@ T(n) &amp; = 2T(n / 2) + cn + 2n / 2 \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5700,14 +5702,16 @@
 <p><strong><em>Proof</em></strong> </p>
 <p>If $a_i \ge c$ for some $0 \le i &lt; k$, then we can improve the solution by using one more coin of denomination $c^{i + 1}$ and $c$ fewer coins of denomination $c^i$. The amount for which we make change remains the same, but we use $c - 1 &gt; 0$ fewer coins.</p>
 <p>To show that the greedy solution is optimal, we show that any non-greedy solution is not optimal. As above, let $j = \max\{0 \le i \le k: c^i \le n\}$, so that the greedy solution uses at least one coin of denomination $c^j$. Consider a nongreedy solution, which must use no coins of denomination $c^j$ or higher. Let the non-greedy solution use $a_i$ coins of denomination $c^i$, for $i = 0, 1, \ldots, j - 1$; thus we have $\sum_{i = 0}^{j - 1} a_i c^i = n$. Since $n \ge c^j$, we have that $\sum_{i = 0}^{j - 1} a_i c^i \ge c^j$.. Now suppose that the non-greedy solution is optimal. By the above lemma, $a_i \le c - 1$ for $i = 0, 1, \ldots, j - 1$. Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 0}^{j - 1} a_i c^i
     &amp; \le \sum_{i = 0}^{j - 1} (c - 1) c^i \\
     &amp; =   (c - 1) \sum_{i = 0}^{j - 1} c^i \\
     &amp; =   (c - 1) \frac{c^j - 1}{c - 1} \\
     &amp; =   c^j - 1 \\
     &amp; &lt;   c^j,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>which contradicts our earlier assertion that $\sum_{i = 0}^{j - 1} a_i c^i \ge c^j$. We conclude that the non-greedy solution is not optimal.</p>
 <p>Since any algorithm that does not produce the greedy solution fails to be optimal, only the greedy algorithm produces the optimal solution.</p>
 <p>The problem did not ask for the running time, but for the more efficient greedy algorithm formulation, it is easy to see that the running time is $O(k)$, since we have to perform at most $k$ each of the division, ﬂoor, and mod operations.</p>
@@ -5846,9 +5850,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

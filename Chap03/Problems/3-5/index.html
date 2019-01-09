@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5674,11 +5676,13 @@
 <p>Some authors also define $O$ in a slightly different manner; let's use $O'$ for the alternative definition. We say that $f(n) = O'(g(n))$ if and only if $|f(n)| = O(g(n))$.</p>
 <p><strong>c.</strong> What happens to each direction of the "if and only if" in Theorem 3.1 if we substitute $O'$ for $O$ but we still use $\Omega$?</p>
 <p>Some authors define $\tilde O$ (read "soft-oh") to mean $O$ with logarithmic factors ignored:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \tilde{O}(g(n)) = 
  \{f(n): &amp; \text{ there exist positive constants $c$, $k$, and $n_0$ such that } \\
           &amp; \text{ $0 \le f(n) \le cg(n) \lg^k(n)$ for all $n \ge n_0$ }.\}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>d.</strong> Define $\tilde\Omega$ and $\tilde\Theta$ in a similar manner. Prove the corresponding analog to Theorem 3.1.</p>
 </blockquote>
 <p><strong>a.</strong> We have</p>
@@ -5700,16 +5704,20 @@ $$</p>
 <p><strong>c.</strong> For any two functions $f(n)$ and $g(n)$, we have if $f(n) = \Theta(g(n))$ then $f(n) = O'(g(n))$ and $f(n) = \Omega(g(n))$ and $f(n) = \Omega(g(n))$.</p>
 <p>But the conversation is not true.</p>
 <p><strong>d.</strong> We have </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \tilde\Omega(g(n)) = \{f(n): 
     &amp; \text{ there exist positive constants $c$, $k$, and $n_0$ such that } \\
     &amp; \text{ $0 \le cg(n)\lg^k(n) \le f(n)$ for all $n \ge n_0$}.\}
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 \tilde{\Theta}(g(n)) = \{f(n): 
   &amp; \text{ there exist positive constants $c_1$, $c_2$, $k_1$, $k_2$, and $n_0$ such that } \\
   &amp; \text{ $0\le c_1 g(n) \lg^{k_1}(n) \le f(n)\le c_2g (n) \lg^{k_2}(n)$ for all $n\ge n_0$.}\}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>For any two functions $f(n)$ and $g(n)$, we have $f(n) = \tilde\Theta(g(n))$ if and only if $f(n) = \tilde O(g(n))$ and $f(n) = \tilde\Omega(g(n))$.</p>
                 
                   
@@ -5799,9 +5807,11 @@ $$</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

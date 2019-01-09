@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5729,25 +5731,33 @@
 <blockquote>
 <p>Suppose that we insert $n$ keys into a hash table of size $m$ using open addressing and uniform hashing. Let $p(n, m)$ be the probability that no collisions occur. Show that $p(n, m) \le e^{-n(n - 1) / 2m}$. ($\textit{Hint:}$ See equation $\text{(3.12)}$.) Argue that when $n$ exceeds $\sqrt m$, the probability of avoiding collisions goes rapidly to zero.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 p(n, m) &amp; = \frac{m}{m} \cdot \frac{m - 1}{m} \cdots \frac{m - n + 1}{m} \\
         &amp; = \frac{m \cdot (m - 1) \cdots (m - n + 1)}{m^n}.
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 (m - i) \cdot (m - n + i)
     &amp; =    (m - \frac{n}{2} + \frac{n}{2} - i) \cdot (m - \frac{n}{2} - \frac{n}{2} + i) \\
     &amp; =    (m - \frac{n}{2})^2 - (i - \frac{n}{2})^2 \\
     &amp; \le  (m - \frac{n}{2})^2.
-\end{align}</p>
-<p>\begin{align}
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
 p(n, m) &amp; \le \frac{m \cdot (m - \frac{n}{2})^{n - 1}}{m^n} \\
         &amp; =   (1 - \frac{n}{2m}) ^ {n - 1}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Based on equation $\text{(3.12)}$, $e^x \ge 1 + x$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 p(n, m) &amp; \le (e^{-n / 2m})^{n - 1} \\
         &amp; =   e^{-n(n - 1) / 2m}.
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5836,9 +5846,11 @@ p(n, m) &amp; \le (e^{-n / 2m})^{n - 1} \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5786,7 +5788,8 @@
 <p>Show the ordering of vertices produced by $\text{TOPOLOGICAL-SORT}$ when it is run on the dag of Figure 22.8, under the assumption of Exercise 22.3-2.</p>
 </blockquote>
 <p>Our start and finish times from performing the $\text{DFS}$ are</p>
-<p>\begin{array}{ccc}
+<p>$$
+\begin{array}{ccc}
 \text{label} &amp; d &amp; f \\
 \hline
 m &amp; 1  &amp; 20 \\
@@ -5803,7 +5806,8 @@ n &amp; 21 &amp; 26 \\
 o &amp; 22 &amp; 25 \\
 s &amp; 23 &amp; 24 \\
 p &amp; 27 &amp; 28
-\end{array}</p>
+\end{array}
+$$</p>
 <p>And so, by reading off the entries in decreasing order of finish time, we have the sequence $p, n, o, s, m, r, y, v, x, w, z, u, q, t$.</p>
 <h2 id="224-2">22.4-2</h2>
 <blockquote>
@@ -6046,9 +6050,11 @@ p &amp; 27 &amp; 28
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

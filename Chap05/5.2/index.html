@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5801,43 +5803,53 @@
 <p>Let $E_i$ be the event in which candidate 1 has rank $i$; clearly, $\Pr\{E_i\} = 1 / n$ for any given value of $i$.</p>
 <p>Letting $j$ denote the position in the interview order of the best candidate, let $F$ be the event in which candidates $2, 3, \ldots, j - 1$ have ranks strictly less than the rank of candidate 1. Given that event $E_i$ has occurred, event $F$ occurs when the best candidate is the first one interviewed out of the $n - i$ candidates whose ranks are $i + 1, i + 2, \ldots, n$. Thus, $\Pr\{F \mid E_i\} = 1 / (n - i)$.</p>
 <p>Our final event is $A$, which occurs when $\text{HIRE-ASSISTANT}$ hires exactly twice. Noting that the events $E_1, E_2, \ldots, E_n$ are disjoint, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
   &amp; = (F \cap E_1) \cup (F \cap E_2) \cup \cdots \cup (F \cap E_{n - 1}).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and</p>
 <p>$$\Pr\{A\} = \sum_{i = 1}^{n - 1}\Pr\{F \cap E_i\}.$$</p>
 <p>By equation $\text{(C.14)}$,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{F \cap E_i\} &amp; = \Pr\{F | E_i\}\Pr\{E_i\} \\
                   &amp; = \frac{1}{n - i} \cdot \frac{1}{n},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and so</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Pr\{A\} &amp; = \sum_{i = 1}^{n - 1} \frac{1}{n - i} \cdot \frac{1}{n} \\
          &amp; = \frac{1}{n} \sum_{i = 1}^{n - 1} \frac{1}{n - i} \\
          &amp; = \frac{1}{n} \Big(\frac{1}{n - 1} + \frac{1}{n - 2} + \cdots + \frac{1}{1}\Big) \\
          &amp; = \frac{1}{n} \cdot H_{n - 1},
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>where $H_{n - 1}$ is the $n$th harmonic number.</p>
 <h2 id="52-3">5.2-3</h2>
 <blockquote>
 <p>Use indicator random variables to compute the expected value of the sum of $n$ dice.</p>
 </blockquote>
 <p>Expectation of a single dice $X_i$ is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X_k] &amp; = \sum_{i = 1}^6 i \Pr\{X_k = i\} \\
              &amp; = \frac{1 + 2 + 3 + 4 + 5 + 6}{6} \\
              &amp; = \frac{21}{6} \\
              &amp; = 3.5.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>As for multiple dices,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; = \text E\Bigg[\sum_{i = 1}^n X_i \Bigg] \\
            &amp; = \sum_{i = 1}^n \text E[X_i] \\
            &amp; = \sum_{i = 1}^n 3.5 \\
            &amp; = 3.5 \cdot n.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="52-4">5.2-4</h2>
 <blockquote>
 <p>Use indicator random variables to solve the following problem, which is known as the <strong><em>hat-check problem</em></strong>. Each of $n$ customers gives a hat to a hat-check person at a restaurant. The hat-check person gives the hats back to the customers in a random order. What is the expected number of customers who get back their hat?</p>
@@ -5849,12 +5861,14 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
 <p>Then $X = X_1 + X_2 + \cdots + X_n$.</p>
 <p>Since the ordering of hats is random, each customer has a probability of $1 / n$ of getting back his or her own hat. In other words, $\Pr\{X_i = 1\} = 1 / n$, which, by Lemma 5.1, implies that $\text E[X_i] = 1 / n$.</p>
 <p>Thus,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; = \text E \Bigg[ \sum_{i = 1}^n X_i \Bigg] \\
            &amp; = \sum_{i = 1}^n \text E[X_i] &amp; \text{(linearity of expectation)} \\
            &amp; = \sum_{i = 1}^n 1 / n \\
            &amp; =  1,
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>and so we expect that exactly 1 customer gets back his own hat.</p>
 <p>Note that this is a situation in which the indicator random variables are not independent. For example, if $n = 2$ and $X_1 = 1$, then $X_2$ must also equal $1$. Conversely, if $n = 2$ and $X_1 = 0$, then $X_2$ must also equal $0$. Despite the dependence, $\Pr\{X_i = 1\} = 1 / n$ for all $i$, and linearity of expectation holds. Thus, we can use the technique of indicator random variables even in the presence of dependence.</p>
 <h2 id="52-5">5.2-5</h2>
@@ -5867,14 +5881,16 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
 <p>We want the expected number of inverted pairs, so we take the expectation of both sides of the above equation to obtain</p>
 <p>$$\text E[X] = \text E \Bigg[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^n X_{ij} \Bigg].$$</p>
 <p>We use linearity of expectation to get</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text E[X] &amp; = \text E \Bigg[\sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n X_{ij} \Bigg] \\
            &amp; = \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n \text E[X_{ij}] \\
            &amp; = \sum_{i = 1}^{n - 1}\sum_{j = i + 1}^n 1 / 2 \\
            &amp; = \binom{n}{2}\frac{1}{2} \\
            &amp; = \frac{n(n - 1)}{2} \cdot \frac{1}{2} \\
            &amp; = \frac{n(n - 1)}{4}.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus the expected number of inverted pairs is $n(n - 1) / 4$.</p>
                 
                   
@@ -5964,9 +5980,11 @@ A &amp; = F \cap (E_1 \cup E_2 \cup \cdots \cup E_{n - 1}) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5757,7 +5759,8 @@
 <blockquote>
 <p>Using figure 6.3 as a model, illustrate the operation of $\text{BUILD-MAX-HEAP}$ on the array $A = \langle 5, 3, 17, 10, 84, 19, 6, 22, 9 \rangle$.</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \langle  5,  3, 17, 10, 84, 19, 6, 22, 9 \rangle \\
 \langle  5,  3, 17, 22, 84, 19, 6, 10, 9 \rangle \\
 \langle  5,  3, 19, 22, 84, 17, 6, 10, 9 \rangle \\
@@ -5765,7 +5768,8 @@
 \langle 84,  5, 19, 22,  3, 17, 6, 10, 9 \rangle \\
 \langle 84, 22, 19,  5,  3, 17, 6, 10, 9 \rangle \\
 \langle 84, 22, 19, 10,  3, 17, 6,  5, 9 \rangle \\
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="63-2">6.3-2</h2>
 <blockquote>
 <p>Why do we want the loop index $i$ in line 2 of $\text{BUILD-MAX-HEAP}$ to decrease from $\lfloor A.length / 2 \rfloor$ to $1$ rather than increase from $1$ to $\lfloor A.length/2 \rfloor$?</p>
@@ -5809,26 +5813,30 @@
 <ul>
 <li>
 <p>If $x$ is even, there are $x / 2$ nodes at depth $H - 1$ that are parents of depth $H$ nodes, hence $2^{H - 1} - x / 2$ nodes at depth $H - 1$ that are not parents of depth-$H$ nodes. Thus,</p>
-<p>\begin{align}
-    \text{total # of height-$0$ nodes}
+<p>$$
+\begin{aligned}
+\text{total \# of height-$0$ nodes}
     &amp; = x + 2^{H - 1} - x / 2 \\
     &amp; = 2^{H - 1} + x / 2 \\
     &amp; = (2^H + x) / 2 \\
     &amp; = \lceil (2^H + x - 1) / 2 \rceil &amp; \text{(because $x$ is even)} \\
     &amp; = \lceil n / 2 \rceil
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>($n = 2^H + x - 1$ because the complete tree down to depth $H - 1$ has $2^H - 1$ nodes and depth $H$ has $x$ nodes.)</p>
 </li>
 <li>
 <p>If $x$ is odd, by an argument similar to the even case, we see that</p>
-<p>\begin{align}
-    \text{total # of height-$0$ nodes}
+<p>$$
+\begin{aligned}
+\text{total \# of height-$0$ nodes}
     &amp; = x + 2^{H - 1} - (x + 1) / 2 \\
     &amp; = 2^{H - 1} + (x - 1) / 2 \\
     &amp; = (2^H + x - 1) / 2 \\
     &amp; = n / 2 \\
-    &amp; = \lceil n / 2 \rceil &amp; \text{(because $x$ is odd $\Rightarrow n$ is even)}. \\
-\end{align}</p>
+    &amp; = \lceil n / 2 \rceil &amp; \text{(because $x$ is odd $\Rightarrow n$ is even)}.
+\end{aligned}
+$$</p>
 </li>
 </ul>
 </li>
@@ -5849,11 +5857,13 @@
 <li>For nonnegative reals $a$ and $b$, we have $\lceil a \rceil \cdot b \ge \lceil ab \rceil$.</li>
 </ol>
 <p>The proof is by contradiction. Assume that an $n$-element heap contains at least $\lceil n / 2^{h + 1} \rceil + 1$ nodes of height $h$. Exactly one node of height $h$ is on the unique simple path from the last leaf to the root, and the subtree rooted at this node has at least one leaf (that being the last leaf). All other nodes of height $h$, of which the heap contains at least $\lceil n / 2^{h + 1} \rceil$, are the roots of complete binary subtrees, and each such node is the root of a subtree with $2^h$ leaves. Moreover, each subtree whose root is at height $h$ is disjoint. Therefore, the number of leaves in the entire heap is at least </p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \Big\lceil \frac{n}{2^{h + 1}} \Big\rceil \cdot 2^h + 1
-&amp; \ge \Big\lceil \frac{n}{2^{h + 1}} \cdot 2^h \Big\rceil + 1 \\
-&amp; =   \Big\lceil \frac{n}{2} \Big\rceil + 1,
-\end{align}</p>
+    &amp; \ge \Big\lceil \frac{n}{2^{h + 1}} \cdot 2^h \Big\rceil + 1 \\
+    &amp; =   \Big\lceil \frac{n}{2} \Big\rceil + 1,
+\end{aligned}
+$$</p>
 <p>which contradicts the property that an $n$-element heap has $\lceil n / 2 \rceil$ leaves.</p>
                 
                   
@@ -5943,9 +5953,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

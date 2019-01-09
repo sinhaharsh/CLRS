@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5710,23 +5712,27 @@
 <p><strong><em>Proof</em></strong> </p>
 <p>By the max-flow min-cut theorem, $|f'| = c_f(S, T)$ for some cut $(S, T)$ of $G_f$, which is also a cut of $G$. By Lemma 26.4, $|f| = f(S, T)$. By Lemma 26.1, $f \uparrow f'$ is a flow in $G$ with value $|f \uparrow f'| = |f| + |f'|$. We will show that $|f| + |f'| = c(S, T)$ which, by the max-flow min-cut theorem, will prove that $f \uparrow f'$ is a maximum flow in $G$.</p>
 <p>We have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 |f| + |f'|
     &amp; = f(S, T) + c_f(S, T) \\
     &amp; = \Bigg( \sum_{u \in S} \sum_{v \in T} f(u, v) - \sum_{u \in S} \sum_{v \in T} f(v, u) \Bigg) + \sum_{u \in S} \sum_{v \in T} c_f(u, v) \\
     &amp; = \Bigg( \sum_{u \in S, v \in T} f(u, v) - \sum_{u \in S, v \in T} f(v, u) \Bigg) + \Bigg( \sum_{u \in S, v \in T, (u, v) \in E} c(u, v) - \sum_{u \in S, v \in T, (u, v) \in E} f(u, v) + \sum_{u \in S, v \in T, (v, u) \in E} f(v, u) \Bigg). 
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Noting that $(u, v) \notin E$ implies $f(u, v) = 0$, we have that</p>
 <p>$$\sum_{u \in S, v \in T} f(u, v) = \sum_{u \in S, v \in T, (u, v) \in E} f(u, v).$$</p>
 <p>Similarly,</p>
 <p>$$\sum_{u \in S, v \in T} f(v, u) = \sum_{u \in S, v \in T, (v, u) \in E} f(v, u).$$</p>
 <p>Thus, the summations of $f(u, v)$ cancel each other out, as do the summations of $f(v, u)$. Therefore,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 |f| + |f'|
     &amp; = \sum_{u \in S, v \in T, (u, v) \in E} c(u, v) \\
     &amp; = \sum_{u \in S} \sum_{v \in T} c(u, v) \\
     &amp; = c(S, T).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>By this lemma, we see that the value of a maximum flow in $G$ is at most $2K|E|$ more than the value of the current flow $f$ in $G$. Every time the inner <strong>while</strong> loop finds an augmenting path of capacity at least $K$, the flow in $G$ increases by at least $K$. Since the flow cannot increase by more than $2K|E|$, the loop executes at most $(2K|E|) / K = 2|E|$ times.</p>
 <p><strong>f.</strong> The time complexity is dominated by the <strong>while</strong> loop of lines 4–7. (The lines outside the loop take $O(E)$ time.) The outer <strong>while</strong> loop executes $O(\lg C)$ times, since $K$ is initially $O(C)$ and is halved on each iteration, until $K &lt; 1$. By part (e), the inner <strong>while</strong> loop executes $O(E)$ times for each value of $K$, and by part (b), each iteration takes $O(E)$ time. Thus, the total time is $O(E^2 \lg C)$.</p>
                 
@@ -5817,9 +5823,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

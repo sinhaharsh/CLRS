@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5811,10 +5813,12 @@
 <blockquote>
 <p>As a function of the minimum degree $t$, what is the maximum number of keys that can be stored in a B-tree of height $h$?</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 n &amp; = (1 + 2t + (2t) ^ 2 + \cdots + (2t) ^ {h}) \cdot (2t - 1) \\
   &amp; = (2t)^{h + 1} - 1.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="181-5">18.1-5</h2>
 <blockquote>
 <p>Describe the data structure that would result if each black node in a red-black tree were to absorb its red children, incorporating their children with its own.</p>
@@ -5908,9 +5912,11 @@ n &amp; = (1 + 2t + (2t) ^ 2 + \cdots + (2t) ^ {h}) \cdot (2t - 1) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

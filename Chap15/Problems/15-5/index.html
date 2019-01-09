@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5677,22 +5679,24 @@
 <p><strong>Twiddle</strong> (i.e., exchange) the next two characters by copying them from $x$ to $z$ but in the opposite order; we do so by setting $z[j] = x[i + 1]$ and $z[j + 1] = x[i]$ and then setting $i = i + 2$ and $j = j + 2$. This operation examines $x[i]$ and $x[i + 1]$.</p>
 <p><strong>Kill</strong> the remainder of $x$ by setting $i = m + 1$. This operation examines all characters in $x$ that have not yet been examined. This operation, if performed, must be the final operation.</p>
 <p>As an example, one way to transform the source string $\text{algorithm}$ to the target string $\text{altruistic}$ is to use the following sequence of operations, where the underlined characters are $x[i]$ and $z[j]$  after the operation:</p>
-<p>\begin{array}{lll}
+<p>$$
+\begin{array}{lll}
 \text{Operation}         &amp; x           &amp; z \\
 \hline
-\textit{initial strings} &amp; \underline algorithm &amp; \text{_} \\
-\text{copy}              &amp; a\underline lgorithm &amp; a\text{_} \\
-\text{copy}              &amp; al\underline gorithm &amp; al\text{_} \\
-\text{replace by $t$}    &amp; alg\underline orithm &amp; alt\text{_} \\
-\text{delete}            &amp; algo\underline rithm &amp; alt\text{_} \\
-\text{copy}              &amp; algor\underline ithm &amp; altr\text{_} \\
-\text{insert $u$}        &amp; algor\underline ithm &amp; altru\text{_} \\
-\text{insert $i$}        &amp; algor\underline ithm &amp; altrui\text{_}\\
-\text{insert $s$}        &amp; algor\underline ithm &amp; altruis\text{_}\\
-\text{twiddle}           &amp; algorit\underline hm &amp; altruisti\text{_}\\
-\text{insert $c$}        &amp; algorit\underline hm &amp; altruistic\text{_}\\
-\text{kill}              &amp; algorithm\text{_} &amp; altruistic\text{_}
-\end{array}</p>
+\textit{initial strings} &amp; \underline algorithm &amp; \text{\textunderscore} \\
+\text{copy}              &amp; a\underline lgorithm &amp; a\text{\textunderscore} \\
+\text{copy}              &amp; al\underline gorithm &amp; al\text{\textunderscore} \\
+\text{replace by $t$}    &amp; alg\underline orithm &amp; alt\text{\textunderscore} \\
+\text{delete}            &amp; algo\underline rithm &amp; alt\text{\textunderscore} \\
+\text{copy}              &amp; algor\underline ithm &amp; altr\text{\textunderscore} \\
+\text{insert $u$}        &amp; algor\underline ithm &amp; altru\text{\textunderscore} \\
+\text{insert $i$}        &amp; algor\underline ithm &amp; altrui\text{\textunderscore} \\
+\text{insert $s$}        &amp; algor\underline ithm &amp; altruis\text{\textunderscore} \\
+\text{twiddle}           &amp; algorit\underline hm &amp; altruisti\text{\textunderscore} \\
+\text{insert $c$}        &amp; algorit\underline hm &amp; altruistic\text{\textunderscore} \\
+\text{kill}              &amp; algorithm\text{\textunderscore} &amp; altruistic\text{\textunderscore}
+\end{array}
+$$</p>
 <p>Note that there are several other sequences of transformation operations that transform $\text{algorithm}$ to $\text{altruistic}$.</p>
 <p>Each of the transformation operations has an associated cost. The cost of an operation depends on the specific application, but we assume that each operation's cost is a constant that is known to us. We also assume that the individual costs of the copy and replace operations are less than the combined costs of the delete and insert operations; otherwise, the copy and replace operations would not be used. The cost of a given sequence of transformation operations is the sum of the costs of the individual operations in the sequence. For the sequence above, the cost of transforming $\text{algorithm}$ to $\text{altruistic}$ is</p>
 <p>$$\text{($3 \cdot$ cost(copy)) + cost(replace) + cost(delete) + ($4 \cdot$ cost(insert)) + cost(twiddle) + cost(kill)}.$$</p>
@@ -5704,11 +5708,13 @@
 <li>$-2$ if either $x'[j]$ or $y'[j]$ is a space.</li>
 </ul>
 <p>The score for the alignment is the sum of the scores of the individual positions. For example, given the sequences $x = \text{GATCGGCAT}$ and $y = \text{CAATGTGAATC}$, one alignment is</p>
-<p>\begin{array}{cccccccccccc}
+<p>$$
+\begin{array}{cccccccccccc}
 \text G &amp;         &amp; \text A &amp; \text T &amp; \text C &amp; \text G &amp;         &amp; \text G &amp; \text C &amp; \text A &amp; \text T &amp; \\
 \text C &amp; \text A &amp; \text A &amp; \text T &amp;         &amp; \text G &amp; \text T &amp; \text G &amp; \text A &amp; \text A &amp; \text T &amp; \text C \\
 -       &amp; *       &amp; +       &amp; +       &amp; *       &amp; +       &amp; *       &amp; +       &amp; -       &amp; +       &amp; +       &amp; * 
-\end{array}</p>
+\end{array}
+$$</p>
 <p>A $+$ under a position indicates a score of $+1$ for that position, a $-$ indicates a score of $-1$, and a $*$ indicates a score of $-2$, so that this alignment has a total score of $6 \cdot -2 \cdot 1 - 4 \cdot 2 = -4$.</p>
 <p><strong>b.</strong> Explain how to cast the problem of finding an optimal alignment as an edit distance problem using a subset of the transformation operations copy, replace, delete, insert, twiddle, and kill.</p>
 </blockquote>
@@ -5869,13 +5875,15 @@ The procedure $\text{OP-SEQUENCE}(op, i, j)$ reconstructs the optimal operation 
 </td></tr></table>
 
 <p>This procedure determines which subproblem we used, recurses on it, and then prints its own last operation.</p>
-<p><strong>b.</strong> The DNA-alignment problem is just the edit-distance problem, with
+<p><strong>b.</strong> The DNA-alignment problem is just the edit-distance problem, with</p>
+<p>$$
 \begin{array}{rcl}
 \text{cost(copy)}    &amp; = &amp; -1, \\
 \text{cost(replace)} &amp; = &amp; +1, \\
 \text{cost(delete)}  &amp; = &amp; +2, \\
 \text{cost(insert)}  &amp; = &amp; +2,
-\end{array}</p>
+\end{array}
+$$</p>
 <p>and the twiddle and kill operations are not permitted.</p>
 <p>The score that we are trying to maximize in the DNA-alignment problem is precisely the negative of the cost we are trying to minimize in the edit-distance problem. The negative cost of copy is not an impediment, since we can only apply the copy operation when the characters are equal.</p>
                 
@@ -5966,9 +5974,11 @@ The procedure $\text{OP-SEQUENCE}(op, i, j)$ reconstructs the optimal operation 
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

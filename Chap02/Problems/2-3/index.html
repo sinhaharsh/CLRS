@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5669,10 +5671,12 @@
                 
                 <blockquote>
 <p>The following code fragment implements Horner's rule for evaluating a polynomial</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P(x) &amp; = \sum_{k = 0}^n a_k x^k \\
      &amp; = a_0 + x(a_1 + x (a_2 + \cdots + x(a_{n - 1} + x a_n) \cdots)),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>given the coefficients $a_0, a_1, \ldots, a_n$ and a value of $x$:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -5710,12 +5714,14 @@ P(x) &amp; = \sum_{k = 0}^n a_k x^k \\
 <p>The running time is $\Theta(n^2)$, because of the nested loop. It is obviously slower.</p>
 <p><strong>c.</strong> <strong>Initialization:</strong> It is pretty trivial, since the summation has no terms which implies $y = 0$.</p>
 <p><strong>Maintenance:</strong> By using the loop invariant, in the end of the $i$-the iteration, we have</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 y &amp; = a_i + x \sum_{k = 0}^{n - (i + 1)} a_{k + i + 1} x^k \\
   &amp; = a_i x^0 + \sum_{k = 0}^{n - i - 1} a_{k + i + 1} x^{k + 1} \\
   &amp; = a_i x^0 \sum_{k = 1}^{n - i} a_{k + i} x^k \\
   &amp; = \sum_{k = 0}^{n - i} a_{k + i} x^k.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p><strong>Termination:</strong> The loop terminates at $i = -1$. If we substitute,</p>
 <p>$$y = \sum_{k = 0}^{n - i - 1} a_{k + i + 1} x^k = \sum_{k = 0}^n a_k x^k.$$</p>
 <p><strong>d.</strong>  The invariant of the loop is a sum that equals a polynomial with the given coefficients.</p>
@@ -5807,9 +5813,11 @@ y &amp; = a_i + x \sum_{k = 0}^{n - (i + 1)} a_{k + i + 1} x^k \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

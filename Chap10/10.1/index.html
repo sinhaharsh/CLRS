@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5813,14 +5815,16 @@
 <blockquote>
 <p>Using Figure 10.1 as a model, illustrate the result of each operation in the sequence $\text{PUSH}(S, 4)$, $\text{PUSH}(S, 1)$, $\text{PUSH}(S, 3)$, $\text{POP}(S)$, $\text{PUSH}(S, 8)$, and $\text{POP}(S)$ on an initially empty stack $S$ stored in array $S[1..6]$.</p>
 </blockquote>
-<p>\begin{array}{l|ccc}
-\text{PUSH($S, 4$)} &amp; 4 &amp;   &amp;   \\   <br />
+<p>$$
+\begin{array}{l|ccc}
+\text{PUSH($S, 4$)} &amp; 4 &amp;   &amp;   \\
 \text{PUSH($S, 1$)} &amp; 4 &amp; 1 &amp;   \\
-\text{PUSH($S, 3$)} &amp; 4 &amp; 1 &amp; 3 \\<br />
+\text{PUSH($S, 3$)} &amp; 4 &amp; 1 &amp; 3 \\
 \text{POP($S$)}     &amp; 4 &amp; 1 &amp;   \\
 \text{PUSH($S, 8$)} &amp; 4 &amp; 1 &amp; 8 \\
 \text{POP($S$)}     &amp; 4 &amp; 1 &amp;
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="101-2">10.1-2</h2>
 <blockquote>
 <p>Explain how to implement two stacks in one array $A[1..n]$ in such a way that neither stack overflows unless the total number of elements in both stacks together is $n$. The $\text{PUSH}$ and $\text{POP}$ operations should run in $O(1)$ time.</p>
@@ -5830,14 +5834,16 @@
 <blockquote>
 <p>Using Figure 10.2 as a model, illustrate the result of each operation in the sequence $\text{ENQUEUE}(Q, 4)$, $\text{ENQUEUE}(Q ,1)$, $\text{ENQUEUE}(Q, 3)$, $\text{DEQUEUE}(Q)$, $\text{ENQUEUE}(Q, 8)$, and $\text{DEQUEUE}(Q)$ on an initially empty queue $Q$ stored in array $Q[1..6]$.</p>
 </blockquote>
-<p>\begin{array}{l|cccc}
+<p>$$
+\begin{array}{l|cccc}
 \text{ENQUEUE($Q, 4$)} &amp; 4 &amp;   &amp;   &amp;   \\
 \text{ENQUEUE($Q, 1$)} &amp; 4 &amp; 1 &amp;   &amp;   \\
 \text{ENQUEUE($Q, 3$)} &amp; 4 &amp; 1 &amp; 3 &amp;   \\
 \text{DEQUEUE($Q$)}    &amp;   &amp; 1 &amp; 3 &amp;   \\
 \text{ENQUEUE($Q, 8$)} &amp;   &amp; 1 &amp; 3 &amp; 8 \\
 \text{DEQUEUE($Q$)}    &amp;   &amp;   &amp; 3 &amp; 8
-\end{array}</p>
+\end{array}
+$$</p>
 <h2 id="101-4">10.1-4</h2>
 <blockquote>
 <p>Rewrite $\text{ENQUEUE}$ and $\text{DEQUEUE}$ to detect underflow and overflow of a queue.</p>
@@ -6091,9 +6097,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5675,22 +5677,26 @@
 <p><strong>c.</strong> Discuss how to implement $\text{DELETE}$.</p>
 </blockquote>
 <p><strong>a.</strong> The $\text{SEARCH}$ operation can be performed by searching each of the individually sorted arrays. Since all the individual arrays are sorted, searching one of them using a binary search algorithm takes $O(\lg m)$ time, where $m$ is the size of the array. In an unsuccessful search, the time is $\Theta(\lg m)$. In the worst case, we may assume that all the arrays $A_0, A_1, \ldots, A_{k - 1}$ are full, $k = \lceil \lg(n + 1) \rceil$, and we perform an unsuccessful search. The total time taken is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T(n) &amp; = \Theta(\lg 2^{k - 1} + \lg 2^{k - 2} + \cdots + \lg 2^1 + \lg 2^0) \\
      &amp; = \Theta((k - 1) + (k - 2) + \cdots + 1 + 0) \\
      &amp; = \Theta(k(k - 1) / 2) \\
      &amp; = \Theta(\lceil \lg(n + 1)\rceil(\lceil \lg(n + 1) \rceil) - 1) / 2) \\
      &amp; = \Theta(\lg^2 n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Thus, the worst-case running time is $\Theta(\lg^2 n)$.</p>
 <p><strong>b.</strong> We create a new sorted array of size $1$ containing the new element to be inserted. If array $A_0$ (which has size $1$) is empty, then we replace $A_0$ with the new sorted array. Otherwise, we merge sort the two arrays into another sorted array of size $2$. If $A_1$ is empty, then we replace $A_1$ with the new array; otherwise we merge sort the arrays as before and continue. Since array $A_i$ is of size $2^i$, if we merge sort two arrays of size $2^i$ each, we obtain one of size $2^{i + 1}$, which is the size of $A_{i + 1}$. Thus, this method will result in another list of arrays in the same structure that we had before.</p>
 <p>Let us analyze its worst-case running time. We will assume that merge sort takes $2m$ time to merge two sorted lists of size $m$ each. If all the arrays $A_0, A_1, \ldots, A_{k - 2}$ are full, then the running time to fill array $A_{k - 1}$ would be</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 T(n) &amp; = 2(2^0 + 2^1 + \cdots + 2^{k - 2}) \\
      &amp; = 2(2^{k - 1} - 1) \\
      &amp; = 2^k - 2 \\
      &amp; = \Theta(n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Therefore, the worst-case time to insert an element into this data structure is $\Theta(n)$.</p>
 <p>However, let us now analyze the amortized running time. Using the aggregate method, we compute the total cost of a sequence of $n$ inserts, starting with the empty data structure. Let $r$ be the position of the rightmost $0$ in the binary representation $\langle n_{k - 1}, n_{k - 2}, \ldots, n_0 \rangle$ of $n$, so that $n_j = 1$ for $j = 0, 1, \ldots, r - 1$. The cost of an insertion when $n$ items have already been inserted is</p>
 <p>$$\sum_{j = 0}^{r - 1} 2 \cdot 2^j = O(2^r).$$</p>
@@ -5794,9 +5800,11 @@ T(n) &amp; = 2(2^0 + 2^1 + \cdots + 2^{k - 2}) \\
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

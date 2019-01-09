@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5842,59 +5844,71 @@
 <p>Run the Floyd-Warshall algorithm on the weighted, directed graph of Figure 25.2. Show the matrix $D^{(k)}$ that results for each iteration of the outer loop.</p>
 </blockquote>
 <p>$k = 1$:</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
      0 &amp; \infty &amp; \infty &amp; \infty &amp;     -1 &amp; \infty \\
      1 &amp;      0 &amp; \infty &amp;      2 &amp;      0 &amp; \infty \\
 \infty &amp;      2 &amp;      0 &amp; \infty &amp; \infty &amp;     -8 \\
     -4 &amp; \infty &amp; \infty &amp;      0 &amp;     -5 &amp; \infty \\
 \infty &amp;      7 &amp; \infty &amp; \infty &amp;      0 &amp; \infty \\
 \infty &amp;      5 &amp;     10 &amp; \infty &amp; \infty &amp; 0
-\end{pmatrix}</p>
+\end{pmatrix}
+$$</p>
 <p>$k = 2$:</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
  0 &amp; \infty &amp; \infty &amp; \infty &amp; -1 &amp; \infty \\
  1 &amp;      0 &amp; \infty &amp;      2 &amp;  0 &amp; \infty \\
  3 &amp;      2 &amp;      0 &amp;      4 &amp;  2 &amp; -    8 \\
 -4 &amp; \infty &amp; \infty &amp;      0 &amp; -5 &amp; \infty \\
  8 &amp;      7 &amp; \infty &amp;      9 &amp;  0 &amp; \infty \\
  6 &amp;      5 &amp;     10 &amp;      7 &amp;  5 &amp; 0
-\end{pmatrix}</p>
+\end{pmatrix}
+$$</p>
 <p>$k = 3$:</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
  0 &amp; \infty &amp; \infty &amp; \infty &amp; -1 &amp; \infty \\
  1 &amp;      0 &amp; \infty &amp;      2 &amp;  0 &amp; \infty \\
  3 &amp;      2 &amp;      0 &amp;      4 &amp;  2 &amp;     -8 \\
 -4 &amp; \infty &amp; \infty &amp;      0 &amp; -5 &amp; \infty \\
  8 &amp;      7 &amp; \infty &amp;      9 &amp;  0 &amp; \infty \\
  6 &amp;      5 &amp;     10 &amp;      7 &amp;  5 &amp; 0
-\end{pmatrix}</p>
+\end{pmatrix}
+$$</p>
 <p>$k = 4$:</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
  0 &amp; \infty &amp; \infty &amp; \infty &amp; -1 &amp; \infty \\
 -2 &amp;      0 &amp; \infty &amp;      2 &amp; -3 &amp; \infty \\
  0 &amp;      2 &amp;      0 &amp;      4 &amp; -1 &amp;     -8 \\
 -4 &amp; \infty &amp; \infty &amp;      0 &amp; -5 &amp; \infty \\
  5 &amp;      7 &amp; \infty &amp;      9 &amp;  0 &amp; \infty \\
  3 &amp;      5 &amp;     10 &amp;      7 &amp;  2 &amp; 0
-\end{pmatrix}</p>
+\end{pmatrix}
+$$</p>
 <p>$k = 5$:</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
  0 &amp; 6 &amp; \infty &amp; 8 &amp; -1 &amp; \infty \\
 -2 &amp; 0 &amp; \infty &amp; 2 &amp; -3 &amp; \infty \\
  0 &amp; 2 &amp;      0 &amp; 4 &amp; -1 &amp;     -8 \\
 -4 &amp; 2 &amp; \infty &amp; 0 &amp; -5 &amp; \infty \\
  5 &amp; 7 &amp; \infty &amp; 9 &amp;  0 &amp; \infty \\
  3 &amp; 5 &amp;     10 &amp; 7 &amp;  2 &amp; 0
-\end{pmatrix}</p>
+\end{pmatrix}
+$$</p>
 <p>$k = 6$:</p>
-<p>\begin{pmatrix}
+<p>$$
+\begin{pmatrix}
  0 &amp;  6 &amp; \infty &amp;  8 &amp; -1 &amp; \infty \\
 -2 &amp;  0 &amp; \infty &amp;  2 &amp; -3 &amp; \infty \\
 -5 &amp; -3 &amp;      0 &amp; -1 &amp; -6 &amp;     -8 \\
 -4 &amp;  2 &amp; \infty &amp;  0 &amp; -5 &amp; \infty \\
  5 &amp;  7 &amp; \infty &amp;  9 &amp;  0 &amp; \infty \\
  3 &amp;  5 &amp;     10 &amp;  7 &amp;  2 &amp; 0
-\end{pmatrix}</p>
+\end{pmatrix}
+$$</p>
 <h2 id="252-2">25.2-2</h2>
 <blockquote>
 <p>Show how to compute the transitive closure using the technique of Section 25.1.</p>
@@ -5969,11 +5983,13 @@ around, and if we ever get some cycle, $i_1, i_2, \ldots, i_c$, then we would ha
 
 </blockquote>
 <p>With the superscripts, the computation is $d_{ij}^{(k)} = \min(d_{ij}^{(k - 1)}, d_{ik}^{(k - 1)} + d_{kj}^{(k - 1)})$. If, having dropped the superscripts, we were to compute and store $d_{ik}$ or $d_{kj}$ before using these values to compute $d_{ij}$, we might be computing one of the following:</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 d_{ij}^{(k)} &amp; = \min(d_{ij}^{(k - 1)}, d_{ik}^{(k)} + d_{kj}^{(k - 1)}), \\
 d_{ij}^{(k)} &amp; = \min(d_{ij}^{(k - 1)}, d_{ik}^{(k - 1)} + d_{kj}^{(k)}), \\
 d_{ij}^{(k)} &amp; = \min(d_{ij}^{(k - 1)}, d_{ik}^{(k)} + d_{kj}^{(k)}),
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>In any of these scenarios, we're computing the weight of a shortest path from $i$ to $j$ with all intermediate vertices in $\{1, 2, \ldots, k\}$. If we use $d_{ik}^{(k)}$, rather than $d_{ik}^{(k - 1)}$, in the computation, then we're using a subpath from $i$ to $k$ with all intermediate vertices in $\{1, 2, \ldots, k\}$. But $k$ cannot be an <em>intermediate</em> vertex on a shortest path from $i$ to $k$, since otherwise there would be a cycle on this shortest path. Thus, $d_{ik}^{(k)} = d_{ik}^{(k - 1)}$. A similar argument applies to show that $d_{kj}^{(k)} = d_{kj}^{(k - 1)}$. Hence, we can drop the superscripts in the computation.</p>
 <h2 id="252-5">25.2-5</h2>
 <blockquote>
@@ -6115,9 +6131,11 @@ graph $G = (V, E)$.</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

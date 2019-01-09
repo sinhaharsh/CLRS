@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5762,19 +5764,23 @@
 <blockquote>
 <p>Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size $n$ , insertion sort runs in $8n^2$ steps, while merge sort runs in $64n\lg n$ steps. For which values of $n$ does insertion sort beat merge sort?</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 8n^2 &amp; &lt;   64n\lg n \\
  2^n &amp; &lt;   n^8 \\
    n &amp; \le 43.
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="12-3">1.2-3</h2>
 <blockquote>
 <p>What is the smallest value of $n$ such that an algorithm whose running time is $100n^2$ runs faster than an algorithm whose running time is $2^n$ on the same machine?</p>
 </blockquote>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 100n^2 &amp; &lt;   2^n \\
      n &amp; \ge 15.
-\end{align}</p>
+\end{aligned}
+$$</p>
                 
                   
                 
@@ -5863,9 +5869,11 @@
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/mathjax.css">
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5856,17 +5858,21 @@
 <p>Prove that, after the procedure $\text{INITIALIZE-PREFLOW}(G, S)$ terminates, we have $s.e \le -|f^*|$, where $f^*$ is a maximum flow for $G$.</p>
 </blockquote>
 <p>We apply the definition of excess flow (equation $\text{(26.14)}$) to the initial preflow $f$ created by $\text{INITIALIZE-PREFLOW}$ (equation $\text{(26.15)}$) to obtain</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 e(s) &amp; = \sum_{v \in V} f(v, s) - \sum_{v \in V} f(s, v) \\
      &amp; = 0 - \sum_{v \in V} c(s, v) \\
      &amp; = -\sum_{v \in V} c(s, v).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>Now,</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 -|f^*| &amp; =   \sum_{v \in V} f^*(v, s) - \sum_{v \in V} f^*(s, v) \\
         &amp; \ge 0 - \sum_{v \in V} c(s, v) \qquad \text{(since $f^*(v, s) \ge 0$ and $f^*(s, v) \le c(s, v)$)} \\
         &amp; = e(s).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="264-2">26.4-2</h2>
 <blockquote>
 <p>Show how to implement the generic push-relabel algorithm using $O(V)$ time per relabel operation, $O(1)$ time per push, and $O(1)$ time to select an applicable operation, for a total time of $O(V^2E)$.</p>
@@ -6030,9 +6036,11 @@ saturating pushes by $4|V|^2|E|$.</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="../../js/mathjax.js"></script>
+        <script src="../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     

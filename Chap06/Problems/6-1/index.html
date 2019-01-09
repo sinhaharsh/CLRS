@@ -73,7 +73,9 @@
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../../css/mathjax.css">
+      <link rel="stylesheet" href="../../../css/katex.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
     
     
   </head>
@@ -5688,14 +5690,16 @@
 $\text{BUILD-MAX-HEAP}(A)$: $A = \langle 3, 2, 1 \rangle$.<br />
 $\text{BUILD-MAX-HEAP}'(A)$: $A = \langle 3, 1, 2 \rangle$.</p>
 <p><strong>b.</strong> An upper bound of $O(n\lg n)$ time follows immediately from there being $n - 1$ calls to $\text{MAX-HEAP-INSERT}$, each taking $O(\lg n)$ time. For a lower bound of $\Omega(n\lg n)$, consider the case in which the input array is given in strictly increasing order. Each call to $\text{MAX-HEAP-INSERT}$ causes $\text{HEAP-INCREASE-KEY}$ to go all the way up to the root. Since the depth of node $i$ is $\lfloor \lg i \rfloor$, the total time is</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \sum_{i = 1}^n \Theta(\lfloor \lg i \rfloor) 
     &amp; \ge \sum_{i = \lceil n / 2 \rceil}^n \Theta(\lfloor \lg \lceil n / 2 \rceil\rfloor) \\
     &amp; \ge \sum_{i = \lceil n / 2 \rceil}^n \Theta(\lfloor \lg (n / 2) \rfloor) \\
     &amp; =   \sum_{i = \lceil n / 2 \rceil}^n \Theta(\lfloor \lg n - 1 \rfloor) \\
     &amp; \ge n / 2 \cdot \Theta(\lg n) \\
     &amp; =   \Omega(n\lg n).
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>In the worst case, therefore, $\text{BUILD-MAX-HEAP}'$ requires $\Theta(n\lg n)$ time to build an $n$-element heap.</p>
                 
                   
@@ -5785,9 +5789,11 @@ $\text{BUILD-MAX-HEAP}'(A)$: $A = \langle 3, 1, 2 \rangle$.</p>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../js/katex.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
       
     
     
