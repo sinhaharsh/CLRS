@@ -5872,8 +5872,12 @@ in the else-case of line 9. Since we are deleting from a red-black tree, the oth
 </blockquote>
 <p>Our count will include the root (if it is black).</p>
 <ul>
-<li><strong>Case 1:</strong> For each subtree, it is $2$ both before and after.</li>
-<li><strong>Case 2:</strong> <ul>
+<li>
+<p><strong>Case 1:</strong> For each subtree, it is $2$ both before and after.</p>
+</li>
+<li>
+<p><strong>Case 2:</strong> </p>
+<ul>
 <li>For $\alpha$ and $\beta$, it is $1 + \text{count}(c)$ in both cases. </li>
 <li>For the rest of the subtrees, it is from $2 + \text{count}(c)$ to $1 + \text{count}(c)$. </li>
 </ul>
@@ -5881,12 +5885,16 @@ in the else-case of line 9. Since we are deleting from a red-black tree, the oth
 </ul>
 <p>This decrease in the count for the other subtreese is handled by then having $x$ represent an additional black.</p>
 <ul>
-<li><strong>Case 3:</strong> <ul>
+<li>
+<p><strong>Case 3:</strong> </p>
+<ul>
 <li>For $\epsilon$ and $\zeta$, it is $2+\text{count}(c)$ both before and after.</li>
 <li>For all the other subtrees, it is $1+\text{count}(c)$ both before and after.</li>
 </ul>
 </li>
-<li><strong>Case 4:</strong> <ul>
+<li>
+<p><strong>Case 4:</strong> </p>
+<ul>
 <li>For $\alpha$ and $\beta$, it is from $1 + \text{count}(c)$ to $2 + \text{count}(c)$. </li>
 <li>For $\gamma$ and $\delta$, it is $1 + \text{count}(c) + \text{count}(c')$ both before and after. </li>
 <li>For $\epsilon$ and $\zeta$, it is $1 + \text{count}(c)$ both before and after. </li>

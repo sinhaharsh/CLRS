@@ -5679,15 +5679,11 @@
 <ul>
 <li>
 <p>At least the number of machines so that (along with surplus $s$) there are enough machines to satisfy the current month's demand. Let us denote this lower bound by $L(k, s)$. We have</p>
-<p>$$
-L(k, s) = \max(d_k - s, 0).
-$$</p>
+<p>$$L(k, s) = \max(d_k - s, 0).$$</p>
 </li>
 <li>
 <p>At most the number of machines such that there are enough machines to satisfy the demands of all the following months. Let us denote this upper bound by $U(k, s)$. We have</p>
-<p>$$
-U(k, s) = \Bigg(\sum_{i = k}^n d_i \Bigg) - s.
-$$</p>
+<p>$$U(k, s) = \Bigg(\sum_{i = k}^n d_i \Bigg) - s.$$</p>
 </li>
 </ul>
 <p>For the last month, we need only manufacture the minimum required number of machines, given by $L(n, s)$. For other months, we examine the costs of manufacturing all feasible numbers of machines and see which choice gives us the cheapest plan. We can now write the recurrence for cost as the following:</p>

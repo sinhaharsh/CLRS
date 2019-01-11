@@ -5685,15 +5685,15 @@
 <li>
 <p>$\Theta(n\lg n)$.</p>
 <p>$$
-   \begin{aligned}
-T(n) &amp; = T(n / 2) + cN \\
-     &amp; = 2cN + T(n / 4) \\
-     &amp; = 3cN + T(n / 8) \\
-     &amp; = \sum_{i = 0}^{\lg n - 1}(2^icN / 2^i) \\
-     &amp; = cN\lg n \\
-     &amp; = \Theta(n\lg n).
-\end{aligned}
-   $$</p>
+ \begin{aligned}
+ T(n) &amp; = T(n / 2) + cN \\
+      &amp; = 2cN + T(n / 4) \\
+      &amp; = 3cN + T(n / 8) \\
+      &amp; = \sum_{i = 0}^{\lg n - 1}(2^icN / 2^i) \\
+      &amp; = cN\lg n \\
+      &amp; = \Theta(n\lg n).
+ \end{aligned}
+ $$</p>
 </li>
 <li>
 <p>$T(n) = T(n / 2) + cn = \Theta(n)$. (master method)</p>
@@ -5705,26 +5705,26 @@ T(n) &amp; = T(n / 2) + cN \\
 <li>
 <p>$\Theta(n^2)$.</p>
 <p>$$
-   \begin{aligned}
-T(n) &amp; = 2T(n / 2) + cn + 2N = 4N + cn + 2c(n / 2) + 4T(n / 4) \\
-     &amp; = 8N + 2cn + 4c(n / 4) + 8T(n / 8) \\
-     &amp; = \sum_{i = 0}^{\lg n - 1}(cn + 2^iN) \\
-     &amp; = \sum_{i = 0}^{\lg n - 1}cn + N\sum_{i = 0}^{\lg n - 1}2^i \\
-     &amp; = cn\lg n + N\frac{2^{\lg n} - 1}{2 - 1} \\
-     &amp; = cn\lg n + nN - N = \Theta(nN) \\
-     &amp; = \Theta(n^2).
-\end{aligned}
-   $$</p>
+ \begin{aligned}
+ T(n) &amp; = 2T(n / 2) + cn + 2N = 4N + cn + 2c(n / 2) + 4T(n / 4) \\
+      &amp; = 8N + 2cn + 4c(n / 4) + 8T(n / 8) \\
+      &amp; = \sum_{i = 0}^{\lg n - 1}(cn + 2^iN) \\
+      &amp; = \sum_{i = 0}^{\lg n - 1}cn + N\sum_{i = 0}^{\lg n - 1}2^i \\
+      &amp; = cn\lg n + N\frac{2^{\lg n} - 1}{2 - 1} \\
+      &amp; = cn\lg n + nN - N = \Theta(nN) \\
+      &amp; = \Theta(n^2).
+ \end{aligned}
+ $$</p>
 </li>
 <li>
 <p>$\Theta(n\lg n)$.</p>
 <p>$$
-   \begin{aligned}
-T(n) &amp; = 2T(n / 2) + cn + 2n / 2 \\
-     &amp; = 2T(n / 2) + (c + 1)n \\
-     &amp; = \Theta(n\lg n).
-\end{aligned}
-   $$</p>
+ \begin{aligned}
+ T(n) &amp; = 2T(n / 2) + cn + 2n / 2 \\
+      &amp; = 2T(n / 2) + (c + 1)n \\
+      &amp; = \Theta(n\lg n).
+ \end{aligned}
+ $$</p>
 </li>
 </ol>
                 

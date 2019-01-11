@@ -5693,7 +5693,7 @@ We have $f(n) = n^2 \sqrt n = n^{5 / 2}$ and $n^{\log_b a} = n^{\lg 4} = n^2$. S
 <p><strong>d.</strong> $\Theta(n\lg n)$ by the master method.</p>
 <p><strong>e.</strong> $T(n) = 2T(n / 2) + n / \lg n$<br />
 We can get a guess by means of a recursion tree:</p>
-<p><img alt="" src="https://i.imgur.com/Pn2CdhU.png" /></p>
+<p><img alt="" src="../../../img/4-3-1.png" /></p>
 <p>We get the sum on each level by observing that at depth $i$, we have $2^i$ nodes, each with a numerator of $n / 2^i$ and a denominator of $\lg(n / 2^i) = \lg n - i$, so that the cost at depth $i$ is</p>
 <p>$$2^i \cdot \frac{n / 2^i}{\lg n - i} = \frac{n}{\lg n - i}.$$</p>
 <p>The sum for all levels is</p>
@@ -5734,7 +5734,7 @@ $$</p>
 <p>Thus, $T(n) = \Theta(n\lg\lg n)$.</p>
 <p><strong>f.</strong> $T(n) = T(n / 2) + T(n / 4) + T(n / 8) + n$<br />
 Using the recursion tree shown below, we get a guess of $T(n) = \Theta(n)$.</p>
-<p><img alt="" src="https://i.imgur.com/UW5kRiR.png?width=40rem" /></p>
+<p><img alt="" src="../../../img/4-3-2.png" /></p>
 <p>We use the substitution method to prove that $T(n) = O(n)$. Our inductive hypothesis is that $T(n) \le cn$ for some constant $c &gt; 0$. We have</p>
 <p>$$
 \begin{aligned}

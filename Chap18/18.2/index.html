@@ -5859,8 +5859,7 @@
 
 <p>Finding the predecessor of a given key $x.key_i$ is according to the following rules:</p>
 <ol>
-<li>If $x$ is not a leaf, return the maximum key in the $i$-th child of $x$, which is also the maximum key of the subtree rooted
-at $x.c_i$.</li>
+<li>If $x$ is not a leaf, return the maximum key in the $i$-th child of $x$, which is also the maximum key of the subtree rooted at $x.c_i$.</li>
 <li>If $x$ is a leaf and $i &gt; 1$, return the $(i - 1)$st key of $x$, i.e., $x.key_{i - 1}$.</li>
 <li>
 <p>Otherwise, look for the last node y (from the bottom up) and $j &gt; 0$, such that $x.key_i$ is the leftmost key in $y.c_j$; if $j = 1$, return $\text{NIL}$ since $x.key_i$ is the minimum key in the tree; otherwise we return $y.key_{j - 1}$. </p>

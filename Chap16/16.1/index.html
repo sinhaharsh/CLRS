@@ -5905,8 +5905,8 @@ $$</p>
 <li>Sort the $2n$ activity-starts/activity-ends events. (In the sorted order, an activity-ending event should precede an activity-starting event that is at the same time.) $O(n\lg n)$ time for arbitrary times, possibly $O(n)$ if the times are restricted (e.g., to small integers).</li>
 <li>Process the events in $O(n)$ time: Scan the $2n$ events, doing $O(1)$ work for each (moving a hall from one list to the other and possibly associating an activity with it).</li>
 </ul>
-<p>Total: $O(n + \text{time to sort)}$
-<em>[The idea of this algorithm is related to the rectangle-overlap algorithm in Exercise 14.3-7.]</em></p>
+<p>Total: $O(n + \text{time to sort)}$</p>
+<p><em>[The idea of this algorithm is related to the rectangle-overlap algorithm in Exercise 14.3-7.]</em></p>
 <h2 id="161-5">16.1-5</h2>
 <blockquote>
 <p>Consider a modification to the activity-selection problem in which each activity $a_i$ has, in addition to a start and finish time, a value $v_i$. The objective is no longer to maximize the number of activities scheduled, but instead to maximize the total value of the activities scheduled. That is, we wish to choose a set $A$ of compatible activities such that $\sum_{a_k \in A} v_k$ is maximized. Give a polynomial-time algorithm for this problem.</p>

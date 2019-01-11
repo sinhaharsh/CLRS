@@ -5815,27 +5815,13 @@
 <blockquote>
 <p>Using Figure 2.4 as a model, illustrate the operation of merge sort on the array $A = \langle 3, 41, 52, 26, 38, 57, 9, 49 \rangle$.</p>
 </blockquote>
-<p>$$
-[3] \quad [41] \quad [52] \quad [26] \quad [38] \quad [57] \quad [9] \quad [49]
-$$</p>
-<p>$$
-\downarrow
-$$</p>
-<p>$$
-[3|41] \quad [26| 52] \quad [38|57] \quad [9|49]
-$$</p>
-<p>$$
-\downarrow
-$$</p>
-<p>$$
-[3|26|41|52] \quad [9 |38|49|57]
-$$</p>
-<p>$$
-\downarrow
-$$</p>
-<p>$$
-[3|9|26|38|41|49|52|57]
-$$</p>
+<p>$$[3] \quad [41] \quad [52] \quad [26] \quad [38] \quad [57] \quad [9] \quad [49]$$</p>
+<p>$$\downarrow$$</p>
+<p>$$[3|41] \quad [26|52] \quad [38|57] \quad [9|49]$$</p>
+<p>$$\downarrow$$</p>
+<p>$$[3|26|41|52] \quad [9|38|49|57]$$</p>
+<p>$$\downarrow$$</p>
+<p>$$[3|9|26|38|41|49|52|57]$$</p>
 <h2 id="23-2">2.3-2</h2>
 <blockquote>
 <p>Rewrite the $\text{MERGE}$ procedure so that it does not use sentinels, instead stopping once either array $L$ or $R$ has had all its elements copied back to $A$ and then copying the remainder of the other array back into $A$.</p>

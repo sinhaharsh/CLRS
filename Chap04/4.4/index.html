@@ -6077,7 +6077,7 @@ $$</p>
 <p>$T(n) = T(\alpha n) + T((1 - \alpha)n) + cn$</p>
 <p>We saw the solution to the recurrence $T(n) = T(n / 3) + T(2n / 3) + cn$ in the text. This recurrence can be similarly solved.</p>
 <p>Without loss of generality, let $\alpha \ge 1 - \alpha$, so that $0 &lt; 1 - \alpha \le 1 / 2$ and $1 / 2 \le \alpha &lt; 1$.</p>
-<p><img alt="" src="https://i.imgur.com/kDvYqYw.png" /></p>
+<p><img alt="" src="../../img/4.4.png" /></p>
 <p>The recursion tree is full for $\log_{1 / (1 - \alpha)} n$ levels, each contributing $cn$, so we guess </p>
 <p>$$\Omega(n\log_{1 / (1 - \alpha)} n) = \Omega(n\lg n).$$</p>
 <p>It has $\log_{1 / \alpha} n$ levels, each contributing $\le cn$, so we guess</p>

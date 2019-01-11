@@ -5805,7 +5805,7 @@ h(k, i) = (k + i) \mod 11 &amp; T_0 &amp; T_1 &amp; T_2 &amp; T_3 &amp; T_4 &amp
  7 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 17 &amp; 17 &amp; 17 \\
  8 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 59 \\
  9 \mod 11 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
-10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 
+10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10
 \end{array}
 $$</p>
 </li>
@@ -5848,7 +5848,7 @@ h(k, i) = (k + i(1 + k \mod 10)) \mod 11 &amp; T_0 &amp; T_1 &amp; T_2 &amp; T_3
  7 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp; 88 &amp; 88 \\
  8 \mod 11 &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    &amp;    \\
  9 \mod 11 &amp;    &amp;    &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 &amp; 31 \\
-10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 
+10 \mod 11 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10 &amp; 10
 \end{array}
 $$</p>
 </li>
@@ -5907,12 +5907,16 @@ $$</p>
 <p>Consider an open-address hash table with uniform hashing. Give upper bounds on the expected number of probes in an unsuccessful search and on the expected number of probes in a successful search when the load factor is $3 / 4$ and when it is $7 / 8$.</p>
 </blockquote>
 <ul>
-<li>$\alpha = 3 / 4$,<ul>
+<li>
+<p>$\alpha = 3 / 4$,</p>
+<ul>
 <li>unsuccessful: $\frac{1}{1 - \frac{3}{4}} = 4$ probes,</li>
 <li>successful: $\frac{1}{\frac{3}{4}} \ln\frac{1}{1-\frac{3}{4}} \approx 1.848$ probes.</li>
 </ul>
 </li>
-<li>$\alpha = 7 / 8$,<ul>
+<li>
+<p>$\alpha = 7 / 8$,</p>
+<ul>
 <li>unsuccessful: $\frac{1}{1 - \frac{7}{8}} = 8$ probes,</li>
 <li>successful: $\frac{1}{\frac{7}{8}} \ln\frac{1}{1 - \frac{7}{8}} \approx 2.377$ probes.</li>
 </ul>
