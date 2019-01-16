@@ -5843,24 +5843,80 @@
 <blockquote>
 <p>If we express the linear program in $\text{(29.24)}$–$\text{(29.28)}$ in the compact notation of $\text{(29.19)}$–$\text{(29.21)}$, what are $n$, $m$, $A$, $b$, and $c$?</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>$$
+\begin{aligned}
+n = m &amp; = 3, \\
+A &amp; =
+\begin{pmatrix}
+ 1 &amp;  1 &amp; -1 \\
+-1 &amp; -1 &amp;  1 \\
+ 1 &amp; -2 &amp;  2
+\end{pmatrix}
+, \\
+b &amp; =
+\begin{pmatrix}
+ 7 \\
+-7 \\
+ 4
+\end{pmatrix}
+, \\
+c &amp; =
+\begin{pmatrix}
+ 2 \\
+-3 \\
+ 3
+\end{pmatrix}
+.
+\end{aligned}
+$$</p>
 <h2 id="291-2">29.1-2</h2>
 <blockquote>
 <p>Give three feasible solutions to the linear program in $\text{(29.24)}$–$\text{(29.28)}$. What is the objective value of each one?</p>
 </blockquote>
-<p>(Omit!)</p>
+<ol>
+<li>$(x_1, x_2, x_3) = (6, 1, 0)$ with objective value $9$.</li>
+<li>$(x_1, x_2, x_3) = (5, 2, 0)$ with objective value $4$.</li>
+<li>$(x_1, x_2, x_3) = (4, 3, 0)$ with objective value $-1$.</li>
+</ol>
 <h2 id="291-3">29.1-3</h2>
 <blockquote>
 <p>For the slack form in $\text{(29.38)}$–$\text{(29.41)}$, what are $N$, $B$, $A$, $b$, $c$, and $v$?</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>$$
+\begin{aligned}
+N &amp; = \{1, 2, 3\}, \\
+B &amp; = \{4, 5, 6\}, \\
+A &amp; =
+\begin{pmatrix}
+ 1 &amp;  1 &amp; -1 \\
+-1 &amp; -1 &amp;  1 \\
+ 1 &amp; -2 &amp;  2
+\end{pmatrix}
+, \\
+b &amp; =
+\begin{pmatrix}
+ 7 \\
+-7 \\
+ 4
+\end{pmatrix}
+, \\
+c &amp; =
+\begin{pmatrix}
+ 2 \\
+-3 \\
+ 3
+\end{pmatrix}
+, \\
+v &amp; = 0.
+\end{aligned}
+$$</p>
 <h2 id="291-4">29.1-4</h2>
 <blockquote>
 <p>Convert the following linear program into standard form:</p>
 <p>$$
 \begin{array}{lccccccc}
 \text{minimize}   &amp; 2x_1 &amp; + &amp; 7x_2 &amp; + &amp; x_3 &amp;     &amp; \\
-\text{subject to} &amp;      &amp;   &amp;      &amp;   &amp; \\
+\text{subject to} &amp; \\
                   &amp;  x_1 &amp;   &amp;      &amp; - &amp; x_3 &amp; =   &amp;  7 \\
                   &amp; 3x_1 &amp; + &amp;  x_2 &amp;   &amp;     &amp; \ge &amp; 24 \\
                   &amp;      &amp;   &amp;  x_2 &amp;   &amp;     &amp; \ge &amp;  0 \\
@@ -5868,7 +5924,16 @@
 \end{array}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>$$
+\begin{array}{lccccccc}
+\text{maximize}   &amp; -2x_1 &amp; - &amp; 2x_2 &amp; - &amp; 7x_3 &amp; +   &amp; x_4 &amp;     &amp; \\
+\text{subject to} &amp; \\
+                  &amp;  -x_1 &amp; + &amp;  x_2 &amp;   &amp;      &amp; -   &amp; x_4 &amp; \le &amp;  -7 \\
+                  &amp;   x_1 &amp; - &amp;  x_2 &amp;   &amp;      &amp; +   &amp; x_4 &amp; \le &amp;   7 \\
+                  &amp; -3x_1 &amp; + &amp; 3x_2 &amp; - &amp;  x_3 &amp;     &amp;     &amp; \le &amp; -24 \\
+                  &amp;       &amp; x_1, x_2, x_3, x_4  &amp; &amp; &amp; &amp; &amp;   &amp; \le &amp;  0.
+\end{array}
+$$</p>
 <h2 id="291-5">29.1-5</h2>
 <blockquote>
 <p>Convert the following linear program into slack form:</p>
@@ -5884,7 +5949,16 @@ $$</p>
 $$</p>
 <p>What are the basic and nonbasic variables?</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>First, we will multiply the second and third inequalities by minus one to make it so that they are all $\le$ inequalities. We will introduce the three new variables $x_4$, $x_5$, $x_6$, and perform the usual procedure for rewriting in slack form</p>
+<p>$$
+\begin{aligned}
+x_4 &amp; = 7 - x_1 - x_2 + x_3 \\
+x_5 &amp; = -8 + 3x_1 - x_2 \\
+x_6 &amp; = -x_1 + 2x_2 + 2x_3 \\
+x_1, x_2, x_3, x_4, x_5, x_6 \ge 0,
+\end{aligned}
+$$</p>
+<p>where we are sill trying to maximize $2x_1 - 6x_3$. The basic variables are $x_4$, $x_5$, $x_6$ and the nonbasic variables are $x_1$, $x_2$, $x_3$.</p>
 <h2 id="291-6">29.1-6</h2>
 <blockquote>
 <p>Show that the following linear program is infeasible:</p>
@@ -5898,7 +5972,7 @@ $$</p>
 \end{array}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>By dividing the second constraint by $2$ and adding to the first, we have $0 \le −3$, which is impossible. Therefore there linear program is unfeasible.</p>
 <h2 id="291-7">29.1-7</h2>
 <blockquote>
 <p>Show that the following linear program is unbounded:</p>
@@ -5912,17 +5986,26 @@ $$</p>
 \end{array}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>For any number $r &gt; 1$, we can set $x_1 = 2r$ and $x_2 = r$. Then, the restaints become</p>
+<p>$$
+\begin{aligned}
+-2r +  r &amp; =    -r \le -1 \\
+-2r - 2r &amp; =   -4r \le -2 \\
+   2r, r &amp; \ge 0.
+\end{aligned}
+$$</p>
+<p>All of these inequalities are clearly satisfied because of our initial restriction in selecting $r$. Now, we look to the objective function, it is $2r - r = r$. So, since we can select $r$ to be arbitrarily large, and still satisfy all of the constraints, we can achieve an arbitrarily large value of the objective function.</p>
 <h2 id="291-8">29.1-8</h2>
 <blockquote>
 <p>Suppose that we have a general linear program with $n$ variables and $m$ constraints, and suppose that we convert it into standard form. Give an upper bound on the number of variables and constraints in the resulting linear program.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>In the worst case, we have to introduce 2 variables for every variable to ensure that we have nonnegativity constraints, so the resulting program will have $2n$ variables. If each constraint is an equality, we would have to double the number of constraints to create inequalities, resulting in $2m$ constraints. Changing minimization to maximization and greater-than signs to less-than signs don't affect the number of variables or constraints, so the upper bound is $2n$ on variables and $2m$ on constraints.</p>
 <h2 id="291-9">29.1-9</h2>
 <blockquote>
 <p>Give an example of a linear program for which the feasible region is not bounded, but the optimal objective value is finite.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>Consider the linear program where we want to maximize $x_1 − x_2$ subject to the constraints $x_1 − x_2 \le 1$ and $x_1$, $x_2 \ge 0$. clearly the objective value can never be greater than one, and it is easy to achieve the optimal value of $1$, by setting $x_1 = 1$ and $x_2 = 0$. Then, this feasible region is unbounded because for any number $r$, we could set $x_1 = x_2 = r$, and that would be feasible because the difference of the two would be zero which is $\le 1$.</p>
+<p>If we further wanted it so that there was a single solution that achieved the finite optimal value, we could add the requirements that $x_1 \le 1$.</p>
                 
                   
                 

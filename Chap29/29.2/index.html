@@ -5815,37 +5815,117 @@
 <blockquote>
 <p>Put the single-pair shortest-path linear program from $\text{(29.44)}$–$\text{(29.46)}$ into standard form.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>The objective is already in normal form. However, some of the constraints are equality constraints instead of $\le$ constraints. This means that we need to rewrite them as a pair of inequality constraints, the overlap of whose solutions is just the case where we have equality. we also need to deal with the fact that most of the variables can be negative. To do that, we will introduce variables for the negative part and positive part, each of which need be positive, and we'll just be sure to subtract the negative part. $d_s$ need not be changed in this way since it can never be negative since we are not assuming the existence of negative weight cycles.</p>
+<p>$$
+\begin{aligned}
+d_v^+ - d_v^- - d_u^+ + d_u^- \le w(u, v) \text{ for every edge } (u, v) \\
+d_s \le 0
+\end{aligned}
+$$</p>
 <h2 id="292-2">29.2-2</h2>
 <blockquote>
 <p>Write out explicitly the linear program corresponding to finding the shortest path from node $s$ to node $y$ in Figure 24.2(a).</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>$$
+\begin{array}{ll}
+\text{minimize}   &amp; d_y \\
+\text{subject to} &amp; \\
+                  &amp; d_t \le d_s + 3 \\
+                  &amp; d_x \le d_t + 6 \\
+                  &amp; d_y \le d_s + 5 \\
+                  &amp; d_y \le d_t + 2 \\
+                  &amp; d_z \le d_x + 2 \\
+                  &amp; d_t \le d_y + 1 \\
+                  &amp; d_x \le d_y + 4 \\
+                  &amp; d_z \le d_y + 1 \\
+                  &amp; d_s \le d_z + 1 \\
+                  &amp; d_x \le d_z + 7 \\
+                  &amp; d_2 =   0.
+\end{array}
+$$</p>
 <h2 id="292-3">29.2-3</h2>
 <blockquote>
 <p>In the single-source shortest-paths problem, we want to find the shortest-path weights from a source vertex $s$ to all vertices $v \in V$. Given a graph $G$, write a linear program for which the solution has the property that $d_v$ is the shortest-path weight from $s$ to $v$ for each vertex $v \in V$.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>We will follow a similar idea to the way to when we were finding the shortest path between two particular vertices.</p>
+<p>$$
+\begin{array}{ll}
+\text{maximize}   &amp; \sum_{v \in V} d_v \\
+\text{subject to} &amp; \\
+                  &amp; d_v \le d_u + w(u, v) \text{ for each edge } (u, v) \\
+                  &amp; d_s =   0.
+\end{array}
+$$</p>
+<p>The first type of constraint makes sure that we never say that a vertex is further away than it would be if we just took the edge corresponding to that constraint. Also, since we are trying to maximize all of the variables, we will make it so that there is no slack anywhere, and so all the dv values will correspond to lengths of shortest paths to $v$. This is because the only thing holding back the variables is the information about relaxing along the edges, which is what determines shortest paths.</p>
 <h2 id="292-4">29.2-4</h2>
 <blockquote>
 <p>Write out explicitly the linear program corresponding to finding the maximum flow in Figure 26.1(a).</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>$$
+\begin{array}{lll}
+\text{maximize}   &amp; f_{sv_1} + f_{xv_2} \\
+\text{subject to} &amp; \\
+                  &amp; f_{sv_1}                &amp; \le 16 \\
+                  &amp; f_{sv_2}                &amp; \le 14 \\
+                  &amp; f_{v_1v_3}              &amp; \le 12 \\
+                  &amp; f_{v_2v_1}              &amp; \le  4 \\
+                  &amp; f_{v_2v_4}              &amp; \le 14 \\
+                  &amp; f_{v_3v_2}              &amp; \le  9 \\
+                  &amp; f_{v_3t}                &amp; \le 20 \\
+                  &amp; f_{v_4v_3}              &amp; \le  7 \\
+                  &amp; f_{v_4t}                &amp; \le  4 \\
+                  &amp; f_{sv_1} + f_{v_2v_1}   &amp; =   f_{v_1v_3} \\
+                  &amp; f_{sv_2} + f_{v_3v_2}   &amp; =   f_{v_2v_1} + f_{v_2v_4} \\
+                  &amp; f_{v_1v_3} + f_{v_4v_3} &amp; =   f_{v_3v_2} + f_{v_3t} \\
+                  &amp; f_{v_2v_4}              &amp; =   f_{v_4v_3} + f_{v_4t} \\
+                  &amp; f_{uv}                  &amp; \ge 0 \text{ for } u, v \in \{s, v_1, v_2, v_3, v_4, t\}.
+\end{array}
+$$</p>
 <h2 id="292-5">29.2-5</h2>
 <blockquote>
 <p>Rewrite the linear program for maximum flow $\text{(29.47)}$–$\text{(29.50)}$ so that it uses only $O(V + E)$ constraints.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>All we need to do to bring the number of constraints down from $O(V^2)$ to $O(V + E)$ is to replace the way we index the flows. Instead of indexing it by a pair of vertices, we will index it by an edge. This won't change anything about the analysis because between pairs of vertices that don't have an edge between them, there definitely won't be any flow. Also, it brings the number of constraints of the first and third time down to $O(E)$ and the number of constraints of the second kind stays at $O(V)$.</p>
+<p>$$
+\begin{array}{lll}
+\text{maximize}   &amp; \sum_{\text{edges $e$ leaving $s$}} f_e - \sum_{\text{edges $e$ entering $s$}} f_s \\
+\text{subject to} &amp; \\
+                  &amp; f_{(u, v)} \le c(u, v) \text{ for each edge } (u, v) \\
+                  &amp; \sum_{\text{edges $e$ leaving $u$}} f_e - \sum_{\text{edges $e$ entering $u$}} f_e \text{ for each edge } u \in V - \{s, t\} \\
+                  &amp; f_e \ge 0 \text{ for each edge } e.
+\end{array}
+$$</p>
 <h2 id="292-6">29.2-6</h2>
 <blockquote>
 <p>Write a linear program that, given a bipartite graph $G = (V, E)$ solves the maximum-bipartite-matching problem.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>Recall from section 26.3 that we can solve the maximum-bipartite-matching problem by viewing it as a network flow problem, where we append a source $s$ and sink $t$, each connected to every vertex is $L$ and $R$ respectively by an edge with capacity $1$, and we give every edge already in the bipartite graph capacity $1$. The integral maximum flows are in correspondence with maximum bipartite matchings. In this setup, the linear programming problem to solve is as follows:</p>
+<p>$$
+\begin{aligned}
+\text{maximize}   &amp; \sum_{v \in L} f_{sv} \\
+\text{subject to} &amp; \\
+                  &amp; f_{(u, v)} \le 1 \text{ for each } u, v \in \{s\} \cup L \cup R \cup \{t\} = V \\
+                  &amp; \sum_{v \in V} f_{vu} = \sum_{v \in V} f_{uv} \text{ for each } u \in L \cup R \\
+                  &amp; f_{uv} \ge 0 \text{ for each } u, v \in V
+\end{aligned}
+$$</p>
 <h2 id="292-7">29.2-7</h2>
 <blockquote>
 <p>In the <strong><em>minimum-cost multicommodity-flow problem</em></strong>, we are given directed graph $G = (V, E)$ in which each edge $(u, v) \in E$ has a nonnegative capacity $c(u, v) \ge 0$ and a cost $a(u, v)$. As in the multicommodity-flow problem, we are given $k$ different commodities, $K_1, K_2, \ldots, K_k$, where we specify commodity $i$ by the triple $K_i = (s_i, t_i, d_i)$. We define the flow $f_i$ for commodity $i$ and the aggregate flow $f_{uv}$ on edge $(u, v)$ as in the multicommodity-flow problem. A feasible flow is one in which the aggregate flow on each edge $(u, v)$ is no more than the capacity of edge $(u, v)$. The cost of a flow is $\sum_{u, v \in V} a(u, v)f_{uv}$, and the goal is to find the feasible flow of minimum cost. Express this problem as a linear program.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>As in the minimum cost flow problem, we have constraints for the edge capacities, for the conservation of flow, and nonegativity. The difference is that the restraint that before we required exactly $d$ units to flow, now, we require that for each commodity, the right amount of that commodity flows. the conservation equalities will be applied to each different type of commodity  independently. If we super script $f$ that will denote the type of commodity the flow is describing, if we do not superscript it, it will denote the aggregate flow</p>
+<p>We want to minimize</p>
+<p>$$\sum_{u, v \in V} a(u, v) f_{uv}.$$</p>
+<p>The capacity constraints are that</p>
+<p>$$\sum_{i \in [k]} \sum_{u, v \in V} f_{uv}^i \le c(u, v).$$</p>
+<p>The conservation constraints are that for every $i \in [k]$, for every $u \in V \backslash \{s_i, t_i\}$.</p>
+<p>$$\sum_{v \in V} f_{uv}^i = \sum_{v \in V} f_{vu}^i.$$</p>
+<p>Now, the constraints that correspond to requiring a certain amount of flow are that for every $i \in [k]$.</p>
+<p>$$\sum_{v \in V} f_{s_i, v}^i - \sum_{v \in V} f_{v, s_i}^i = d.$$</p>
+<p>Now, we put in the constraint that makes sure what we called the aggregate flow is actually the aggregate flow, so, for every $u, v \in V$,</p>
+<p>$$f_{uv} = \sum_{i \in [k]} f_{uv}^i.$$</p>
+<p>Finally, we get to the fact that all flows are nonnegative, for every $u, v \in V$,</p>
+<p>$$f_{uv} \ge 0.$$</p>
                 
                   
                 
