@@ -5816,7 +5816,7 @@
 <p>Prove that every diagonal element of a symmetric positive-definite matrix is positive.</p>
 </blockquote>
 <p>To see this, let $e_i$ be the vector that is $0$s except for a $1$ in the $i$th
-position. Then, we consider the quantity $e_i^TAe_i$ for every $i$. $Ae_i$ takes each row of $A$ and pulls out the $i$th column of it, and puts those values into a column vector. Then, we multiply that on the left by $e_i^T$, pulls out the $i$th row of this quantity, which means that the quantity $e_i^TAe_i$ exactly the value of $A_{i, i}$.</p>
+position. Then, we consider the quantity $e_i^{\text T}Ae_i$ for every $i$. $Ae_i$ takes each row of $A$ and pulls out the $i$th column of it, and puts those values into a column vector. Then, we multiply that on the left by $e_i^{\text T}$, pulls out the $i$th row of this quantity, which means that the quantity $e_i^{\text T}Ae_i$ exactly the value of $A_{i, i}$.</p>
 <p>So, we have that by positive definiteness, since $e_i$ is nonzero, that quantity must be positive. Since we do this for every $i$, we have that every entry along the diagonal must be positive.</p>
 <h2 id="283-2">28.3-2</h2>
 <blockquote>
@@ -5834,10 +5834,10 @@ $$</p>
 <p>$$
 \begin{aligned}
 0 &amp; &lt;
-\begin{pmatrix} x &amp; y \end{pmatrix}^T A
+\begin{pmatrix} x &amp; y \end{pmatrix}^{\text T} A
 \begin{pmatrix} x \\ y \end{pmatrix} \\
   &amp; =
-\begin{pmatrix} x &amp; y \end{pmatrix}^T
+\begin{pmatrix} x &amp; y \end{pmatrix}^{\text T}
 \begin{pmatrix} ax + by \\ bx + cy \end{pmatrix} \\
   &amp; = ax^2 + 2bxy + cy^2 \\
   &amp; = cy^2 - \frac{b^2y^2}{a} \\
@@ -5849,17 +5849,68 @@ $$</p>
 <blockquote>
 <p>Prove that the maximum element in a symmetric positive-definite matrix lies on the diagonal.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>Suppose to a contradiction that there were some element $a_{ij}$ with $i \ne j$ so that $a_{ij}$ were a largest element. We will use $e_i$ to denote the vector that is all zeroes except for having a $1$ at position $i$. Then, we consider the value $(e_i − e_j)^{\text T} A(e_i − e_j)$. When we compute $A(e_i - e_j)$ this will return a vector which is column $i$ minus column $j$. Then, when we do the last multiplication, we will get the quantity which is the $i$th row minus the $j$th row. So,</p>
+<p>$$
+\begin{aligned}
+(e_i - e_j)^{\text T} A(e_i - e_j)
+    &amp; = a_{ii} - a_{ij} - a_{ji} + a_{jj} \\
+    &amp; = a_{ii} + a_{jj} - 2a_{ij} \le 0
+\end{aligned}
+$$</p>
+<p>Where we used symmetry to get that $a_{ij} = a_{ji}$. This result contradicts the fact that $A$ was positive definite. So, our assumption that there was a element tied for largest off the diagonal must of been false.</p>
 <h2 id="283-4">28.3-4</h2>
 <blockquote>
 <p>Prove that the determinant of each leading submatrix of a symmetrix positive-definite matrix is positive.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>The claim clearly holds for matrices of size $1$ because the single entry in the matrix is positive the only leading submatrix is the matrix itself. Now suppose
+the claim holds for matrices of size $n$, and let $A$ be an $(n + 1) \times (n + 1)$ symmetric positive-definite matrix. We can write $A$ as</p>
+<p>$$
+A =
+\left[
+\begin{array}{ccc|c}
+ &amp;    &amp; &amp; \\
+ &amp; A' &amp; &amp; w \\
+ &amp;    &amp; &amp; \\
+\hline
+ &amp; v  &amp; &amp; c
+\end{array}
+\right]
+.
+$$</p>
+<p>Then $A'$ is clearly symmetric, and for any $x$ we have $x^{\text T} A'x = \begin{pmatrix} x &amp; 0 \end{pmatrix} A \begin{pmatrix} x \\ 0 \end{pmatrix} &gt; 0$, so $A'$ is positive-definite. By our induction hypothesis, every leading submatrix of $A'$ has positive determinant, so we are left only to show that $A$ has positive determinant. By Theorem D.4, the determinant of $A$ is equal to the determinant of the matrix</p>
+<p>$$
+B =
+\left[
+\begin{array}{c|ccc}
+c &amp; &amp; v  &amp; \\
+\hline
+  &amp; &amp;    &amp; \\
+w &amp; &amp; A' &amp; \\
+  &amp; &amp;    &amp;
+\end{array}
+\right]
+.
+$$</p>
+<p>Theorem D.4 also tells us that the determinant is unchanged if we add a multiple of one column of a matrix to another. Since $0 &lt; e_{n + 1}^{\text T} Ae_{n + 1} = c$, we can use multiples of the first column to zero out every entry in the first row other than $c$. Specifically, the determinant of $B$ is the same as the determinant of the matrix obtained in this way, which looks like</p>
+<p>$$
+C =
+\left[
+\begin{array}{c|ccc}
+c &amp; &amp; 0   &amp; \\
+\hline
+  &amp; &amp;     &amp; \\
+w &amp; &amp; A'' &amp; \\
+  &amp; &amp;     &amp;
+\end{array}
+\right]
+.
+$$</p>
+<p>By definition, $\det(A) = c\det(A'')$. By our induction hypothesis, $\det(A'') &gt; 0$. Since $c &gt; 0$ as well, we conclude that $\det(A) &gt; 0$, which completes the proof.</p>
 <h2 id="283-5">28.3-5</h2>
 <blockquote>
 <p>Let $A_k$ denote the $k$th leading submatrix of a symmetric positive-definite matrix $A$. Prove that $\text{det}(A_k) / \text{det}(A_{k - 1})$ is the $k$th pivot during $\text{LU}$ decomposition, where, by convention, $\text{det}(A_0) = 1$.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>When we do an LU decomposition of a positive definite symmetric matrix, we never need to permute the rows. This means that the pivot value being used from the first operation is the entry in the upper left corner. This gets us that for the case $k = 1$, it holds because we were told to define $\det(A_0) = 1$, getting us, $a_{11} = \det(A_1) / \det(A_0)$. When Diagonalizing a matrix, the product of the pivot values used gives the determinant of the matrix. So, we have that the determinant of $A_k$ is a product of the $k$th pivot value with all the previous values. By induction, the product of all the previous values is $\det(A_{k − 1})$. So, we have that if $x$ is the $k$th pivot value, $\det(A_k) = x\det(A_{k − 1})$, giving us the desired result that the $k$th pivot value is $\det(A_k) / \det(A_{k − 1})$.</p>
 <h2 id="283-6">28.3-6</h2>
 <blockquote>
 <p>Find the function of the form</p>
@@ -5867,7 +5918,27 @@ $$</p>
 <p>that is the best least-squares fit to the data points</p>
 <p>$$(1, 1), (2, 1), (3, 3), (4, 8).$$</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>First we form the $A$ matrix</p>
+<p>$$
+A =
+\begin{pmatrix}
+1 &amp;      0 &amp; e   \\
+1 &amp;      2 &amp; e^2 \\
+1 &amp; 3\lg 3 &amp; e^3 \\
+1 &amp;      8 &amp; e^4
+\end{pmatrix}
+.
+$$</p>
+<p>We compute the pseudoinverse, then multiply it by $y$, to obtain the coefficient vector</p>
+<p>$$
+c =
+\begin{pmatrix}
+ 0.411741 \\
+-0.20487  \\
+ 0.16546
+\end{pmatrix}
+.
+$$</p>
 <h2 id="283-7">28.3-7</h2>
 <blockquote>
 <p>Show that the pseudoinverse $A^+$ satisfies the following four equations:</p>
@@ -5880,7 +5951,42 @@ $$</p>
 \end{aligned}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>$$
+\begin{aligned}
+AA^+A &amp; = A((A^{\text T}A)^{-1}A^{\text T})A \\
+      &amp; = A(A^{\text T}A)^{-1}(A^{\text T}A) \\
+      &amp; = A,
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+A^+AA^+ &amp; = ((A^{\text T}A)^{-1}A^{\text T})A((A^{\text T}A)^{-1}A^{\text T}) \\
+        &amp; = (A^{\text T}A)^{-1}(A^{\text T}A)(A^{\text T}A)^{-1}A^{\text T} \\
+        &amp; = (A^{\text T}A)^{-1}A^{\text T} \\
+        &amp; = A^+,
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+(AA^+)^{\text T}
+    &amp; = (A(A^{\text T}A)^{-1}A^{\text T})^{\text T} \\
+    &amp; = A((A^{\text T}A)^{-1})^{\text T}A^{\text T} \\
+    &amp; = A((A^{\text T}A)^{\text T})^{-1}A^{\text T} \\
+    &amp; = A(A^{\text T}A)^{-1}A^{\text T} \\
+    &amp; = AA^+,
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+(A^+A)^{\text T}
+    &amp; = ((A^{\text T}A)^{-1}A^{\text T}A)^{\text T} \\
+    &amp; = ((A^{\text T}A)^{-1}(A^{\text T}A))^{\text T} \\
+    &amp; = I^{\text T} \\
+    &amp; = I \\
+    &amp; = (A^{\text T}A)^{-1}(A^{\text T}A) \\
+    &amp; = A^+A.
+\end{aligned}
+$$</p>
                 
                   
                 
