@@ -5914,61 +5914,61 @@ $$</p>
 <blockquote>
 <p>Convert the following linear program into standard form:</p>
 <p>$$
-\begin{array}{lccccccc}
+\begin{array}{lrcrcrcrl}
 \text{minimize}   &amp; 2x_1 &amp; + &amp; 7x_2 &amp; + &amp; x_3 &amp;     &amp; \\
 \text{subject to} &amp; \\
                   &amp;  x_1 &amp;   &amp;      &amp; - &amp; x_3 &amp; =   &amp;  7 \\
                   &amp; 3x_1 &amp; + &amp;  x_2 &amp;   &amp;     &amp; \ge &amp; 24 \\
                   &amp;      &amp;   &amp;  x_2 &amp;   &amp;     &amp; \ge &amp;  0 \\
-                  &amp;      &amp;   &amp;      &amp;   &amp; x_3 &amp; \le &amp;  0.
+                  &amp;      &amp;   &amp;      &amp;   &amp; x_3 &amp; \le &amp;  0 &amp; .
 \end{array}
 $$</p>
 </blockquote>
 <p>$$
-\begin{array}{lccccccc}
-\text{maximize}   &amp; -2x_1 &amp; - &amp; 2x_2 &amp; - &amp; 7x_3 &amp; +   &amp; x_4 &amp;     &amp; \\
+\begin{array}{lrcrcrcrcrl}
+\text{maximize}   &amp; -2x_1 &amp; - &amp; 2x_2 &amp; - &amp; 7x_3 &amp; +  &amp; x_4 &amp;     &amp; \\
 \text{subject to} &amp; \\
-                  &amp;  -x_1 &amp; + &amp;  x_2 &amp;   &amp;      &amp; -   &amp; x_4 &amp; \le &amp;  -7 \\
-                  &amp;   x_1 &amp; - &amp;  x_2 &amp;   &amp;      &amp; +   &amp; x_4 &amp; \le &amp;   7 \\
-                  &amp; -3x_1 &amp; + &amp; 3x_2 &amp; - &amp;  x_3 &amp;     &amp;     &amp; \le &amp; -24 \\
-                  &amp;       &amp; x_1, x_2, x_3, x_4  &amp; &amp; &amp; &amp; &amp;   &amp; \le &amp;  0.
+                  &amp;  -x_1 &amp; + &amp;  x_2 &amp;   &amp;      &amp; -  &amp; x_4 &amp; \le &amp;  -7 \\
+                  &amp;   x_1 &amp; - &amp;  x_2 &amp;   &amp;      &amp; +  &amp; x_4 &amp; \le &amp;   7 \\
+                  &amp; -3x_1 &amp; + &amp; 3x_2 &amp; - &amp;  x_3 &amp;    &amp;     &amp; \le &amp; -24 \\
+                  &amp;       &amp; x_1, x_2, x_3, x_4  &amp; &amp; &amp; &amp; &amp;  &amp; \le &amp;   0 &amp; .
 \end{array}
 $$</p>
 <h2 id="291-5">29.1-5</h2>
 <blockquote>
 <p>Convert the following linear program into slack form:</p>
 <p>$$
-\begin{array}{lccccccc}
+\begin{array}{lrcrcrcrl}
 \text{minimize}   &amp; 2x_1 &amp;   &amp;      &amp; - &amp; 6x_3 \\
 \text{subject to} &amp; \\
                   &amp;  x_1 &amp; + &amp;  x_2 &amp; - &amp;  x_3 &amp; \le &amp; 7 \\
                   &amp; 3x_1 &amp; - &amp;  x_2 &amp;   &amp;      &amp; \ge &amp; 8 \\
                   &amp; -x_1 &amp; + &amp; 2x_2 &amp; + &amp; 2x_3 &amp; \ge &amp; 0 \\
-                  &amp;      &amp; x_1, x_2, x_3 &amp; &amp; &amp; &amp; \ge &amp; 0.
+                  &amp;      &amp; x_1, x_2, x_3 &amp; &amp; &amp; &amp; \ge &amp; 0 &amp; .
 \end{array}
 $$</p>
 <p>What are the basic and nonbasic variables?</p>
 </blockquote>
 <p>First, we will multiply the second and third inequalities by minus one to make it so that they are all $\le$ inequalities. We will introduce the three new variables $x_4$, $x_5$, $x_6$, and perform the usual procedure for rewriting in slack form</p>
 <p>$$
-\begin{aligned}
-                         x_4 &amp; =   7 - x_1 - x_2 + x_3 \\
-                         x_5 &amp; =   -8 + 3x_1 - x_2 \\
-                         x_6 &amp; =   -x_1 + 2x_2 + 2x_3 \\
-x_1, x_2, x_3, x_4, x_5, x_6 &amp; \ge 0,
-\end{aligned}
+\begin{array}{rcrcrcrcr}
+                         x_4 &amp; =   &amp;  7 &amp; - &amp;  x_1 &amp; - &amp;  x_2 &amp; + &amp;  x_3 \\
+                         x_5 &amp; =   &amp; -8 &amp; + &amp; 3x_1 &amp; - &amp;  x_2 \\
+                         x_6 &amp; =   &amp;    &amp; - &amp;  x_1 &amp; + &amp; 2x_2 &amp; + &amp; 2x_3 \\
+x_1, x_2, x_3, x_4, x_5, x_6 &amp; \ge &amp;  0 &amp; ,
+\end{array}
 $$</p>
 <p>where we are sill trying to maximize $2x_1 - 6x_3$. The basic variables are $x_4$, $x_5$, $x_6$ and the nonbasic variables are $x_1$, $x_2$, $x_3$.</p>
 <h2 id="291-6">29.1-6</h2>
 <blockquote>
 <p>Show that the following linear program is infeasible:</p>
 <p>$$
-\begin{array}{lccccc}
+\begin{array}{lrcrcrl}
 \text{minimize}   &amp;  3x_1 &amp; - &amp; 2x_2 \\
 \text{subject to} &amp; \\
                   &amp;   x_1 &amp; + &amp;  x_2   &amp; \le &amp;   2 \\
                   &amp; -2x_1 &amp; - &amp; 2x_2   &amp; \le &amp; -10 \\
-                  &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;   0.
+                  &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;   0 &amp; .
 \end{array}
 $$</p>
 </blockquote>
@@ -5977,22 +5977,22 @@ $$</p>
 <blockquote>
 <p>Show that the following linear program is unbounded:</p>
 <p>$$
-\begin{array}{lccccc}
+\begin{array}{lrcrcrl}
 \text{minimize}   &amp;   x_1 &amp; - &amp;  x_2 \\
 \text{subject to} &amp; \\
                   &amp; -2x_1 &amp; + &amp;  x_2   &amp; \le &amp; -1 \\
                   &amp;  -x_1 &amp; - &amp; 2x_2   &amp; \le &amp; -2 \\
-                  &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;  0.
+                  &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;  0 &amp; .
 \end{array}
 $$</p>
 </blockquote>
 <p>For any number $r &gt; 1$, we can set $x_1 = 2r$ and $x_2 = r$. Then, the restaints become</p>
 <p>$$
-\begin{aligned}
--2r +  r &amp; =    -r \le -1 \\
--2r - 2r &amp; =   -4r \le -2 \\
-   2r, r &amp; \ge 0.
-\end{aligned}
+\begin{array}{rcrcrl}
+-2(2r) &amp; + &amp;  r = -3r &amp; \le &amp; -1 \\
+   -2r &amp; - &amp; 2r = -4r &amp; \le &amp; -2 \\
+       &amp; 2r, r &amp;      &amp; \ge &amp;  0 &amp; .
+\end{array}
 $$</p>
 <p>All of these inequalities are clearly satisfied because of our initial restriction in selecting $r$. Now, we look to the objective function, it is $2r - r = r$. So, since we can select $r$ to be arbitrarily large, and still satisfy all of the constraints, we can achieve an arbitrarily large value of the objective function.</p>
 <h2 id="291-8">29.1-8</h2>
