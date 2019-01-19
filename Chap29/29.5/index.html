@@ -4626,22 +4626,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#293-5" title="29.3-5" class="md-nav__link">
-    29.3-5
+  <a href="#295-5" title="29.5-5" class="md-nav__link">
+    29.5-5
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#293-6" title="29.3-6" class="md-nav__link">
-    29.3-6
+  <a href="#295-6" title="29.5-6" class="md-nav__link">
+    29.5-6
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#293-7" title="29.3-7" class="md-nav__link">
-    29.3-7
+  <a href="#295-7" title="29.5-7" class="md-nav__link">
+    29.5-7
   </a>
   
 </li>
@@ -5784,22 +5784,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#293-5" title="29.3-5" class="md-nav__link">
-    29.3-5
+  <a href="#295-5" title="29.5-5" class="md-nav__link">
+    29.5-5
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#293-6" title="29.3-6" class="md-nav__link">
-    29.3-6
+  <a href="#295-6" title="29.5-6" class="md-nav__link">
+    29.5-6
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#293-7" title="29.3-7" class="md-nav__link">
-    29.3-7
+  <a href="#295-7" title="29.5-7" class="md-nav__link">
+    29.5-7
   </a>
   
 </li>
@@ -5843,80 +5843,304 @@
 <blockquote>
 <p>Give detailed pseudocode to implement lines 5 and 14 of $\text{INITIALIZE-SIMPLEX}$.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>For line 5, first let $(N, B, A, b, c, v)$ be the result of calling $\text{PIVOT}$ on $L_{aux}$ using $x_0$ as the entering variable. Then repeatedly call $\text{PIVOT}$ until an optimal solution to $L_{aux}$ is obtained, and return this to $(N, B, A, b, c, v)$. To remove $x_0$ from the constraints, set $a_{i, 0} = 0$ for all $i \in B$, and set $N = N \backslash \{0\}$. To restore the original objective function of $L$, for each $j \in N$ and each $i \in B$, set $c_j = c_j − c_ia_{ij}$.</p>
 <h2 id="295-2">29.5-2</h2>
 <blockquote>
 <p>Show that when the main loop of $\text{SIMPLEX}$ is run by $\text{INITIALIZE-SIMPLEX}$, it can never return "unbounded."</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>In order to enter line 10 of $\text{INITIALIZE-SIMPLEX}$ and begin iterating the main loop of $\text{SIMPLEX}$, we must have recovered a basic solution which is feasible for $L_{aux}$. Since $x_0 \ge 0$ and the objective function is $−x_0$, the objective value associated to this solution (or any solution) must be negative. Since the goal is to aximize, we have an upper bound of $0$ on the objective value. By Lemma 29.2, $\text{SIMPLEX}$ correctly determines whether or not the input linear program is unbounded. Since $L_{aux}$ is not unbounded, this can never be returned by $\text{SIMPLEX}$.</p>
 <h2 id="295-3">29.5-3</h2>
 <blockquote>
 <p>Suppose that we are given a linear program $L$ in standard form, and suppose that for both $L$ and the dual of $L$, the basic solutions associated with the initial slack forms are feasible. Show that the optimal objective value of $L$ is $0$.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>Since it is in standard form, the objective function has no constant term, it is entirely given by $\sum_{i = 1}^n c_ix_i$, which is going to be zero for any basic solution. The same thing goes for its dual. Since there is some solution which has the objective function achieve the same value both for the dual and the primal, by the corollary to the weak duality theorem, that common value must be the optimal value of the objective function.</p>
 <h2 id="295-4">29.5-4</h2>
 <blockquote>
 <p>Suppose that we allow strict inequalities in a linear program. Show that in this case, the fundamental theorem of linear programming does not hold.</p>
 </blockquote>
-<p>(Omit!)</p>
-<h2 id="293-5">29.3-5</h2>
+<p>Consider the linear program in which we wish to maximize $x_1$ subject to the constraint $x_1 &lt; 1$ and $x_1 \ge 0$. This has no optimal solution, but it is clearly bounded and has feasible solutions. Thus, the Fundamental theorem of linear programming does not hold in the case of strict inequalities.</p>
+<h2 id="295-5">29.5-5</h2>
 <blockquote>
 <p>Solve the following linear program using $\text{SIMPLEX}$:</p>
 <p>$$
-\begin{array}{lccccc}
-\text{maxmize}    &amp;  x_1 &amp; + &amp; 3x_2 \\
+\begin{array}{lrcrcrl}
+\text{maxmize}    &amp;  x_1 &amp; + &amp;   3x_2 \\
 \text{subject to} &amp; \\
-                  &amp;  x_1 &amp; - &amp;  x_2 &amp; \le &amp;  8 \\
-                  &amp; -x_1 &amp; - &amp;  x_2 &amp; \le &amp; -3 \\
-                  &amp; -x_1 &amp; + &amp; 4x_2 &amp; \le &amp;  2 \\
-                  &amp;      &amp; x_1, x_2 &amp; &amp; \ge &amp; 0.
+                  &amp;  x_1 &amp; - &amp;    x_2 &amp; \le &amp;  8 \\
+                  &amp; -x_1 &amp; - &amp;    x_2 &amp; \le &amp; -3 \\
+                  &amp; -x_1 &amp; + &amp;   4x_2 &amp; \le &amp;  2 \\
+                  &amp;      &amp; x_1, x_2 &amp; &amp; \ge &amp;  0 &amp; .
 \end{array}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
-<h2 id="293-6">29.3-6</h2>
+<p>The initial basic solution isn't feasible, so we will need to form the auxiliary linear program,</p>
+<p>$$
+\begin{array}{lrcrcrcrl}
+\text{maxmize}    &amp; -x_0 \\
+\text{subject to} &amp; \\
+                  &amp; -x_0 &amp; + &amp; x_1 &amp; - &amp;   x_2 &amp; \le &amp;  8 \\
+                  &amp; -x_0 &amp; - &amp; x_1 &amp; - &amp;   x_2 &amp; \le &amp; -3 \\
+                  &amp; -x_0 &amp; - &amp; x_1 &amp; + &amp;  4x_2 &amp; \le &amp;  2 \\
+                  &amp;      &amp; x_0, x_1, x_2 &amp; &amp; &amp; &amp; \ge &amp;  0 &amp; .
+\end{array}
+$$</p>
+<p>Writing this linear program in slack form,</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp;    &amp; - &amp; x_0 \\
+x_3 &amp; = &amp;  8 &amp; + &amp; x_0 &amp; - &amp; x_1 &amp; + &amp;  x_2 \\
+x_4 &amp; = &amp; -3 &amp; + &amp; x_0 &amp; + &amp; x_1 &amp; + &amp;  x_2 \\
+x_5 &amp; = &amp;  2 &amp; + &amp; x_0 &amp; + &amp; x_1 &amp; - &amp; 4x_2 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Next we make one call to $\text{PIVOT}$ where $x_0$ is the entering variable and $x_4$ is the leaving variable.</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp; -3 &amp; + &amp;  x_1 &amp; + &amp;  x_2 &amp; - &amp; x_4 \\
+x_0 &amp; = &amp;  3 &amp; - &amp;  x_1 &amp; - &amp;  x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp; 11 &amp; - &amp; 2x_1 &amp;   &amp;      &amp; + &amp; x_4 \\
+x_5 &amp; = &amp;  5 &amp;   &amp;      &amp; - &amp; 5x_2 &amp; + &amp; x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>The basic solution is feasible, so we repeatedly call $\text{PIVOT}$ to get the optimal solution to $L_{aux}$. We'll choose $x_1$ to be our entering variable and $x_0$ to be the leaving variable. This gives</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp;   &amp;   &amp; -x_0 \\
+x_1 &amp; = &amp; 3 &amp; - &amp;  x_0 &amp; - &amp;  x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp; 5 &amp; + &amp; 2x_0 &amp; + &amp; 2x_2 &amp; - &amp; x_4 \\
+x_5 &amp; = &amp; 5 &amp;   &amp;      &amp; - &amp; 5x_2 &amp; + &amp; x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>The basic solution is now optimal for $L_{aux}$, so we return this slack form to $\text{SIMPLEX}$, set $x_0 = 0$, and update the objective function which yields</p>
+<p>$$
+\begin{array}{rcrcrcr}
+z   &amp; = &amp; 3 &amp; + &amp; 2x_2 &amp; + &amp; x_4 \\
+x_1 &amp; = &amp; 3 &amp; - &amp;  x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp; 5 &amp; + &amp; 2x_2 &amp; - &amp; x_4 \\
+x_5 &amp; = &amp; 5 &amp; - &amp; 5x_2 &amp; + &amp; x_4 \\
+x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>We'll choose $x_2$ as our entering variable, which makes $x_5$ our leaving variable. $\text{PIVOT}$ then gives,</p>
+<p>$$
+\begin{array}{rcrcrcr}
+z   &amp; = &amp; 5 &amp; + &amp; (7 / 5)x_4 &amp; - &amp; (2 / 5)x_5 \\
+x_1 &amp; = &amp; 2 &amp; + &amp; (1 / 5)x_4 &amp; + &amp; (1 / 5)x_5 \\
+x_2 &amp; = &amp; 1 &amp; + &amp; (4 / 5)x_4 &amp; - &amp; (1 / 5)x_5 \\
+x_3 &amp; = &amp; 7 &amp; - &amp; (3 / 5)x_4 &amp; - &amp; (2 / 5)x_5 \\
+x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>We'll choose $x_4$ as our entering variable, which makes $x_3$ our leaving variable. $\text{PIVOT}$ then gives,</p>
+<p>$$
+\begin{array}{rcrcrcr}
+z   &amp; = &amp; (64 / 3) &amp; - &amp; (7 / 3)x_3 &amp; - &amp; (4 / 3)x_5 \\
+x_1 &amp; = &amp; (34 / 3) &amp; - &amp; (4 / 3)x_3 &amp; - &amp; (1 / 3)x_5 \\
+x_2 &amp; = &amp; (10 / 3) &amp; - &amp; (1 / 3)x_3 &amp; - &amp; (1 / 3)x_5 \\
+x_4 &amp; = &amp; (35 / 3) &amp; - &amp; (5 / 3)x_3 &amp; - &amp; (2 / 3)x_5 \\
+x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Now all coefficients in the objective function are negative, so the basic solution is the optimal solution. It is $(x_1, x_2) = (34 / 3, 10 / 3)$.</p>
+<h2 id="295-6">29.5-6</h2>
 <blockquote>
 <p>Solve the following linear program using $\text{SIMPLEX}$:</p>
 <p>$$
-\begin{array}{lccccc}
-\text{maxmize}    &amp;   x_1 &amp; - &amp; 2x_2 \\
+\begin{array}{lrcrcrl}
+\text{maxmize}    &amp;   x_1 &amp; - &amp;   2x_2 \\
 \text{subject to} &amp; \\
-                  &amp;   x_1 &amp; + &amp; 2x_2 &amp; \le &amp;   4 \\
-                  &amp; -2x_1 &amp; - &amp; 6x_2 &amp; \le &amp; -12 \\
-                  &amp;       &amp;   &amp;  x_2 &amp; \le &amp;   1 \\
-                  &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp; 0.
+                  &amp;   x_1 &amp; + &amp;   2x_2 &amp; \le &amp;   4 \\
+                  &amp; -2x_1 &amp; - &amp;   6x_2 &amp; \le &amp; -12 \\
+                  &amp;       &amp;   &amp;    x_2 &amp; \le &amp;   1 \\
+                  &amp;       &amp; x_1, x_2 &amp; &amp; \ge &amp;   0 &amp; .
 \end{array}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
-<h2 id="293-7">29.3-7</h2>
+<p>The initial basic solution isn't feasible, so we will need to form the auxiliary linear program,</p>
+<p>$$
+\begin{array}{lrcrcrcrl}
+\text{maxmize}    &amp; -x_0 \\
+\text{subject to} &amp; \\
+                  &amp; -x_0 &amp; + &amp;  x_1 &amp; + &amp; 2x_2 &amp; \le &amp;   4 \\
+                  &amp; -x_0 &amp; - &amp; 2x_1 &amp; - &amp; 6x_2 &amp; \le &amp; -12 \\
+                  &amp; -x_0 &amp;   &amp;      &amp; + &amp;  x_2 &amp; \le &amp;   1 \\
+                  &amp;      &amp; x_0, x_1, x_2 &amp; &amp; &amp; &amp; \ge &amp;   0 &amp; .
+\end{array}
+$$</p>
+<p>Writing this linear program in slack form,</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp;     &amp; - &amp; x_0 \\
+x_3 &amp; = &amp;   4 &amp; + &amp; x_0 &amp; - &amp;  x_1 &amp; - &amp; 2x_2 \\
+x_4 &amp; = &amp; -12 &amp; + &amp; x_0 &amp; + &amp; 2x_1 &amp; + &amp; 6x_2 \\
+x_5 &amp; = &amp;   1 &amp; + &amp; x_0 &amp;   &amp;      &amp; - &amp;  x_2 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Next we make one call to $\text{PIVOT}$ where $x_0$ is the entering variable and $x_4$ is the leaving variable.</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp; -12 &amp; + &amp; 2x_1 &amp; + &amp; 6x_2 &amp; - &amp; x_4 \\
+x_0 &amp; = &amp;  12 &amp; - &amp; 2x_1 &amp; - &amp; 6x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp;  16 &amp; - &amp; 3x_1 &amp; - &amp; 8x_2 &amp; + &amp; x_4 \\
+x_5 &amp; = &amp;  13 &amp; - &amp; 2x_1 &amp; - &amp; 8x_2 &amp; + &amp; x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>The basic solution is $(x_0, x_1, x_2, x_3, x_4, x_5) = (12, 0, 0, 16, 0, 13)$ which is feasible for the auxiliary program. Now we need to run $\text{SIMPLEX}$ to find the optimal objective value to $L_{aux}$. Let $x_1$ be our next entering variable. It is most constrained by $x_3$, which will be our leaving variable. After $\text{PIVOT}$, the new linear program is</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp; -(4 / 3) &amp; + &amp; (2 / 3)x_2 &amp; - &amp; (2 / 3)x_3 &amp; + &amp; (1 / 3) x_4 \\
+x_0 &amp; = &amp;  (4 / 3) &amp; - &amp; (2 / 3)x_2 &amp; + &amp; (2 / 3)x_3 &amp; + &amp; (1 / 3) x_4 \\
+x_1 &amp; = &amp; (16 / 3) &amp; - &amp; (8 / 3)x_2 &amp; - &amp; (1 / 3)x_3 &amp; + &amp; (1 / 3) x_4 \\
+x_5 &amp; = &amp;  (7 / 3) &amp; - &amp; (8 / 3)x_2 &amp; + &amp; (2 / 3)x_3 &amp; + &amp; (1 / 3) x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Every coefficient in the objective function is negative, so we take the basic solution $(x_0, x_1, x_2, x_3, x_4, x_5) = (4 / 3, 16 / 3, 0, 0, 0, 7 / 3)$ which is also optimal. Since $x_0 \ne 0$, the original linear program must be unfeasible.</p>
+<h2 id="295-7">29.5-7</h2>
 <blockquote>
 <p>Solve the following linear program using $\text{SIMPLEX}$:</p>
 <p>$$
-\begin{array}{lccccc}
-\text{maxmize}    &amp;  x_1 &amp; + &amp; 3x_2 \\
+\begin{array}{lrcrcrl}
+\text{maxmize}    &amp;  x_1 &amp; + &amp;   3x_2 \\
 \text{subject to} &amp; \\
-                  &amp; -x_1 &amp; + &amp;  x_2 &amp; \le &amp; -1 \\
-                  &amp; -x_1 &amp; - &amp;  x_2 &amp; \le &amp; -3 \\
-                  &amp; -x_1 &amp; + &amp; 4x_2 &amp; \le &amp;  2 \\
-                  &amp;      &amp; x_1, x_2 &amp; &amp; \ge &amp; 0.
+                  &amp; -x_1 &amp; + &amp;    x_2 &amp; \le &amp; -1 \\
+                  &amp; -x_1 &amp; - &amp;    x_2 &amp; \le &amp; -3 \\
+                  &amp; -x_1 &amp; + &amp;   4x_2 &amp; \le &amp;  2 \\
+                  &amp;      &amp; x_1, x_2 &amp; &amp; \ge &amp;  0 &amp; .
 \end{array}
 $$</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>The initial basic solution isn't feasible, so we will need to form the auxiliary linear program,</p>
+<p>$$
+\begin{array}{lrcrcrcrl}
+\text{maxmize}    &amp; -x_0 \\
+\text{subject to} &amp; \\
+                  &amp; -x_0 &amp; - &amp; x_1 &amp; + &amp;   x_2 &amp; \le &amp; -1 \\
+                  &amp; -x_0 &amp; - &amp; x_1 &amp; - &amp;   x_2 &amp; \le &amp; -3 \\
+                  &amp; -x_0 &amp; - &amp; x_1 &amp; + &amp;  4x_2 &amp; \le &amp;  2 \\
+                  &amp;      &amp; x_0, x_1, x_2 &amp; &amp; &amp; &amp; \ge &amp;  0 &amp; .
+\end{array}
+$$</p>
+<p>Writing this linear program in slack form,</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp;    &amp; - &amp; x_0 \\
+x_3 &amp; = &amp; -1 &amp; + &amp; x_0 &amp; + &amp; x_1 &amp; - &amp;  x_2 \\
+x_4 &amp; = &amp; -3 &amp; + &amp; x_0 &amp; + &amp; x_1 &amp; + &amp;  x_2 \\
+x_5 &amp; = &amp;  2 &amp; + &amp; x_0 &amp; + &amp; x_1 &amp; - &amp; 4x_2 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Next we make one call to $\text{PIVOT}$ where $x_0$ is the entering variable and $x_4$ is the leaving variable.</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp; -3 &amp; + &amp; x_1 &amp; + &amp;  x_2 &amp; - &amp; x_4 \\
+x_0 &amp; = &amp;  3 &amp; - &amp; x_1 &amp; - &amp;  x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp;  2 &amp;   &amp;     &amp; - &amp; 2x_2 &amp; + &amp; x_4 \\
+x_5 &amp; = &amp;  5 &amp;   &amp;     &amp; - &amp; 5x_2 &amp; + &amp; x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Let $x_1$ be our entering variable. Then $x_0$ is our leaving variable, and we have</p>
+<p>$$
+\begin{array}{rcrcrcrcr}
+z   &amp; = &amp;   &amp; - &amp; x_0 \\
+x_1 &amp; = &amp; 3 &amp; - &amp; x_0 &amp; - &amp;  x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp; 2 &amp;   &amp;     &amp; - &amp; 2x_2 &amp; + &amp; x_4 \\
+x_5 &amp; = &amp; 5 &amp;   &amp;     &amp; - &amp; 5x_2 &amp; + &amp; x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>The basic solution is feasible, and optimal for $L_{aux}$, so we return this and run $\text{SIMPLEX}$. Updating the objective function and setting $x_0 = 0$ gives</p>
+<p>$$
+\begin{array}{rcrcrcr}
+z   &amp; = &amp; 3 &amp; + &amp; 2x_2 &amp; + &amp; x_4 \\
+x_1 &amp; = &amp; 3 &amp; - &amp;  x_2 &amp; + &amp; x_4 \\
+x_3 &amp; = &amp; 2 &amp; - &amp; 2x_2 &amp; + &amp; x_4 \\
+x_5 &amp; = &amp; 5 &amp; - &amp; 5x_2 &amp; + &amp; x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>We'll choose $x_2$ as our entering variable, which makes $x_3$ our leaving variable. This gives</p>
+<p>$$
+\begin{array}{rcrcrcr}
+z   &amp; = &amp; 5 &amp; - &amp;        x_3 &amp; + &amp;       2x_4 \\
+x_1 &amp; = &amp; 2 &amp; + &amp; (1 / 2)x_3 &amp; + &amp; (1 / 2)x_4 \\
+x_2 &amp; = &amp; 1 &amp; - &amp; (1 / 2)x_3 &amp; + &amp; (1 / 2)x_4 \\
+x_5 &amp; = &amp;   &amp;   &amp; (5 / 2)x_3 &amp; - &amp; (3 / 2)x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Next we use $x_4$ as our entering variable, which makes $x_5$ our leaving variable. This gives</p>
+<p>$$
+\begin{array}{rcrcrcr}
+z   &amp; = &amp; 5 &amp; + &amp; (7 / 3)x_3 &amp; - &amp; (4 / 3)x_5 \\
+x_1 &amp; = &amp; 2 &amp; + &amp; (4 / 3)x_3 &amp; - &amp; (1 / 3)x_5 \\
+x_2 &amp; = &amp; 1 &amp; + &amp; (1 / 3)x_3 &amp; - &amp; (1 / 3)x_5 \\
+x_4 &amp; = &amp;   &amp;   &amp; (5 / 3)x_3 &amp; - &amp; (2 / 3)x_5 \\
+x_0, x_1, x_2, x_3, x_4, x_5 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Finally, we would like to choose $x_3$ as our entering variable, but every coefficient on $x_3$ is positive, so $\text{SIMPLEX}$ returns that the linear program is unbounded.</p>
 <h2 id="295-8">29.5-8</h2>
 <blockquote>
 <p>Solve the linear program given in $\text{(29.6)}$–$\text{(29.10)}$.</p>
 </blockquote>
-<p>(Omit!)</p>
+<p>We first put the linear program in standard form,</p>
+<p>$$
+\begin{array}{lrcrcrcrcrl}
+\text{maxmize}    &amp;   x_1 &amp; + &amp;  x_2 &amp; + &amp;   x_3 &amp; + &amp;   x_4 \\
+\text{subject to} &amp; \\
+                  &amp;  2x_1 &amp; - &amp; 8x_2 &amp;   &amp;       &amp; - &amp; 10x_4 &amp; \le &amp;  -50 \\
+                  &amp; -5x_1 &amp; - &amp; 2x_2 &amp;   &amp;       &amp;   &amp;       &amp; \le &amp; -100 \\
+                  &amp; -3x_1 &amp; + &amp; 5x_2 &amp; - &amp; 10x_3 &amp; + &amp;  2x_4 &amp; \le &amp;  -25 \\
+                  &amp;       &amp; x_1, x_2, x_3, x_4 &amp; &amp; &amp; &amp; &amp;     &amp; \ge &amp;    0 &amp; .
+\end{array}
+$$</p>
+<p>The initial basic solution isn't feasible, so we will need to form the auxiliary linear program.</p>
+<p>$$
+\begin{array}{rcrcrcrcrcrrcl}
+z   &amp; = &amp;      &amp; - &amp; x_0 \\
+x_5 &amp; = &amp;  -50 &amp; + &amp; x_0 &amp; - &amp; 2x_1 &amp; + &amp; 8x_2 &amp;   &amp;       &amp; + &amp; 10x_4 \\
+x_6 &amp; = &amp; -100 &amp; + &amp; x_0 &amp; + &amp; 5x_1 &amp; + &amp; 2x_2 \\
+x_7 &amp; = &amp;  -25 &amp; + &amp; x_0 &amp; + &amp; 3x_1 &amp; - &amp; 5x_2 &amp; + &amp; 10x_3 &amp; - &amp;  2x_4 \\
+x_0, x_1, x_2, x_3, x_4, x_5, x_6, x_7 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>The index of the minimum $b_i$ is $2$, so we take $x_0$ to be our entering variable and $x_6$ to be our leaving variable. The call to $\text{PIVOT}$ on line 8 yields</p>
+<p>$$
+\begin{array}{rcrcrcrcrcrrcl}
+z   &amp; = &amp; -100 &amp; + &amp; 5x_1 &amp; + &amp; 2x_2 &amp;   &amp;       &amp;   &amp;       &amp; - &amp; x_6 \\
+x_0 &amp; = &amp;  100 &amp; - &amp; 5x_1 &amp; - &amp; 2x_2 &amp;   &amp;       &amp;   &amp;       &amp; + &amp; x_6 \\
+x_5 &amp; = &amp;   50 &amp; - &amp; 7x_1 &amp; + &amp; 8x_2 &amp;   &amp;       &amp; + &amp; 10x_4 &amp; + &amp; x_6 \\
+x_7 &amp; = &amp;   75 &amp; - &amp; 2x_1 &amp; - &amp; 7x_2 &amp; + &amp; 10x_3 &amp; - &amp;  2x_4 &amp; + &amp; x_6 \\
+x_0, x_1, x_2, x_3, x_4, x_5, x_6, x_7 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>Next we'll take $x_2$ to be our entering variable and $x_5$ to be our leaving variable. The call to $\text{PIVOT}$ yields</p>
+<p>$$
+\begin{array}{rcrcrcrcrcrcr}
+z   &amp; = &amp; -225 / 2 &amp; + &amp; (27 / 4)x_1 &amp;   &amp;       &amp; - &amp; (10 / 4)x_4 &amp; + &amp; (1 / 4)x_5 &amp; - &amp;  (5 / 4)x_6 \\
+x_0 &amp; = &amp;  225 / 2 &amp; - &amp; (27 / 4)x_1 &amp;   &amp;       &amp; + &amp; (10 / 4)x_4 &amp; - &amp; (1 / 4)x_5 &amp; + &amp;  (5 / 4)x_6 \\
+x_2 &amp; = &amp;  -50 / 8 &amp; + &amp;  (7 / 8)x_1 &amp;   &amp;       &amp; - &amp; (10 / 8)x_4 &amp; + &amp; (1 / 8)x_5 &amp; - &amp;  (1 / 8)x_6 \\
+x_7 &amp; = &amp;  475 / 4 &amp; - &amp; (65 / 8)x_1 &amp; + &amp; 10x_3 &amp; + &amp; (54 / 8)x_4 &amp; - &amp; (7 / 8)x_5 &amp; + &amp; (15 / 8)x_6 \\
+x_0, x_1, x_2, x_3, x_4, x_5, x_6, x_7 &amp; \ge &amp; 0 &amp; .
+\end{array}
+$$</p>
+<p>The work gets rather messy, but $\text{INITIALIZE-SIMPLEX}$ does eventually give a feasible solution to the linear program, and after running the simplex method we find that $(x_1, x_2, x_3, x_4) = (175 / 11, 225 / 22, 125 / 44, 0)$ is an optimal solution to the original linear programming problem.</p>
 <h2 id="295-9">29.5-9</h2>
 <blockquote>
 <p>Consider the following $1$-variable linear program, which we call $P$:</p>
 <p>$$
-\begin{array}{lccc}
+\begin{array}{lrcrl}
 \text{maximize}   &amp; tx \\
 \text{subject to} &amp; rx &amp; \le &amp; s \\
-                  &amp; x  &amp; \ge &amp; 0,
+                  &amp; x  &amp; \ge &amp; 0 &amp; ,
 \end{array}
 $$</p>
 <p>where $r$, $s$, and $t$ are arbitrary real numbers. Let $D$ be the dual of $P$.</p>
@@ -5928,7 +6152,12 @@ $$</p>
 <li>Neither $P$ nor $D$ is feasible.</li>
 </ol>
 </blockquote>
-<p>(Omit!)</p>
+<ol>
+<li>One option is that $r = 0$, $s \ge 0$ and $t \le 0$. Suppose that $r &gt; 0$, then, if we have that $s$ is non-negative and $t$ is non-positive, it will be as we want.</li>
+<li>We will split into two cases based on $r$. If $r = 0$, then this is exactly when $t$ is non-positive and $s$ is non-negative. The other possible case is that $r$ is negative, and $t$ is positive. In which case, because $r$ is negative, we can always get $rx$ as small as we want so s doesn't matter, however, we can never make $rx$ positive so it can never be $\ge t$.</li>
+<li>Again, we split into two possible cases for $r$. If $r = 0$, then it is when $t$ is nonnegative and $s$ is non-positive. The other possible case is that $r$ is positive, and $s$ is negative. Since $r$ is positive, $rx$ will always be non-negative, so it cannot be $\le s$. But since $r$ is positive, we have that we can always make $rx$ as big as we want, in particular, greater than $t$.</li>
+<li>If we have that $r = 0$ and $t$ is positive and $s$ is negative. If $r$ is nonzero, then we can always either make $rx$ really big or really small depending on the sign of $r$, meaning that either the primal or the dual would be feasable.</li>
+</ol>
                 
                   
                 
