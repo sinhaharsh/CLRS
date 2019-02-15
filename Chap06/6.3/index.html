@@ -5862,8 +5862,8 @@ $$</p>
 </ol>
 <p><strong>Inductive step:</strong> Show that if it's true for height $H - 1$, it's true for $h$.</p>
 <p>Let $n_h$ be the number of nodes at height $h$ in the $n$-node tree $T$.</p>
-<p>Consider the tree $T'$ formed by removing the leaves of $T$. It has $n' = n - n_0$ nodes. We know from the base case that $n' = \lceil n / 2 \rceil$, so $n' = n - n_0 = n - \lceil n / 2 \rceil$.</p>
-<p>Note that the nodes at height $h$ in $T$ would be at height $H - 1$ if the leaves of the tree were removed—that is, they are at height $h - 1$ in $T'$. Letting $n'_{h - 1}$ denote the number of nodes at height $h - 1$ in $T'$, we have</p>
+<p>Consider the tree $T'$ formed by removing the leaves of $T$. It has $n' = n - n_0$ nodes. We know from the base case that $n_0 = \lceil n / 2 \rceil$, so $n' = n - n_0 = n - \lceil n / 2 \rceil = \lfloor n / 2 \rfloor$.</p>
+<p>Note that the nodes at height $h$ in $T$ would be at height $h - 1$ if the leaves of the tree were removed—that is, they are at height $h - 1$ in $T'$. Letting $n'_{h - 1}$ denote the number of nodes at height $h - 1$ in $T'$, we have</p>
 <p>$$n_h = n'_{h - 1}.$$</p>
 <p>By induction, we can bound $n'_{h - 1}$:</p>
 <p>$$n_h = n'_{h - 1} \le \lceil n' / 2^h \rceil = \big\lceil\lfloor n / 2 \rfloor / 2^h \big\rceil \le \lceil (n / 2) / 2^h \rceil = \lceil n / 2^{h + 1} \rceil.$$</p>
